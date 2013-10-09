@@ -1,6 +1,6 @@
 #include "svm_binder.h"
-#include "traversability_analyzer.h"
 #include <ctime>
+#include "stdio.h"
 
 void SvmBinder::setProblemTest(vector<vector<float> >* hogs)
 {
@@ -55,8 +55,10 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 		return;
 	}
 	int problemSize = hogsPos->size() + hogsNeg->size();
+	Logger::instance()->logInfo("total num of hogs is", problemSize);
 	//assuming all hogs have same size
 	int valueVectorSize = hogsPos->at(0).size();
+	Logger::instance()->logInfo("each is of size", valueVectorSize);
 	
 	struct svm_node *x_space;
 
@@ -77,8 +79,9 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 	}
 	
 	//initialize the svm_node vector with input data array as follows:
-	int j=0; //counter to traverse x_space[i];
-	for (int i=0; i < hogsPos->size(); ++i)
+	int j=0;
+	i=0; //counter to traverse x_space[i];
+	for (i=0; i < hogsPos->size(); ++i)
 	{
 		//set i-th element of prob.x to the address of x_space[j]. 
 		//elements from x_space[j] to x_space[j+data[i].size] get filled right after next line
@@ -92,20 +95,21 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 		x_space[j].value=0;
 		j++;
 	}
-	for (int i=0;i < hogsNeg->size(); ++i)
+	for (int negCount=0; negCount < hogsNeg->size(); ++negCount)
 	{
 		//set i-th element of prob.x to the address of x_space[j]. 
 		//elements from x_space[j] to x_space[j+data[i].size] get filled right after next line
-		_probTrain.x[i] = &x_space[j];
+		_probTrain.x[i+negCount] = &x_space[j];
 		for (int k=0; k<valueVectorSize; ++k, ++j)
 		{
 			x_space[j].index=k+1; //index of value
-			x_space[j].value=hogsNeg->at(i)[k]; //value
+			x_space[j].value=hogsNeg->at(negCount)[k]; //value
 		}
 		x_space[j].index=-1;//state the end of data vector
 		x_space[j].value=0;
 		j++;
 	}
+	Logger::instance()->logInfo("Problem set");
 }
 
 
@@ -114,15 +118,16 @@ SvmBinder::SvmBinder()
 	_model = NULL;
 	//setting all the defaults
 	_param.svm_type = C_SVC;
+	// _param.svm_type = EPSILON_SVR;
 	_param.kernel_type = LINEAR;
 	_param.degree = 3;
 	_param.gamma = 1;	// 1/num_features
 	_param.coef0 = 0;
 	_param.nu = 0.5;
-	_param.cache_size = 100;
+	_param.cache_size = 1000;
 	_param.C = 32;
 	_param.eps = 1e-3;
-	_param.p = 0.1;
+	_param.p = 0.9;
 	_param.shrinking = 1;
 	_param.probability = 0;
 	_param.nr_weight = 0;
@@ -164,6 +169,7 @@ void SvmBinder::train(vector<vector<float> >* hogsPos, vector<vector<float> >* h
 	Logger::instance()->logInfo("training model...");
 	setProblemTrain(hogsPos, hogsNeg);
 	_model = svm_train(&_probTrain, &_param);
+	Logger::instance()->logInfo("model trained...");
 }
 vector<int>* SvmBinder::test(vector<vector<float> >* hogs)
 {
@@ -199,12 +205,16 @@ void SvmBinder::createHyperPlane()
 	int nr_sv =0;
 	_bias =0;
 
+	printf("%s\n", "creating hyperplane");
+
 	_versor = _model->label[0];
+	printf("%s\n", "creating hyperplane");
 	for (int i = 0; i < _model->nr_class; ++i)
 	{
 		nr_sv += _model->nSV[i];
 	}
 	coeffs = std::vector <double> (nr_sv, 0);
+	printf("%s\n", "creating hyperplane");
 
 	_bias = _model->rho[0];
 	supportVectors = std::vector  < std::vector <double> > (nr_sv);
@@ -219,6 +229,7 @@ void SvmBinder::createHyperPlane()
 			j++;
 		}
 	}
+	printf("%s\n", "creating hyperplane");
 
 	_hyperPlane = std::vector <double > (supportVectors[0].size(),0);
 	for (uint i=0;i<supportVectors.size();i++)
@@ -244,6 +255,12 @@ void SvmBinder::createHyperPlane()
 	cout<<endl;
 }
 
+std::vector<double>* SvmBinder::getHyperPlane()
+{
+	_hyperPlane.push_back(_bias);
+	return &_hyperPlane;
+}
+
 vector<int>* SvmBinder::testWithHyperPlane(vector<vector<float> >* hogs)
 {
 	double dpr=0;
@@ -256,9 +273,9 @@ vector<int>* SvmBinder::testWithHyperPlane(vector<vector<float> >* hogs)
 		dpr = (dpr - _bias)*(double)(_versor);
 
 		if(dpr > 0)
-			_newLabels[i] = TRAVERSABLE;
+			_newLabels[i] = 1;
 		else
-			_newLabels[i] = NON_TRAVERSABLE;
+			_newLabels[i] = -1;
 	}
 	return &_newLabels;
 }

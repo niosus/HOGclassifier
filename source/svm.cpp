@@ -2114,7 +2114,6 @@ svm_model *svm_train(const svm_problem *prob, const svm_parameter *param)
 			model->probA = Malloc(double,1);
 			model->probA[0] = svm_svr_probability(prob,param);
 		}
-
 		decision_function f = svm_train_one(prob,param,0,0);
 		model->rho = Malloc(double,1);
 		model->rho[0] = f.rho;

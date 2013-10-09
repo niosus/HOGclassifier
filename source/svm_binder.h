@@ -7,7 +7,7 @@
 #include <iostream>
 #include <ctype.h>
 #include <stdlib.h>
-#include "patch.h"
+#include "logger.h"
 using namespace std;
 
 #define Malloc(type,n) (type *)malloc((n)*sizeof(type))
@@ -20,7 +20,7 @@ private:
 	struct svm_problem _probTrain;
 	struct svm_problem _probTest;
 
-	vector <double > _hyperPlane;
+	vector <double> _hyperPlane;
 	vector<int> _newLabels;
 	double _bias;
 	int _versor;
@@ -41,6 +41,7 @@ public:
 	void saveModel();
 
 	void createHyperPlane();
+	std::vector<double>* getHyperPlane();
 	void train(
 		vector<vector<float> >* hogsPos, 
 		vector<vector<float> >* hogsNeg);
