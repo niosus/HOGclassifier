@@ -2,6 +2,28 @@
 #include <ctime>
 #include "stdio.h"
 
+SvmBinder::SvmBinder()
+{
+	_model = NULL;
+	//setting all the defaults
+	_param.svm_type = EPSILON_SVR;
+	// _param.svm_type = EPSILON_SVR;
+	_param.kernel_type = LINEAR;
+	_param.degree = 0;
+	_param.gamma = 0;	// 1/num_features
+	_param.coef0 = 0;
+	_param.nu = 0.5;
+	_param.cache_size = 512;
+	_param.C = 0.01;
+	_param.eps = 1e-3;
+	_param.p = 0.1;
+	_param.shrinking = 0;
+	_param.probability = 0;
+	_param.nr_weight = 0;
+	_param.weight_label = NULL;
+	_param.weight = NULL;
+}
+
 void SvmBinder::setProblemTest(vector<vector<float> >* hogs)
 {
 	if (!hogs->size())
@@ -112,28 +134,6 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 	Logger::instance()->logInfo("Problem set");
 }
 
-
-SvmBinder::SvmBinder()
-{
-	_model = NULL;
-	//setting all the defaults
-	_param.svm_type = C_SVC;
-	// _param.svm_type = EPSILON_SVR;
-	_param.kernel_type = LINEAR;
-	_param.degree = 3;
-	_param.gamma = 1;	// 1/num_features
-	_param.coef0 = 0;
-	_param.nu = 0.5;
-	_param.cache_size = 1000;
-	_param.C = 32;
-	_param.eps = 1e-3;
-	_param.p = 0.9;
-	_param.shrinking = 1;
-	_param.probability = 0;
-	_param.nr_weight = 0;
-	_param.weight_label = NULL;
-	_param.weight = NULL;
-}
 SvmBinder::~SvmBinder()
 {
 	svm_free_and_destroy_model(&_model);
@@ -193,6 +193,49 @@ void SvmBinder::saveModel()
 {
 	svm_save_model(_modelPath.c_str(), _model);
 	Logger::instance()->logInfo("model was saved to", _modelPath);
+}
+
+
+void SvmBinder::createDetectionVector()
+{
+	// Now we use the trained svm to retrieve the single detector vector
+    printf("Calculating single detecting feature vector out of support vectors (may take some time)\n");
+    _detectionVector.clear();
+    printf("Total number of support vectors: %d \n", _model->l);
+    //        printf("Number of SVs for each class: %d \n", _model->nr_class);
+    double b = -(_model->rho[0]); // This is the b value from the SVM, assumes that first the positive labels are read in (otherwise, use double b = (*_model->rho); )
+    printf("b: %+3.5f\n", b);
+    // Walk over every support vector and build a single vector
+    for (unsigned long ssv = 0; ssv < _model->l; ++ssv) { // Walks over available classes (e.g. +1, -1 representing positive and negative training samples)
+//                        printf("Support vector #%lu \n", ssv);
+        // Retrive the current support vector from the training set
+        svm_node* singleSupportVector = _model->SV[ssv]; // Get next support vector ssv==class, 2nd index is the component of the SV
+        //            _prob->x[singleSupportVector->index];
+        // sv_coef[i] = alpha[i]*sign(label[i]) = alpha[i] * y[i], where i is the training instance, y[i] in [+1,-1]
+        double alpha = _model->sv_coef[0][ssv];
+        int singleVectorComponent = 0;
+//            while (singleSupportVector[singleVectorComponent].index != UINT_MAX) { // index=UINT_MAX indicates the end of the array
+        while (singleSupportVector[singleVectorComponent].index != -1) { // index=UINT_MAX indicates the end of the array
+            //    if (singleVectorComponent > 3777)
+            //        printf("\n-->%d", singleVectorComponent);
+            //                printf("Support Vector index: %u, %+3.5f \n", singleSupportVector[singleVectorComponent].index, singleSupportVector[singleVectorComponent].value);
+            if (ssv == 0) { // During first loop run determine the length of the support vectors and adjust the required vector size
+                	_detectionVector.push_back(singleSupportVector[singleVectorComponent].value * alpha);
+                } else {
+                	if (singleVectorComponent > _detectionVector.size()) // Catch oversized vectors (maybe from differently sized images?)
+                    	printf("Warning: Component %d out of range, should have the same size as other/first vector\n", singleVectorComponent);
+                	else
+                    	_detectionVector.at(singleVectorComponent) += (singleSupportVector[singleVectorComponent].value * alpha);
+            }
+            singleVectorComponent++;
+        }
+    }
+
+    //        printf("Loop done\n");
+
+    // This is a threshold value which is also recorded in the lear code in lib/windetect.cpp at line 1297 as linearbias and in the original paper as constant epsilon, but no comment on how it is generated
+    _detectionVector.push_back(b); // Add threshold
+//        singleDetectorVectorIndices->push_back(UINT_MAX); // Add maximum unsigned int as index indicating the end of the vector
 }
 
 //quite specific for our problem.
@@ -259,6 +302,11 @@ std::vector<double>* SvmBinder::getHyperPlane()
 {
 	_hyperPlane.push_back(_bias);
 	return &_hyperPlane;
+}
+
+std::vector<double>* SvmBinder::getDetectionVector()
+{
+	return &_detectionVector;
 }
 
 vector<int>* SvmBinder::testWithHyperPlane(vector<vector<float> >* hogs)
