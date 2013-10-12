@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.cpp
+directory_parser.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.h
+stdio.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/stdio.h
+algorithm
+-
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.h
+iostream
+-
+dirent.h
+-
+vector
+-
+
