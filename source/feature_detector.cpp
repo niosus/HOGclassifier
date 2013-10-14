@@ -70,16 +70,18 @@ void FeatureDetector::showDetections(const std::vector<cv::Rect>& found, cv::Mat
 void FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
 {
 	std::vector<cv::Rect> found;
-    int groupThreshold = 0;
+    int groupThreshold = 2;
     cv::Size padding(cv::Size(32, 32));
     cv::Size winStride(cv::Size(8, 8));
     double hitThreshold = 0.0; // tolerance
+    #pragma omp parallel for
 	for (int i=0; i<imageNames.size(); ++i)
 	{
 		cv::Mat testImage = cv::imread(imageNames[i].c_str(), CV_LOAD_IMAGE_COLOR);
-		_hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.1, groupThreshold);
+		_hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
     	showDetections(found, testImage);
     	imwrite((imageNames[i]+"___det.jpg").c_str(),testImage);
+    	printf("%s %s %s\n", "image", (imageNames[i]+"___det.jpg").c_str(), "was written");
 	}
 }
 

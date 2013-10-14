@@ -26,15 +26,14 @@ int main(int argc, char const *argv[])
 
 	SvmBinder svmBinder;
 	svmBinder.train(
-		featureDetector.getFeatures(FeatureDetector::POSITIVE), 
+		featureDetector.getFeatures(FeatureDetector::POSITIVE),
 		featureDetector.getFeatures(FeatureDetector::NEGATIVE));
-	// svmBinder.createHyperPlane();
 	svmBinder.createDetectionVector();
 	featureDetector.setTestHogFromHyperplane(svmBinder.getDetectionVector());
 
 	std::vector<string> testExamples;
 	testExamples = directoryParser.getFileNames(testDirName, validExtensions);
-	featureDetector.(testExamples);
+	featureDetector.detectMultiScale(testExamples);
 
 	return 0;
 }

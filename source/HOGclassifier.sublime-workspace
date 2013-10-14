@@ -131,23 +131,26 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 1401,
+				"buffer_size": 1411,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "CMakeLists.txt",
+			"contents": "#ifndef RESULT_WRITER\n#define RESULT_WRITER\n\n#include <iostream>\n#include \"temp_result_writer.h\"\n\nclass ResultWriter\n{\npublic:\n  ResultWriter(arguments);\n  ~ResultWriter();  \n\n  /* data */\n};\n\n#endif ",
+			"file": "temp_result_writer.h",
+			"file_size": 168,
+			"file_write_time": 130262369687803514,
 			"settings":
 			{
-				"buffer_size": 1355,
+				"buffer_size": 200,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+			"file": "/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 623,
+				"buffer_size": 338,
 				"line_ending": "Unix"
 			}
 		},
@@ -155,7 +158,7 @@
 			"file": "svm_binder.h",
 			"settings":
 			{
-				"buffer_size": 1113,
+				"buffer_size": 1223,
 				"line_ending": "Unix"
 			}
 		},
@@ -163,7 +166,7 @@
 			"file": "svm_binder.cpp",
 			"settings":
 			{
-				"buffer_size": 7508,
+				"buffer_size": 10672,
 				"line_ending": "Unix"
 			}
 		},
@@ -179,7 +182,7 @@
 			"file": "svm.cpp",
 			"settings":
 			{
-				"buffer_size": 64651,
+				"buffer_size": 64707,
 				"line_ending": "Unix"
 			}
 		},
@@ -195,7 +198,7 @@
 			"file": "feature_detector.cpp",
 			"settings":
 			{
-				"buffer_size": 3104,
+				"buffer_size": 3223,
 				"line_ending": "Unix"
 			}
 		},
@@ -227,11 +230,39 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 117.0,
+		"height": 54.0,
 		"selected_items":
 		[
 			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
 				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"isntall",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"inst",
 				"Package Control: Install Package"
 			],
 			[
@@ -255,10 +286,6 @@
 				"Git: Show"
 			],
 			[
-				"remo",
-				"Package Control: Remove Package"
-			],
-			[
 				"git pus",
 				"Git: Push"
 			],
@@ -269,21 +296,9 @@
 			[
 				"ins",
 				"Package Control: Install Package"
-			],
-			[
-				"instal",
-				"Package Control: Install Package"
-			],
-			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
-				"inst",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 467.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -304,6 +319,15 @@
 	},
 	"file_history":
 	[
+		"/home/igor/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/User/C++.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+		"/home/igor/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
+		"/home/igor/.codeintel/codeintel.log",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/CMakeLists.txt",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp",
 		"/etc/apt/sources.list",
 		"/home/igor/Work/Thesis/MiscCode/trainHOG/main.cpp",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/traverse/app/CMakeLists.txt",
@@ -315,14 +339,10 @@
 		"/home/igor/ExternalLibs/blitz-0.9_CorrectedbyOPForICCBUG-ClangWarn/Makefile",
 		"/home/igor/ExternalLibs/blitz-0.10/INSTALL",
 		"/home/igor/Work/Thesis/MiscCode/learcode/buildtest.sh",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/CMakeLists.txt",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.cpp",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h",
-		"/home/igor/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/normals.sublime-project",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/build/cmake_install.cmake",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/CMakeLists.txt",
@@ -353,6 +373,11 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"temp_result_writer",
+			"SVR_Q",
+			"svm_predict_values",
+			"this->getModel()",
+			"singleDetectorVector",
 			"TODO",
 			"i",
 			"Kernel",
@@ -419,7 +444,7 @@
 	"groups":
 	[
 		{
-			"selected": 10,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -428,15 +453,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1401,
+						"buffer_size": 1411,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1153,
-								1153
+								775,
+								775
 							]
 						],
 						"settings":
@@ -556,128 +581,24 @@
 				},
 				{
 					"buffer": 1,
-					"file": "CMakeLists.txt",
+					"file": "temp_result_writer.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1355,
+						"buffer_size": 200,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								514,
-								514
+								95,
+								95
 							]
 						],
 						"settings":
 						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CMake/CMake.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -687,128 +608,24 @@
 				},
 				{
 					"buffer": 2,
-					"file": "/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+					"file": "/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 623,
+						"buffer_size": 338,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								417,
-								417
+								40,
+								40
 							]
 						],
 						"settings":
 						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/CMake/CMake.tmLanguage"
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -822,15 +639,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1113,
+						"buffer_size": 1223,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								580,
-								580
+								1012,
+								1012
 							]
 						],
 						"settings":
@@ -954,15 +771,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7508,
+						"buffer_size": 10672,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3676,
-								3676
+								423,
+								423
 							]
 						],
 						"settings":
@@ -1075,7 +892,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1587.0,
+						"translation.y": 2448.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1093,17 +910,18 @@
 						"selection":
 						[
 							[
-								1607,
-								1607
+								1180,
+								1180
 							]
 						],
 						"settings":
 						{
+							"codeintel": true,
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 561.0,
+						"translation.y": 816.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1114,24 +932,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 64651,
+						"buffer_size": 64707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								14365,
-								14365
+								50759,
+								50759
 							]
 						],
 						"settings":
 						{
+							"codeintel": true,
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 12773.0,
+						"translation.y": 42166.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1149,8 +968,8 @@
 						"selection":
 						[
 							[
-								791,
-								791
+								764,
+								764
 							]
 						],
 						"settings":
@@ -1274,128 +1093,23 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3104,
+						"buffer_size": 3223,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2645,
-								2645
+								2747,
+								2747
 							]
 						],
 						"settings":
 						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/C++/C++.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 561.0,
+						"translation.y": 663.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1545,8 +1259,8 @@
 						"selection":
 						[
 							[
-								1398,
-								1398
+								1011,
+								1011
 							]
 						],
 						"settings":
@@ -1656,7 +1370,8 @@
 							"codeintel_tooltips": "popup",
 							"sublime_auto_complete": true,
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
