@@ -2,6 +2,8 @@ CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT(hog_classifier)
 
+list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS}")
+
 # The library prefix
 SET(LIB_PREFIX _hog_classifier)
 
@@ -20,3 +22,5 @@ INCLUDE_DIRECTORIES(${hog_classifier_SOURCE_DIR} ${hog_classifier_INCLUDE} ${OPE
 
 # Include the subdirectories
 ADD_SUBDIRECTORY(source)
+
+set(CMAKE_BUILD_TYPE Release)
