@@ -1,4 +1,5 @@
 #include "feature_detector.h"
+#include "temp_result_writer.h"
 #include "highgui.h"
 
 void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which)
@@ -18,11 +19,11 @@ void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, 
 	    if (imageData.cols != _hogTrain.winSize.width || imageData.rows != _hogTrain.winSize.height) {
 	        featureVector.clear();
 	        printf(
-	        	"Error: Image '%s' dimensions (%u x %u) do not match HOG window size (%u x %u)!\n", 
-	        	filenames[i].c_str(), 
-	        	imageData.cols, 
-	        	imageData.rows, 
-	        	_hogTrain.winSize.width, 
+	        	"Error: Image '%s' dimensions (%u x %u) do not match HOG window size (%u x %u)!\n",
+	        	filenames[i].c_str(),
+	        	imageData.cols,
+	        	imageData.rows,
+	        	_hogTrain.winSize.width,
 	        	_hogTrain.winSize.height);
 	        continue;
 	    }
@@ -70,18 +71,22 @@ void FeatureDetector::showDetections(const std::vector<cv::Rect>& found, cv::Mat
 void FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
 {
 	std::vector<cv::Rect> found;
-    int groupThreshold = 2;
-    cv::Size padding(cv::Size(32, 32));
-    cv::Size winStride(cv::Size(8, 8));
-    double hitThreshold = 0.0; // tolerance
-    #pragma omp parallel for
-	for (int i=0; i<imageNames.size(); ++i)
+  ResultWriter resultWriter;
+  int groupThreshold = 2;
+  cv::Size padding(cv::Size(32, 32));
+  cv::Size winStride(cv::Size(8, 8));
+  double hitThreshold = 0.0; // tolerance
+	for (auto imageName: imageNames)
 	{
-		cv::Mat testImage = cv::imread(imageNames[i].c_str(), CV_LOAD_IMAGE_COLOR);
+		cv::Mat testImage = cv::imread(imageName.c_str(), CV_LOAD_IMAGE_COLOR);
 		_hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
-    	showDetections(found, testImage);
-    	imwrite((imageNames[i]+"___det.jpg").c_str(),testImage);
-    	printf("%s %s %s\n", "image", (imageNames[i]+"___det.jpg").c_str(), "was written");
+    showDetections(found, testImage);
+    for (cv::Rect rect: found)
+    {
+      resultWriter.addEntry(imageName, rect);
+    }
+    imwrite((imageName+"___det.jpg").c_str(),testImage);
+    printf("%s %s %s\n", "image", (imageName+"___det.jpg").c_str(), "was written");
 	}
 }
 

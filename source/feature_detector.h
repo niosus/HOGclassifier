@@ -10,8 +10,8 @@ public:
 	enum FeatureEntity {POSITIVE, NEGATIVE, TEST};
 
 	FeatureDetector(){
-		_hogTrain.winSize = cv::Size(128, 64); 
-		_hogTest.winSize = cv::Size(128, 64); 
+		_hogTrain.winSize = cv::Size(128, 64);
+		_hogTest.winSize = cv::Size(128, 64);
 	};
 	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);
 	void setHogFromSvm(std::vector<float>* features);

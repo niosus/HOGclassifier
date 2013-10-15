@@ -42,8 +42,6 @@ SET_TARGET_PROPERTIES(feature_detection_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}
 SET_TARGET_PROPERTIES(train_and_predict PROPERTIES OUTPUT_NAME train_and_predict)
 
 TARGET_LINK_LIBRARIES(svm_lib logger_lib)
+TARGET_LINK_LIBRARIES(temp_result_writer_lib ${OpenCV_LIBS})
 TARGET_LINK_LIBRARIES(feature_detection_lib svm_lib temp_result_writer_lib ${OpenCV_LIBS})
 TARGET_LINK_LIBRARIES(train_and_predict parser_lib svm_lib feature_detection_lib logger_lib temp_result_writer_lib ${OpenCV_LIBS})
-
-
-

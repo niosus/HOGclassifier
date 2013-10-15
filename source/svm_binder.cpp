@@ -119,7 +119,7 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 	}
 	for (int negCount=0; negCount < hogsNeg->size(); ++negCount)
 	{
-		//set i-th element of prob.x to the address of x_space[j]. 
+		//set i-th element of prob.x to the address of x_space[j].
 		//elements from x_space[j] to x_space[j+data[i].size] get filled right after next line
 		_probTrain.x[i+negCount] = &x_space[j];
 		for (int k=0; k<valueVectorSize; ++k, ++j)
