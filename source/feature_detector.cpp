@@ -50,28 +50,10 @@ void FeatureDetector::setTestHogFromHyperplane(std::vector<double>* hyperplane)
 	_hogTest.setSVMDetector(*hyperplane);
 }
 
-void FeatureDetector::showDetections(const std::vector<cv::Rect>& found, cv::Mat& imageData) {
-    std::vector<cv::Rect> found_filtered;
-    size_t i, j;
-    for (i = 0; i < found.size(); ++i) {
-        cv::Rect r = found[i];
-        for (j = 0; j < found.size(); ++j)
-            if (j != i && (r & found[j]) == r)
-                break;
-        if (j == found.size())
-            found_filtered.push_back(r);
-    }
-    for (i = 0; i < found_filtered.size(); i++) {
-        cv::Rect r = found_filtered[i];
-        cv::rectangle(imageData, r.tl(), r.br(), cv::Scalar(64, 255, 64), 3);
-    }
-}
-
-
-void FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
+std::vector<std::pair<std::string, cv::Rect> > FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
 {
+  std::vector<std::pair<std::string, cv::Rect> > allFoundRects;
 	std::vector<cv::Rect> found;
-  ResultWriter resultWriter;
   int groupThreshold = 2;
   cv::Size padding(cv::Size(32, 32));
   cv::Size winStride(cv::Size(8, 8));
@@ -80,14 +62,12 @@ void FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
 	{
 		cv::Mat testImage = cv::imread(imageName.c_str(), CV_LOAD_IMAGE_COLOR);
 		_hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
-    showDetections(found, testImage);
     for (cv::Rect rect: found)
     {
-      resultWriter.addEntry(imageName, rect);
+      allFoundRects.push_back(make_pair(imageName, rect));
     }
-    imwrite((imageName+"___det.jpg").c_str(),testImage);
-    printf("%s %s %s\n", "image", (imageName+"___det.jpg").c_str(), "was written");
 	}
+  return allFoundRects;
 }
 
 std::vector<std::vector<float> >* FeatureDetector::getFeatures(FeatureEntity which)

@@ -171,7 +171,7 @@
 			"file": "temp_result_writer.h",
 			"settings":
 			{
-				"buffer_size": 426,
+				"buffer_size": 348,
 				"line_ending": "Unix"
 			}
 		},
@@ -179,7 +179,7 @@
 			"file": "temp_result_writer.cpp",
 			"settings":
 			{
-				"buffer_size": 471,
+				"buffer_size": 488,
 				"line_ending": "Unix"
 			}
 		},
@@ -203,7 +203,7 @@
 			"file": "svm_binder.cpp",
 			"settings":
 			{
-				"buffer_size": 10672,
+				"buffer_size": 10671,
 				"line_ending": "Unix"
 			}
 		},
@@ -235,7 +235,23 @@
 			"file": "feature_detector.cpp",
 			"settings":
 			{
-				"buffer_size": 3290,
+				"buffer_size": 3309,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 717,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/log_24_5_2012_____11_11_47.alog",
+			"settings":
+			{
+				"buffer_size": 5341385,
 				"line_ending": "Unix"
 			}
 		},
@@ -356,6 +372,8 @@
 	},
 	"file_history":
 	[
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/output_log.dat",
+		"/home/igor/log_24_5_2012_____11_11_47.alog",
 		"/home/igor/.gitconfig",
 		"/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
@@ -408,9 +426,12 @@
 	},
 	"find_state":
 	{
-		"case_sensitive": true,
+		"case_sensitive": false,
 		"find_history":
 		[
+			"Camera",
+			"Image",
+			"[i]",
 			"temp_result_writer",
 			"SVR_Q",
 			"svm_predict_values",
@@ -476,13 +497,13 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": true,
+		"whole_word": false,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 11,
 			"sheets":
 			[
 				{
@@ -623,15 +644,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 426,
+						"buffer_size": 348,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								99,
-								99
+								194,
+								194
 							]
 						],
 						"settings":
@@ -650,15 +671,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 471,
+						"buffer_size": 488,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								181,
-								181
+								317,
+								317
 							]
 						],
 						"settings":
@@ -836,15 +857,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10672,
+						"buffer_size": 10671,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								423,
-								423
+								3634,
+								3634
 							]
 						],
 						"settings":
@@ -957,7 +978,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2448.0,
+						"translation.y": 1938.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1158,20 +1179,47 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3290,
+						"buffer_size": 3309,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2908,
-								2908
+								2889,
+								2889
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 714.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 717,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								717,
+								717
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CMake/CMake.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1180,7 +1228,34 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 11,
+					"file": "/home/igor/log_24_5_2012_____11_11_47.alog",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5341385,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								396,
+								396
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
 					"file": "directory_parser.h",
 					"semi_transient": false,
 					"settings":
@@ -1312,7 +1387,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 13,
 					"file": "directory_parser.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1445,7 +1520,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 12,
+					"buffer": 14,
 					"file": "/home/igor/Work/Thesis/MiscCode/trainHOG/main.cpp",
 					"semi_transient": false,
 					"settings":

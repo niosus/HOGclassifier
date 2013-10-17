@@ -3,20 +3,33 @@
 
 #include "cv.h"
 #include <vector>
+#include <string>
+#include <unordered_map>
 
 class FeatureDetector
 {
 public:
 	enum FeatureEntity {POSITIVE, NEGATIVE, TEST};
+	enum SampleShape {SQUARE, RECTANGLE};
 
-	FeatureDetector(){
-		_hogTrain.winSize = cv::Size(128, 64);
-		_hogTest.winSize = cv::Size(128, 64);
+	FeatureDetector(SampleShape shape){
+		switch (shape)
+		{
+		case SQUARE:
+			_hogTest.winSize = cv::Size(128, 128);
+			_hogTrain.winSize = cv::Size(128, 128);
+			break;
+		case RECTANGLE:
+			_hogTest.winSize = cv::Size(128, 64);
+			_hogTrain.winSize = cv::Size(128, 64);
+			break;
+		}
+
 	};
 	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);
 	void setHogFromSvm(std::vector<float>* features);
 	void setTestHogFromHyperplane(std::vector<double>* hyperplane);
-	void detectMultiScale(std::vector<std::string>& images);
+	std::vector<std::pair<std::string, cv::Rect> > detectMultiScale(std::vector<std::string>& images);
 	std::vector<std::vector<float> >* getFeatures(FeatureEntity which);
 
 private:
@@ -24,10 +37,8 @@ private:
 	std::vector<std::vector<float> > _featuresNeg;
 	std::vector<std::vector<float> > _featuresTest;
 
-	cv::HOGDescriptor _hogTrain;
 	cv::HOGDescriptor _hogTest;
-
-	void showDetections(const std::vector<cv::Rect>& found, cv::Mat& imageData);
+	cv::HOGDescriptor _hogTrain;
 };
 
 #endif

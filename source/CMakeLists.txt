@@ -28,8 +28,9 @@ ADD_LIBRARY(svm_lib
 	svm_binder.h svm_binder.cpp
 )
 
-ADD_LIBRARY(feature_detection_lib
-	feature_detector.h feature_detector.cpp)
+ADD_LIBRARY(car_detection_lib
+  car_detector.h car_detector.cpp
+  feature_detector.h feature_detector.cpp)
 
 ADD_EXECUTABLE(train_and_predict main.cpp)
 
@@ -37,11 +38,11 @@ SET_TARGET_PROPERTIES(logger_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_logger_lib
 SET_TARGET_PROPERTIES(temp_result_writer_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_temp_result_writer_lib)
 SET_TARGET_PROPERTIES(parser_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_parser_lib)
 SET_TARGET_PROPERTIES(svm_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_svm_lib)
-SET_TARGET_PROPERTIES(feature_detection_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_feature_detection_lib)
+SET_TARGET_PROPERTIES(car_detection_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_car_detection_lib)
 
 SET_TARGET_PROPERTIES(train_and_predict PROPERTIES OUTPUT_NAME train_and_predict)
 
 TARGET_LINK_LIBRARIES(svm_lib logger_lib)
 TARGET_LINK_LIBRARIES(temp_result_writer_lib ${OpenCV_LIBS})
-TARGET_LINK_LIBRARIES(feature_detection_lib svm_lib temp_result_writer_lib ${OpenCV_LIBS})
-TARGET_LINK_LIBRARIES(train_and_predict parser_lib svm_lib feature_detection_lib logger_lib temp_result_writer_lib ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(car_detection_lib logger_lib svm_lib temp_result_writer_lib ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(train_and_predict parser_lib svm_lib car_detection_lib logger_lib temp_result_writer_lib ${OpenCV_LIBS})
