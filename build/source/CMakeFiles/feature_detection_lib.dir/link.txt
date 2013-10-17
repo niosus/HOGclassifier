@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../lib/lib_hog_classifier_feature_detection_lib.a  CMakeFiles/feature_detection_lib.dir/feature_detector.cpp.o
-/usr/bin/ranlib ../../lib/lib_hog_classifier_feature_detection_lib.a

@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../lib/lib_hog_classifier_svm_lib.a  CMakeFiles/svm_lib.dir/svm.cpp.o CMakeFiles/svm_lib.dir/svm_binder.cpp.o
-/usr/bin/ranlib ../../lib/lib_hog_classifier_svm_lib.a
