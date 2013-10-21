@@ -1,6 +1,7 @@
 #include "feature_detector.h"
 #include "temp_result_writer.h"
 #include "highgui.h"
+#include "logger.h"
 
 void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which)
 {
@@ -10,27 +11,28 @@ void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, 
 	for (int i=0; i< filenames.size(); ++i)
 	{
 		cv::Mat imageData = cv::imread(filenames[i], CV_LOAD_IMAGE_COLOR);
-	    if (imageData.empty()) {
-	        featureVector.clear();
-	        printf("Error: HOG image '%s' is empty, features calculation skipped!\n", filenames[i].c_str());
-	        continue;
-	    }
-	    // Check for mismatching dimensions
-	    if (imageData.cols != _hogTrain.winSize.width || imageData.rows != _hogTrain.winSize.height) {
-	        featureVector.clear();
-	        printf(
-	        	"Error: Image '%s' dimensions (%u x %u) do not match HOG window size (%u x %u)!\n",
-	        	filenames[i].c_str(),
-	        	imageData.cols,
-	        	imageData.rows,
-	        	_hogTrain.winSize.width,
-	        	_hogTrain.winSize.height);
-	        continue;
-	    }
-	    std::vector<cv::Point> locations;
-	    _hogTrain.compute(imageData, featureVector, winStride, trainingPadding, locations);
-	    imageData.release(); // Release the image again after features are extracted
-	    switch (which)
+    if (imageData.empty()) {
+        featureVector.clear();
+        printf("Error: HOG image '%s' is empty, features calculation skipped!\n", filenames[i].c_str());
+        continue;
+    }
+    // Check for mismatching dimensions
+    if (imageData.cols != _hogTrain.winSize.width || imageData.rows != _hogTrain.winSize.height) {
+        featureVector.clear();
+        printf(
+        	"Error: Image '%s' dimensions (%u x %u) do not match HOG window size (%u x %u)!\n",
+        	filenames[i].c_str(),
+        	imageData.cols,
+        	imageData.rows,
+        	_hogTrain.winSize.width,
+        	_hogTrain.winSize.height);
+        continue;
+    }
+    std::vector<cv::Point> locations;
+    _hogTrain.compute(imageData, featureVector, winStride, trainingPadding, locations);
+    imageData.release(); // Release the image again after features are extracted
+    Logger::instance()->logInfo("Feature added", filenames[i]);
+    switch (which)
 		{
 			case POSITIVE:
 				_featuresPos.push_back(featureVector);
@@ -50,9 +52,9 @@ void FeatureDetector::setTestHogFromHyperplane(std::vector<double>* hyperplane)
 	_hogTest.setSVMDetector(*hyperplane);
 }
 
-std::vector<std::pair<std::string, cv::Rect> > FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
+std::map<std::string, std::vector<cv::Rect> > FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
 {
-  std::vector<std::pair<std::string, cv::Rect> > allFoundRects;
+  std::map<std::string, std::vector<cv::Rect> > allFoundRects;
 	std::vector<cv::Rect> found;
   int groupThreshold = 2;
   cv::Size padding(cv::Size(32, 32));
@@ -64,8 +66,9 @@ std::vector<std::pair<std::string, cv::Rect> > FeatureDetector::detectMultiScale
 		_hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
     for (cv::Rect rect: found)
     {
-      allFoundRects.push_back(make_pair(imageName, rect));
+      allFoundRects[imageName].push_back(rect);
     }
+    Logger::instance()->logInfo("compudet hogs for", imageName);
 	}
   return allFoundRects;
 }

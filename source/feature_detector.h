@@ -4,7 +4,7 @@
 #include "cv.h"
 #include <vector>
 #include <string>
-#include <unordered_map>
+#include <map>
 
 class FeatureDetector
 {
@@ -29,7 +29,7 @@ public:
 	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);
 	void setHogFromSvm(std::vector<float>* features);
 	void setTestHogFromHyperplane(std::vector<double>* hyperplane);
-	std::vector<std::pair<std::string, cv::Rect> > detectMultiScale(std::vector<std::string>& images);
+	std::map<std::string, std::vector<cv::Rect> > detectMultiScale(std::vector<std::string>& images);
 	std::vector<std::vector<float> >* getFeatures(FeatureEntity which);
 
 private:

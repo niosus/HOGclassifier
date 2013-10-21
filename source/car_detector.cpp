@@ -42,7 +42,7 @@ void CarDetector::detectCars()
   _detectedCars = _featureDetector->detectMultiScale(_testSampleNames);
 }
 
-std::vector<std::pair<std::string, cv::Rect> > CarDetector::getDetectedCarRects() const
+std::map<std::string, std::vector<cv::Rect> > CarDetector::getDetectedCarRects() const
 {
   return _detectedCars;
 }

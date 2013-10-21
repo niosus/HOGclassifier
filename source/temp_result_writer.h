@@ -7,6 +7,8 @@
 #include "cv.h"
 #include <fstream>
 
+typedef std::map<std::string, std::vector<cv::Rect> > Map;
+
 class ResultWriter
 {
 public:
@@ -15,9 +17,11 @@ public:
   void addEntry(
     const std::string &imageName,
     const cv::Rect &rect);
-  void showDetections(const std::vector<std::pair<std::string, cv::Rect> >& foundRectsWithNames);
+  void showDetections();
+  void storeDetections(const Map& foundRectsWithNames);
 private:
   std::ofstream _file;
+  Map _detectedCars;
 };
 
 #endif

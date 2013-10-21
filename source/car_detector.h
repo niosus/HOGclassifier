@@ -2,6 +2,7 @@
 #define CAR_DETECTOR_H
 
 #include <vector>
+#include <map>
 #include "cv.h"
 #include "feature_detector.h"
 
@@ -17,7 +18,7 @@ public:
   ~CarDetector();
 
   void detectCars();
-  std::vector<std::pair<std::string, cv::Rect> > getDetectedCarRects() const;
+  std::map<std::string, std::vector<cv::Rect> > getDetectedCarRects() const;
 private:
   FeatureDetector *_featureDetector;
 
@@ -25,7 +26,7 @@ private:
   std::vector<std::string> _negSampleNames;
   std::vector<std::string> _testSampleNames;
 
-  std::vector<std::pair<std::string, cv::Rect> > _detectedCars;
+  std::map<std::string, std::vector<cv::Rect> > _detectedCars;
 };
 
 #endif
