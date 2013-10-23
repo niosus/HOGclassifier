@@ -19,10 +19,10 @@ std::vector<std::string> DirectoryParser::getFileNames(const std::string& dirNam
     DIR* dp = opendir(dirName.c_str());
     if (dp != NULL) 
     {
-        while (ep = readdir(dp)) 
+        while (ep = readdir(dp))
         {
             // Ignore (sub-)directories like . , .. , .svn, etc.
-            if (ep->d_type & DT_DIR) 
+            if (ep->d_type & DT_DIR)
                 continue;
             extensionLocation = string(ep->d_name).find_last_of("."); // Assume the last point marks beginning of extension like file.ext
             // Check if extension is matching the wanted ones

@@ -39,7 +39,7 @@ void CarDetector::detectCars()
   svmBinder.createDetectionVector();
 
   _featureDetector->setTestHogFromHyperplane(svmBinder.getDetectionVector());
-  _detectedCars = _featureDetector->detectMultiScale(_testSampleNames);
+  _detectedCars = _featureDetector->detectMultiScaleCpu(_testSampleNames);
 }
 
 std::map<std::string, std::vector<cv::Rect> > CarDetector::getDetectedCarRects() const

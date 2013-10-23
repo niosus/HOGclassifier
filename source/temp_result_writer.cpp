@@ -44,7 +44,8 @@ void ResultWriter::addEntry(
     const std::string &imageName,
     const cv::Rect &rect)
 {
-  _file<<"IMAGE_NAME\t"<<imageName<<"\t";
+  auto found = imageName.find_last_of("/\\");
+  _file<<"IMAGE_NAME\t"<<imageName.substr(found+1)<<"\t";
   _file<<"RECT_COORDS\t"<<rect.x<<"\t"<<rect.y<<"\t";
   _file<<"RECT_SIZE\t"<<rect.width<<"\t"<<rect.height<<std::endl;
 }

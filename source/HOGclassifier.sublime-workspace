@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"file",
+				"filenames"
+			],
+			[
+				"testImage_c",
+				"testImage_cpu_rgba"
+			],
+			[
+				"tes",
+				"testImage_cpu"
+			],
+			[
+				"fil",
+				"filenames"
+			],
+			[
+				"string",
+				"std::string"
+			],
+			[
 				"rec",
 				"rectPosDirs"
 			],
@@ -116,10 +136,6 @@
 				"addEntry"
 			],
 			[
-				"file",
-				"fileName"
-			],
-			[
 				"val",
 				"valueVectorSize"
 			],
@@ -146,10 +162,6 @@
 			[
 				"F",
 				"FeatureDetector"
-			],
-			[
-				"tes",
-				"testExamples"
 			],
 			[
 				"svm",
@@ -224,10 +236,50 @@
 	"buffers":
 	[
 		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 2637,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "directory_parser.cpp",
+			"settings":
+			{
+				"buffer_size": 1609,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "svm.cpp",
+			"settings":
+			{
+				"buffer_size": 64707,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "svm_binder.cpp",
+			"settings":
+			{
+				"buffer_size": 10677,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "svm_binder.h",
+			"settings":
+			{
+				"buffer_size": 1220,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "car_detector.h",
 			"settings":
 			{
-				"buffer_size": 760,
+				"buffer_size": 768,
 				"line_ending": "Unix"
 			}
 		},
@@ -235,7 +287,7 @@
 			"file": "car_detector.cpp",
 			"settings":
 			{
-				"buffer_size": 1355,
+				"buffer_size": 1367,
 				"line_ending": "Unix"
 			}
 		},
@@ -243,7 +295,7 @@
 			"file": "temp_result_writer.cpp",
 			"settings":
 			{
-				"buffer_size": 1124,
+				"buffer_size": 1295,
 				"line_ending": "Unix"
 			}
 		},
@@ -251,15 +303,7 @@
 			"file": "temp_result_writer.h",
 			"settings":
 			{
-				"buffer_size": 536,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "main.cpp",
-			"settings":
-			{
-				"buffer_size": 2346,
+				"buffer_size": 510,
 				"line_ending": "Unix"
 			}
 		},
@@ -267,7 +311,15 @@
 			"file": "feature_detector.cpp",
 			"settings":
 			{
-				"buffer_size": 2649,
+				"buffer_size": 3939,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/ExternalLibs/opencv-2.4.6.1/modules/gpu/src/cuda/hog.cu",
+			"settings":
+			{
+				"buffer_size": 36248,
 				"line_ending": "Unix"
 			}
 		},
@@ -275,7 +327,33 @@
 			"file": "feature_detector.h",
 			"settings":
 			{
-				"buffer_size": 1137,
+				"buffer_size": 1398,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 123 files for \"setTestHogFromHyperplane\"\n\n~/Work/Thesis/MiscCode/HOGclassifier/bin/train_and_predict:\n    <binary>\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/car_detector.cpp:\n   39    svmBinder.createDetectionVector();\n   40  \n   41:   _featureDetector->setTestHogFromHyperplane(svmBinder.getDetectionVector());\n   42    _detectedCars = _featureDetector->detectMultiScale(_testSampleNames);\n   43  }\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp:\n   48  }\n   49  \n   50: void FeatureDetector::setTestHogFromHyperplane(std::vector<float>* hyperplane)\n   51  {\n   52  	_hogTest.setSVMDetector(*hyperplane);\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h:\n   30  	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);\n   31  	void setHogFromSvm(std::vector<float>* features);\n   32: 	void setTestHogFromHyperplane(std::vector<float>* hyperplane);\n   33  	std::map<std::string, std::vector<cv::Rect> > detectMultiScale(std::vector<std::string>& images);\n   34  	std::vector<std::vector<float> >* getFeatures(FeatureEntity which);\n\n5 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 1160,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "logger.cpp",
+			"settings":
+			{
+				"buffer_size": 2036,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "logger.h",
+			"settings":
+			{
+				"buffer_size": 1185,
 				"line_ending": "Unix"
 			}
 		}
@@ -376,6 +454,7 @@
 	},
 	"file_history":
 	[
+		"/tmp/bash-fc-1382437184",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/train_and_predict.dir/CXX.includecache",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/temp_result_writer_lib.dir/CXX.includecache",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/car_detection_lib.dir/CXX.includecache",
@@ -447,6 +526,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"setTestHogFromHyperplane",
+			"str",
 			"unordered_map",
 			"std::multimap",
 			"squarePosDirs",
@@ -528,58 +609,59 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 9,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "car_detector.h",
+					"file": "main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 760,
+						"buffer_size": 2637,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								485,
-								485
+								1282,
+								1282
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 247.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "car_detector.cpp",
+					"file": "directory_parser.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1355,
+						"buffer_size": 1609,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1096,
-								1096
+								731,
+								731
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -589,19 +671,103 @@
 				},
 				{
 					"buffer": 2,
-					"file": "temp_result_writer.cpp",
+					"file": "svm.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1124,
+						"buffer_size": 64707,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								253,
-								253
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "svm_binder.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 10677,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10211,
+								10211
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 4467.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "svm_binder.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1220,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								496,
+								496
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "car_detector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 768,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								484,
+								484
 							]
 						],
 						"settings":
@@ -617,20 +783,78 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "temp_result_writer.h",
+					"buffer": 6,
+					"file": "car_detector.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 536,
+						"buffer_size": 1367,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								328,
-								328
+								1228,
+								1228
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "temp_result_writer.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1295,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1115,
+								1115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "temp_result_writer.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 510,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								192,
+								192
 							]
 						],
 						"settings":
@@ -644,20 +868,76 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "main.cpp",
+					"buffer": 9,
+					"file": "feature_detector.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2346,
+						"buffer_size": 3939,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2234,
-								2234
+								583,
+								583
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "/home/igor/ExternalLibs/opencv-2.4.6.1/modules/gpu/src/cuda/hog.cu",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 36248,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								21301,
+								21301
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 7286.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "feature_detector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1398,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								361
 							]
 						],
 						"settings":
@@ -666,31 +946,58 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "feature_detector.cpp",
+					"buffer": 12,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2649,
+						"buffer_size": 1160,
 						"regions":
 						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										276,
+										300
+									],
+									[
+										544,
+										568
+									],
+									[
+										894,
+										918
+									]
+								],
+								"scope": ""
+							}
 						},
 						"selection":
 						[
 							[
-								809,
-								809
+								296,
+								296
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -699,20 +1006,48 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "feature_detector.h",
+					"buffer": 13,
+					"file": "logger.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1137,
+						"buffer_size": 2036,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1126,
-								1126
+								1704,
+								1704
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 489.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "logger.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1185,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								717,
+								717
 							]
 						],
 						"settings":

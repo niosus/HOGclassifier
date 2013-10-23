@@ -8,8 +8,13 @@ void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, 
 	static const cv::Size trainingPadding = cv::Size(0, 0);
 	static const cv::Size winStride = cv::Size(8, 8);
 	std::vector<float> featureVector;
+  Logger::instance()->logInfo("Detecting Features ");
+  int tenPercentChunk = filenames.size()/100;
 	for (int i=0; i< filenames.size(); ++i)
 	{
+    if (i%tenPercentChunk==0)
+      Logger::instance()->logInfo("done", i/tenPercentChunk);
+
 		cv::Mat imageData = cv::imread(filenames[i], CV_LOAD_IMAGE_COLOR);
     if (imageData.empty()) {
         featureVector.clear();
@@ -31,7 +36,6 @@ void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, 
     std::vector<cv::Point> locations;
     _hogTrain.compute(imageData, featureVector, winStride, trainingPadding, locations);
     imageData.release(); // Release the image again after features are extracted
-    Logger::instance()->logInfo("Feature added", filenames[i]);
     switch (which)
 		{
 			case POSITIVE:
@@ -45,33 +49,61 @@ void FeatureDetector::detectFeatures(const std::vector<std::string>& filenames, 
 				break;
 		}
 	}
+  Logger::instance()->logInfo("Features Detected");
 }
 
-void FeatureDetector::setTestHogFromHyperplane(std::vector<double>* hyperplane)
+void FeatureDetector::setTestHogFromHyperplane(std::vector<float>* hyperplane)
 {
-	_hogTest.setSVMDetector(*hyperplane);
+  _hogTestCpu.setSVMDetector(*hyperplane);
+	_hogTestGpu.setSVMDetector(*hyperplane);
 }
 
-std::map<std::string, std::vector<cv::Rect> > FeatureDetector::detectMultiScale(std::vector<std::string>& imageNames)
+std::map<std::string, std::vector<cv::Rect> > FeatureDetector::detectMultiScaleGpu(std::vector<std::string>& imageNames)
 {
   std::map<std::string, std::vector<cv::Rect> > allFoundRects;
 	std::vector<cv::Rect> found;
   int groupThreshold = 2;
-  cv::Size padding(cv::Size(32, 32));
+  cv::Size padding(cv::Size(0, 0));
   cv::Size winStride(cv::Size(8, 8));
   double hitThreshold = 0.0; // tolerance
+  cv::gpu::GpuMat testImage;
 	for (auto imageName: imageNames)
 	{
-		cv::Mat testImage = cv::imread(imageName.c_str(), CV_LOAD_IMAGE_COLOR);
-		_hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
+		cv::Mat testImage_cpu = cv::imread(imageName.c_str(), CV_LOAD_IMAGE_COLOR);
+    cv::Mat testImage_cpu_rgba;
+    cv::cvtColor(testImage_cpu, testImage_cpu_rgba, CV_BGR2BGRA);
+    testImage.upload(testImage_cpu_rgba);
+		_hogTestGpu.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
     for (cv::Rect rect: found)
     {
       allFoundRects[imageName].push_back(rect);
     }
-    Logger::instance()->logInfo("compudet hogs for", imageName);
+    Logger::instance()->logInfo("computed hogs for", imageName);
 	}
   return allFoundRects;
 }
+
+std::map<std::string, std::vector<cv::Rect> > FeatureDetector::detectMultiScaleCpu(std::vector<std::string>& imageNames)
+{
+  std::map<std::string, std::vector<cv::Rect> > allFoundRects;
+  std::vector<cv::Rect> found;
+  int groupThreshold = 2;
+  cv::Size padding(cv::Size(32, 32));
+  cv::Size winStride(cv::Size(8, 8));
+  double hitThreshold = 0.0; // tolerance
+  for (auto imageName: imageNames)
+  {
+    cv::Mat testImage = cv::imread(imageName.c_str(), CV_LOAD_IMAGE_COLOR);
+    _hogTestCpu.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
+    for (cv::Rect rect: found)
+    {
+      allFoundRects[imageName].push_back(rect);
+    }
+    Logger::instance()->logInfo("computed hogs for", imageName);
+  }
+  return allFoundRects;
+}
+
 
 std::vector<std::vector<float> >* FeatureDetector::getFeatures(FeatureEntity which)
 {

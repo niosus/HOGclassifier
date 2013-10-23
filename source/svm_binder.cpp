@@ -234,7 +234,7 @@ void SvmBinder::createDetectionVector()
     //        printf("Loop done\n");
 
     // This is a threshold value which is also recorded in the lear code in lib/windetect.cpp at line 1297 as linearbias and in the original paper as constant epsilon, but no comment on how it is generated
-    _detectionVector.push_back(b); // Add threshold
+    _detectionVector.push_back((float)b); // Add threshold
 //        singleDetectorVectorIndices->push_back(UINT_MAX); // Add maximum unsigned int as index indicating the end of the vector
 }
 
@@ -304,7 +304,7 @@ std::vector<double>* SvmBinder::getHyperPlane()
 	return &_hyperPlane;
 }
 
-std::vector<double>* SvmBinder::getDetectionVector()
+std::vector<float>* SvmBinder::getDetectionVector()
 {
 	return &_detectionVector;
 }

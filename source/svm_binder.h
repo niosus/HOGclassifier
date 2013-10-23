@@ -21,9 +21,9 @@ private:
 	struct svm_problem _probTest;
 
 	vector <double> _hyperPlane;
-	vector<double> _detectionVector;
+	vector<float> _detectionVector;
 	vector<int> _newLabels;
-	double _bias;
+	float _bias;
 	int _versor;
 	string _modelPath;
 
@@ -45,7 +45,7 @@ public:
 	void createDetectionVector();
 
 	std::vector<double>* getHyperPlane();
-	std::vector<double>* getDetectionVector();
+	std::vector<float>* getDetectionVector();
 	void train(
 		vector<vector<float> >* hogsPos, 
 		vector<vector<float> >* hogsNeg);
