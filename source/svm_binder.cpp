@@ -35,7 +35,6 @@ void SvmBinder::setProblemTest(vector<vector<float> >* hogs)
 	int problemSize = hogs->size();
 	int valueVectorSize = hogs->at(0).size();
 
-	
 	struct svm_node *x_space;
 
 	_probTest.l = problemSize;
@@ -81,7 +80,6 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 	//assuming all hogs have same size
 	int valueVectorSize = hogsPos->at(0).size();
 	Logger::instance()->logInfo("each is of size", valueVectorSize);
-	
 	struct svm_node *x_space;
 
 	_probTrain.l = problemSize;
@@ -99,7 +97,6 @@ void SvmBinder::setProblemTrain(vector<vector<float> >* hogsPos, vector<vector<f
 			_probTrain.y[i] = -1;
 		i++;
 	}
-	
 	//initialize the svm_node vector with input data array as follows:
 	int j=0;
 	i=0; //counter to traverse x_space[i];
@@ -140,37 +137,33 @@ SvmBinder::~SvmBinder()
 	_model = NULL;
 }
 
-bool SvmBinder::loadModel()
+bool SvmBinder::loadModel(const std::string &path)
 {
-	_model = svm_load_model(_modelPath.c_str());
+	Logger::instance()->logInfo("Loading model");
+	_model = svm_load_model(path.c_str());
 	if (!_model)
 	{
-		Logger::instance()->logInfo("no model provided");
+		Logger::instance()->logInfo("No model provided or wrong path", path);
 		return false;
 	}
-	Logger::instance()->logInfo("model is loaded");
+	Logger::instance()->logInfo("Model is loaded");
 	return true;
 }
 
-bool SvmBinder::hasModelPath()
+void SvmBinder::saveModel(const std::string &path)
 {
-	if (_modelPath.empty())
-		return false;
-	return true;
-}
-
-string& SvmBinder::modelPath()
-{
-	return _modelPath;
+	svm_save_model(path.c_str(), _model);
+	Logger::instance()->logInfo("model was saved to", path);
 }
 
 void SvmBinder::train(vector<vector<float> >* hogsPos, vector<vector<float> >* hogsNeg)
 {
-	Logger::instance()->logInfo("training model...");
+	Logger::instance()->logInfo("Training model...");
 	setProblemTrain(hogsPos, hogsNeg);
 	_model = svm_train(&_probTrain, &_param);
-	Logger::instance()->logInfo("model trained...");
+	Logger::instance()->logInfo("Model trained...");
 }
+
 vector<int>* SvmBinder::test(vector<vector<float> >* hogs)
 {
 	if (!_model)
@@ -189,12 +182,6 @@ vector<int>* SvmBinder::test(vector<vector<float> >* hogs)
 	return &_newLabels;
 
 }
-void SvmBinder::saveModel()
-{
-	svm_save_model(_modelPath.c_str(), _model);
-	Logger::instance()->logInfo("model was saved to", _modelPath);
-}
-
 
 void SvmBinder::createDetectionVector()
 {
@@ -244,7 +231,7 @@ void SvmBinder::createHyperPlane()
 {
 	std::vector <double> coeffs;
 	std::vector  < std::vector <double> > supportVectors;
-	
+
 	int nr_sv =0;
 	_bias =0;
 

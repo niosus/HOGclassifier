@@ -25,21 +25,17 @@ private:
 	vector<int> _newLabels;
 	float _bias;
 	int _versor;
-	string _modelPath;
 
 	void setProblemTest(vector<vector<float> >* hogs);
 	void setProblemTrain(
-		vector<vector<float> >* hogsPos, 
+		vector<vector<float> >* hogsPos,
 		vector<vector<float> >* hogsNeg);
 public:
 	SvmBinder(); //maybe add some parameters for non default parameters of svn
 	~SvmBinder();
 
-	string& modelPath();
-	bool hasModelPath();
-
-	bool loadModel();
-	void saveModel();
+	bool loadModel(const std::string &path);
+	void saveModel(const std::string &path);
 
 	void createHyperPlane();
 	void createDetectionVector();
@@ -47,10 +43,10 @@ public:
 	std::vector<double>* getHyperPlane();
 	std::vector<float>* getDetectionVector();
 	void train(
-		vector<vector<float> >* hogsPos, 
+		vector<vector<float> >* hogsPos,
 		vector<vector<float> >* hogsNeg);
 	vector<int>* test(vector<vector<float> >* hogs);
-	vector<int>* testWithHyperPlane(vector<vector<float> >* hogs);	
+	vector<int>* testWithHyperPlane(vector<vector<float> >* hogs);
 };
 
 #endif

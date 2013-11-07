@@ -17,32 +17,24 @@ public:
 		switch (shape)
 		{
 		case SQUARE:
-			_hogTestGpu.win_size = cv::Size(128, 128);
-			_hogTestCpu.winSize = cv::Size(128, 128);
 			_hogTrain.winSize = cv::Size(128, 128);
 			break;
 		case RECTANGLE:
-			_hogTestGpu.win_size = cv::Size(128, 64);
-			_hogTestCpu.winSize = cv::Size(128, 64);
 			_hogTrain.winSize = cv::Size(128, 64);
 			break;
 		}
-
-	};
+	}
 	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);
 	void setHogFromSvm(std::vector<float>* features);
-	void setTestHogFromHyperplane(std::vector<float>* hyperplane);
-	std::map<std::string, std::vector<cv::Rect> > detectMultiScaleGpu(std::vector<std::string>& images);
-	std::map<std::string, std::vector<cv::Rect> > detectMultiScaleCpu(std::vector<std::string>& images);
 	std::vector<std::vector<float> >* getFeatures(FeatureEntity which);
+	virtual void setTestHogFromHyperplane(std::vector<float>* hyperplane) = 0;
+	virtual std::map<std::string, std::vector<cv::Rect> > detectMultiScale(std::vector<std::string>& images) = 0;
 
-private:
+protected:
 	std::vector<std::vector<float> > _featuresPos;
 	std::vector<std::vector<float> > _featuresNeg;
 	std::vector<std::vector<float> > _featuresTest;
 
-	cv::gpu::HOGDescriptor _hogTestGpu;
-	cv::HOGDescriptor _hogTestCpu;
 	cv::HOGDescriptor _hogTrain;
 };
 

@@ -4,11 +4,14 @@
 #include <vector>
 #include <map>
 #include "cv.h"
-#include "feature_detector.h"
+#include "feature_detector_cpu.h"
+#include "feature_detector_gpu.h"
 
 class CarDetector
 {
 public:
+  static const bool OVERWRITE_MODEL;
+  static const bool LEAVE_OLD_MODEL;
   CarDetector();
   CarDetector(
     const std::vector<std::string> &posSampleNames,
@@ -17,7 +20,7 @@ public:
     const FeatureDetector::SampleShape sampleShape);
   ~CarDetector();
 
-  void detectCars();
+  void detectCars(const std::string& modelPath, bool overwriteModel=LEAVE_OLD_MODEL);
   std::map<std::string, std::vector<cv::Rect> > getDetectedCarRects() const;
 private:
   FeatureDetector *_featureDetector;

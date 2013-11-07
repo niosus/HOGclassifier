@@ -9,30 +9,31 @@ int main(int argc, char const *argv[])
 {
 	string posDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/pos/";
 	string negDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/neg/";
-	string degree_0 = "degree_0/";
-	string degree_180 = "degree_180/";
-	string degree_plus_45 = "degree_+45/";
-	string degree_minus_45 = "degree_-45/";
-	string degree_plus_115 = "degree_+115/";
-	string degree_minus_115 = "degree_-115/";
-	string degree_plus_90 = "degree_+90/";
-	string degree_minus_90 = "degree_-90/";
+	string degree_0 = "degree_0";
+	string degree_180 = "degree_180";
+	string degree_plus_45 = "degree_+45";
+	string degree_minus_45 = "degree_-45";
+	string degree_plus_115 = "degree_+115";
+	string degree_minus_115 = "degree_-115";
+	string degree_plus_90 = "degree_+90";
+	string degree_minus_90 = "degree_-90";
 	string negSquare = "neg_square/";
 	string negRect = "neg_rect/";
-	string testDirName="/home/igor/Work/Thesis/CarData/Freiburg/";
+	string testDirName="/home/igor/Work/Thesis/CarData/NewFreiburgData/PartOfData/SmallPart/";
+	string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
 
 	std::vector<std::string> squarePosDirs;
 	std::vector<std::string> rectPosDirs;
 
-	squarePosDirs.push_back(posDirName + degree_0);
-	// squarePosDirs.push_back(posDirName + degree_180);
+	squarePosDirs.push_back(posDirName + degree_0 +"/");
+	// squarePosDirs.push_back(posDirName + degree_180 + "/");
 
-	rectPosDirs.push_back(posDirName + degree_plus_45);
-	rectPosDirs.push_back(posDirName + degree_minus_45);
-	rectPosDirs.push_back(posDirName + degree_plus_115);
-	rectPosDirs.push_back(posDirName + degree_minus_115);
-	rectPosDirs.push_back(posDirName + degree_plus_90);
-	rectPosDirs.push_back(posDirName + degree_minus_90);
+	// rectPosDirs.push_back(posDirName + degree_plus_45 + "/");
+	// rectPosDirs.push_back(posDirName + degree_minus_45 + "/");
+	// rectPosDirs.push_back(posDirName + degree_plus_115 + "/");
+	// rectPosDirs.push_back(posDirName + degree_minus_115 + "/");
+	rectPosDirs.push_back(posDirName + degree_plus_90 + "/");
+	rectPosDirs.push_back(posDirName + degree_minus_90 + "/");
 
 	vector<string> validExtensions;
     validExtensions.push_back("jpg");
@@ -43,6 +44,7 @@ int main(int argc, char const *argv[])
 	std::vector<string> negativeExamples;
 	std::vector<string> testExamples;
 	DirectoryParser directoryParser;
+	std::vector<string> depthImageNames = directoryParser.getFileNames(depthDirName, validExtensions);
 	std::vector<string> negativeExamplesSquare = directoryParser.getFileNames(negDirName + negSquare, validExtensions);
 	std::vector<string> negativeExamplesRect = directoryParser.getFileNames(negDirName + negRect, validExtensions);
 	testExamples = directoryParser.getFileNames(testDirName, validExtensions);
@@ -57,7 +59,7 @@ int main(int argc, char const *argv[])
 			negativeExamplesSquare,
 			testExamples,
 			FeatureDetector::SQUARE);
-		carDetector.detectCars();
+		carDetector.detectCars(dir + "model.dat", CarDetector::LEAVE_OLD_MODEL);
 		resultWriter.storeDetections(carDetector.getDetectedCarRects());
 	}
 
@@ -69,11 +71,13 @@ int main(int argc, char const *argv[])
 			negativeExamplesRect,
 			testExamples,
 			FeatureDetector::RECTANGLE);
-		carDetector.detectCars();
+		carDetector.detectCars(dir + "model.dat", CarDetector::LEAVE_OLD_MODEL);
 		resultWriter.storeDetections(carDetector.getDetectedCarRects());
 	}
 
-	resultWriter.showDetections();
+	DepthEstimator depthEstimator;
+	depthEstimator.setExistingDepthImageNames(depthImageNames);
+	resultWriter.showDetections(depthEstimator);
 
 	return 0;
 }

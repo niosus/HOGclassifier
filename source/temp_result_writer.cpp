@@ -16,7 +16,7 @@ ResultWriter::~ResultWriter()
   _file.close();
 }
 
-void ResultWriter::showDetections()
+void ResultWriter::showDetections(const DepthEstimator &depthEstimator)
 {
   for (auto pairNameRect: _detectedCars)
   {
@@ -25,7 +25,7 @@ void ResultWriter::showDetections()
     for (auto rect: pairNameRect.second)
     {
       cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
-      this->addEntry(name, rect);
+      this->addEntry(name, rect, depthEstimator);
     }
     cv::imwrite((name+"___det.jpg").c_str(), image);
     Logger::instance()->logInfo("image written: ", name);
@@ -42,8 +42,10 @@ void ResultWriter::storeDetections(const Map& foundRectsWithNames)
 
 void ResultWriter::addEntry(
     const std::string &imageName,
-    const cv::Rect &rect)
+    const cv::Rect &rect,
+    const DepthEstimator &depthEstimator)
 {
+  std::cout<<depthEstimator.getDepthMedian(imageName, rect)<<std::endl;
   auto found = imageName.find_last_of("/\\");
   _file<<"IMAGE_NAME\t"<<imageName.substr(found+1)<<"\t";
   _file<<"RECT_COORDS\t"<<rect.x<<"\t"<<rect.y<<"\t";

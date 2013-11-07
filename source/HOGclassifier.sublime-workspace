@@ -4,6 +4,34 @@
 		"selected_items":
 		[
 			[
+				"ima",
+				"imageNames"
+			],
+			[
+				"CAR",
+				"CarDetector::LEAVE_OLD_MODEL"
+			],
+			[
+				"O",
+				"OVERWRITE_MODEL"
+			],
+			[
+				"over",
+				"overwriteModel"
+			],
+			[
+				"load",
+				"loadModel"
+			],
+			[
+				"model",
+				"modelPath"
+			],
+			[
+				"save",
+				"saveModel"
+			],
+			[
 				"file",
 				"filenames"
 			],
@@ -239,7 +267,7 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 2637,
+				"buffer_size": 2788,
 				"line_ending": "Unix"
 			}
 		},
@@ -263,7 +291,7 @@
 			"file": "svm_binder.cpp",
 			"settings":
 			{
-				"buffer_size": 10677,
+				"buffer_size": 10572,
 				"line_ending": "Unix"
 			}
 		},
@@ -271,7 +299,7 @@
 			"file": "svm_binder.h",
 			"settings":
 			{
-				"buffer_size": 1220,
+				"buffer_size": 1198,
 				"line_ending": "Unix"
 			}
 		},
@@ -279,7 +307,7 @@
 			"file": "car_detector.h",
 			"settings":
 			{
-				"buffer_size": 768,
+				"buffer_size": 907,
 				"line_ending": "Unix"
 			}
 		},
@@ -287,7 +315,7 @@
 			"file": "car_detector.cpp",
 			"settings":
 			{
-				"buffer_size": 1367,
+				"buffer_size": 1622,
 				"line_ending": "Unix"
 			}
 		},
@@ -311,7 +339,7 @@
 			"file": "feature_detector.cpp",
 			"settings":
 			{
-				"buffer_size": 3939,
+				"buffer_size": 3884,
 				"line_ending": "Unix"
 			}
 		},
@@ -454,6 +482,35 @@
 	},
 	"file_history":
 	[
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/DataResolver.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/DataSource.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/DictionaryIndex.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/IDataSource.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/IDictionaryIndex.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/IIndexSource.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/IndexSource.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/ITokenReader.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/ReaderFormat.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/TokenReader.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/reader/Readers.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/engine/reader/BaseParser.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/application/util/articlelist/AArticleListModel.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/application/util/articlelist/ArticleList.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/application/util/articlelist/ArticleListMenu.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/application/util/articlelist/ArticlesListModel.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/application/util/articlelist/IArticleListMenuSupport.java",
+		"/home/igor/MyProjects/StarDict/ja/lingo/application/util/articlelist/MutableArticleListModel.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/DataTipCell.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/DataTipComponent.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/DataTipListener.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/DataTipManager.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/DataTipPopup.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/ListDataTipCell.java",
+		"/home/igor/MyProjects/StarDict/com/xduke/xswing/ListDataTipListener.java",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/pos/degree_0/.model",
+		"/home/igor/Downloads/people.tsv",
+		"/home/igor/Work/Thesis/MiscCode/RectifyBumblebee/bumblebeeRectify.cpp",
+		"/home/igor/Work/Thesis/MiscCode/RectifyBumblebee/bumblebeeRectify.h",
 		"/tmp/bash-fc-1382437184",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/train_and_predict.dir/CXX.includecache",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/temp_result_writer_lib.dir/CXX.includecache",
@@ -618,15 +675,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2637,
+						"buffer_size": 2788,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1282,
-								1282
+								799,
+								799
 							]
 						],
 						"settings":
@@ -635,7 +692,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 247.0,
+						"translation.y": 612.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -703,15 +760,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10677,
+						"buffer_size": 10572,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								10211,
-								10211
+								4174,
+								4174
 							]
 						],
 						"settings":
@@ -720,7 +777,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4467.0,
+						"translation.y": 2053.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -731,15 +788,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1220,
+						"buffer_size": 1198,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								496,
-								496
+								834,
+								834
 							]
 						],
 						"settings":
@@ -759,15 +816,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 768,
+						"buffer_size": 907,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								484,
-								484
+								575,
+								575
 							]
 						],
 						"settings":
@@ -788,15 +845,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1367,
+						"buffer_size": 1622,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1228,
-								1228
+								1482,
+								1482
 							]
 						],
 						"settings":
@@ -873,23 +930,25 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3939,
+						"buffer_size": 3884,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								583,
-								583
+								3194,
+								3194
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage"
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 965.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"

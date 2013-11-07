@@ -21,6 +21,7 @@ ADD_LIBRARY(parser_lib
 
 ADD_LIBRARY(temp_result_writer_lib
   temp_result_writer.h temp_result_writer.cpp
+  depth_estimator.h depth_estimator.cpp
 )
 
 ADD_LIBRARY(svm_lib
@@ -30,7 +31,10 @@ ADD_LIBRARY(svm_lib
 
 ADD_LIBRARY(car_detection_lib
   car_detector.h car_detector.cpp
-  feature_detector.h feature_detector.cpp)
+  feature_detector.h feature_detector.cpp
+  feature_detector_cpu.h feature_detector_cpu.cpp
+  feature_detector_gpu.h feature_detector_gpu.cpp
+)
 
 ADD_EXECUTABLE(train_and_predict main.cpp)
 
@@ -43,6 +47,7 @@ SET_TARGET_PROPERTIES(car_detection_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_car
 SET_TARGET_PROPERTIES(train_and_predict PROPERTIES OUTPUT_NAME train_and_predict)
 
 TARGET_LINK_LIBRARIES(svm_lib logger_lib)
+TARGET_LINK_LIBRARIES(parser_lib logger_lib)
 TARGET_LINK_LIBRARIES(temp_result_writer_lib ${OpenCV_LIBS})
 TARGET_LINK_LIBRARIES(car_detection_lib logger_lib svm_lib temp_result_writer_lib ${OpenCV_LIBS})
 TARGET_LINK_LIBRARIES(train_and_predict parser_lib svm_lib car_detection_lib logger_lib temp_result_writer_lib ${OpenCV_LIBS})

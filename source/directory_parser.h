@@ -4,6 +4,7 @@
 #include <iostream>
 #include <dirent.h>
 #include <vector>
+#include "logger.h"
 
 using namespace std;
 

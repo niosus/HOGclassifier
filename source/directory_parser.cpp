@@ -1,5 +1,6 @@
 #include "directory_parser.h"
 #include "stdio.h"
+#include "logger.h"
 #include <algorithm>
 
 static string toLowerCase(const string& in) {
@@ -12,12 +13,12 @@ static string toLowerCase(const string& in) {
 
 std::vector<std::string> DirectoryParser::getFileNames(const std::string& dirName, const std::vector<std::string> validExtensions)
 {
-	printf("Opening directory %s\n", dirName.c_str());
+	Logger::instance()->logInfo("Opening directory", dirName);
 	std::vector<string> fileNames;
     struct dirent* ep;
     size_t extensionLocation;
     DIR* dp = opendir(dirName.c_str());
-    if (dp != NULL) 
+    if (dp != NULL)
     {
         while (ep = readdir(dp))
         {
@@ -29,17 +30,15 @@ std::vector<std::string> DirectoryParser::getFileNames(const std::string& dirNam
             string tempExt = toLowerCase(string(ep->d_name).substr(extensionLocation + 1));
             if (find(validExtensions.begin(), validExtensions.end(), tempExt) != validExtensions.end()) 
             {
-                printf("Found matching data file '%s'\n", ep->d_name);
                 fileNames.push_back((string) dirName + ep->d_name);
-            } else 
-            {
-                printf("Found file does not match required file type, skipping: '%s'\n", ep->d_name);
             }
         }
         (void) closedir(dp);
-    } else 
+    } else
     {
         printf("Error opening directory '%s'!\n", dirName.c_str());
     }
+    std::sort(fileNames.begin(), fileNames.end());
+    Logger::instance()->logInfo("Done");
 	return fileNames;
 }
