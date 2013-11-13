@@ -3,6 +3,7 @@
 #include "car_detector.h"
 #include "svm_binder.h"
 #include "temp_result_writer.h"
+#include "sequence_generator.h"
 #include <vector>
 
 int main(int argc, char const *argv[])
@@ -20,7 +21,11 @@ int main(int argc, char const *argv[])
 	string negSquare = "neg_square/";
 	string negRect = "neg_rect/";
 	string testDirName="/home/igor/Work/Thesis/CarData/NewFreiburgData/PartOfData/SmallPart/";
+	string resultDir="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/";
+	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/log.dat";
 	string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
+	string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
+	string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
 
 	std::vector<std::string> squarePosDirs;
 	std::vector<std::string> rectPosDirs;
@@ -42,14 +47,21 @@ int main(int argc, char const *argv[])
 
 	std::vector<string> positiveExsamples;
 	std::vector<string> negativeExamples;
-	std::vector<string> testExamples;
 	DirectoryParser directoryParser;
-	std::vector<string> depthImageNames = directoryParser.getFileNames(depthDirName, validExtensions);
 	std::vector<string> negativeExamplesSquare = directoryParser.getFileNames(negDirName + negSquare, validExtensions);
 	std::vector<string> negativeExamplesRect = directoryParser.getFileNames(negDirName + negRect, validExtensions);
-	testExamples = directoryParser.getFileNames(testDirName, validExtensions);
+	std::vector<string> testExamples = directoryParser.getFileNames(allLeftImagesDir, validExtensions);
+	std::unordered_map<string, string> leftToRightNamesMapping = directoryParser.getLeftRightImagePairs(
+		allLeftImagesDir, allRightImagesDir, validExtensions);
 
-	ResultWriter resultWriter;
+	int seed = 10;
+	int numberOfTestSamples = 1;
+	int minIndex = 937;
+	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size());
+	sequenceGenerator.generateSequences(SequenceGenerator::SEQUENTIAL);
+	testExamples = sequenceGenerator.getTestExamples(testExamples);
+
+	ResultWriter resultWriter(logfile);
 
 	for (auto dir: squarePosDirs)
 	{
@@ -75,9 +87,7 @@ int main(int argc, char const *argv[])
 		resultWriter.storeDetections(carDetector.getDetectedCarRects());
 	}
 
-	DepthEstimator depthEstimator;
-	depthEstimator.setExistingDepthImageNames(depthImageNames);
-	resultWriter.showDetections(depthEstimator);
+	resultWriter.showDetections(leftToRightNamesMapping, resultDir);
 
 	return 0;
 }

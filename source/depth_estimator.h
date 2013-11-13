@@ -5,18 +5,27 @@
 #include <string>
 #include "opencv2/core/core.hpp"
 #include "opencv2/highgui/highgui.hpp"
+#include "bumblebee_camera_params.h"
 
 class DepthEstimator
 {
 public:
-  DepthEstimator(){};
-  void setExistingDepthImageNames(const std::vector<std::string> &imageNames);
-  float getDepthMedian(const std::string& colorImageName, const cv::Rect& rect) const;
-  std::string getDepthImageName(const std::string &colorImageName) const;
-  ~DepthEstimator(){};
+  DepthEstimator();
+  void setCurrentDepthMapFromImage(
+    const std::string &imageLeftName,
+    const std::string &imageRightName);
+  std::vector<float> getDepthMedian(
+    const cv::Rect &rect) const;
+  cv::Mat getDisparity(
+    const cv::Mat &imageLeft,
+    const cv::Mat &imageRight);
+  void getDepthFromDisparity(
+    const cv::Mat &disparity,
+    const BumblebeeCameraParams &cameraParams,
+    cv::Mat& result);
 
 private:
-  std::vector<std::string> _depthImageNames;
+  cv::Mat _depthMap; // an opencv image of type CV_32FC3
 };
 
 #endif //DEPTH_ESTIMATOR

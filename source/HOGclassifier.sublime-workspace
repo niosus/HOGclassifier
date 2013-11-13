@@ -4,8 +4,216 @@
 		"selected_items":
 		[
 			[
+				"Seq",
+				"SequenceGenerator"
+			],
+			[
+				"Orde",
+				"OrderType"
+			],
+			[
+				"_max",
+				"_maxIndex"
+			],
+			[
+				"_s",
+				"_startIndex"
+			],
+			[
+				"log",
+				"logfile"
+			],
+			[
+				"y",
+				"y"
+			],
+			[
+				"res",
+				"result"
+			],
+			[
+				"Ve",
+				"Vec3f"
+			],
+			[
+				"cv",
+				"cv::Vec3f"
+			],
+			[
 				"ima",
-				"imageNames"
+				"imageLeftName"
+			],
+			[
+				"camer",
+				"cameraParams"
+			],
+			[
+				"tem",
+				"tempDoubleDisparity"
+			],
+			[
+				"ce",
+				"centralCol"
+			],
+			[
+				"cent",
+				"centralRow"
+			],
+			[
+				"str",
+				"str	str"
+			],
+			[
+				"seq",
+				"sequence_generator"
+			],
+			[
+				"getT",
+				"getTestExamples"
+			],
+			[
+				"ra",
+				"randIndex"
+			],
+			[
+				"si",
+				"size	size"
+			],
+			[
+				"get",
+				"getTestSeq"
+			],
+			[
+				"genera",
+				"generateSequences"
+			],
+			[
+				"s",
+				"size	size"
+			],
+			[
+				"un",
+				"underscorePos"
+			],
+			[
+				"size",
+				"size_t"
+			],
+			[
+				"LO",
+				"Logger::instance"
+			],
+			[
+				"le",
+				"leftRightNamesMap"
+			],
+			[
+				"sub",
+				"substr"
+			],
+			[
+				"bum",
+				"bumblebee_camera_params"
+			],
+			[
+				"image",
+				"imageLeftName"
+			],
+			[
+				"depth",
+				"depthEstimator"
+			],
+			[
+				"_de",
+				"_depthMap"
+			],
+			[
+				"getDe",
+				"getDepthFromDisparity"
+			],
+			[
+				"CV_",
+				"CV_32F"
+			],
+			[
+				"_",
+				"_depthMap"
+			],
+			[
+				"las",
+				"lastSlashLocation"
+			],
+			[
+				"su",
+				"substr"
+			],
+			[
+				"find",
+				"find_last_of"
+			],
+			[
+				"file",
+				"fileNamesRight"
+			],
+			[
+				"fil",
+				"fileNamesLeft"
+			],
+			[
+				"val",
+				"validExtensions"
+			],
+			[
+				"st",
+				"str	str"
+			],
+			[
+				"img",
+				"imgDisparity16S"
+			],
+			[
+				"comm",
+				"comm-block	Comment - Block style comment"
+			],
+			[
+				"CV",
+				"CV_LOAD_IMAGE_GRAYSCALE"
+			],
+			[
+				"fou",
+				"foundNumberBegin"
+			],
+			[
+				"num",
+				"numberString"
+			],
+			[
+				"set",
+				"setExistingDepthImageNames"
+			],
+			[
+				"dep",
+				"depthEstimator"
+			],
+			[
+				"De",
+				"DepthEstimator"
+			],
+			[
+				"dire",
+				"directoryParser"
+			],
+			[
+				"getde",
+				"getDepthImageName"
+			],
+			[
+				"col",
+				"colorImageName"
+			],
+			[
+				"de",
+				"depth_estimator"
 			],
 			[
 				"CAR",
@@ -32,20 +240,12 @@
 				"saveModel"
 			],
 			[
-				"file",
-				"filenames"
-			],
-			[
 				"testImage_c",
 				"testImage_cpu_rgba"
 			],
 			[
 				"tes",
 				"testImage_cpu"
-			],
-			[
-				"fil",
-				"filenames"
 			],
 			[
 				"string",
@@ -62,10 +262,6 @@
 			[
 				"pai",
 				"pairNameRect"
-			],
-			[
-				"fou",
-				"foundRectsWithNames"
 			],
 			[
 				"sv",
@@ -92,10 +288,6 @@
 				"getDetectedCarRects"
 			],
 			[
-				"log",
-				"logInfo"
-			],
-			[
 				"Log",
 				"Logger::instance"
 			],
@@ -110,10 +302,6 @@
 			[
 				"Ca",
 				"CarSampleShape"
-			],
-			[
-				"str",
-				"str	str"
 			],
 			[
 				"Car",
@@ -140,10 +328,6 @@
 				"temp_result_writer"
 			],
 			[
-				"tem",
-				"temp_result_writer"
-			],
-			[
 				"en",
 				"endl"
 			],
@@ -156,16 +340,8 @@
 				"topLeftY"
 			],
 			[
-				"image",
-				"imageName"
-			],
-			[
 				"add",
 				"addEntry"
-			],
-			[
-				"val",
-				"valueVectorSize"
 			],
 			[
 				"_ho",
@@ -224,10 +400,6 @@
 				"hogsNeg"
 			],
 			[
-				"_",
-				"_validExtensions"
-			],
-			[
 				"some",
 				"something"
 			],
@@ -248,10 +420,6 @@
 				"MAX_ALLOWED_WIDTH"
 			],
 			[
-				"get",
-				"getInstance"
-			],
-			[
 				"IM",
 				"IMAGE"
 			],
@@ -264,58 +432,52 @@
 	"buffers":
 	[
 		{
+			"file": "depth_estimator.cpp",
+			"settings":
+			{
+				"buffer_size": 4026,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/Work/Thesis/MiscCode/RectifyBumblebee/bumblebee-11123871.cal",
+			"settings":
+			{
+				"buffer_size": 29204,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 147 files for \"getDepthMedian\"\n\n~/Work/Thesis/MiscCode/HOGclassifier/bin/train_and_predict:\n    <binary>\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/depth_estimator.cpp:\n   25  }\n   26  \n   27: float DepthEstimator::getDepthMedian(\n   28    const cv::Rect &rect) const\n   29  {\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/depth_estimator.h:\n   15      const std::string &imageLeftName,\n   16      const std::string &imageRightName);\n   17:   float getDepthMedian(const cv::Rect &rect) const;\n   18    cv::Mat getDisparity(\n   19      const cv::Mat &imageLeft,\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.cpp:\n   32      {\n   33        cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);\n   34:       depthEstimator.getDepthMedian(rect);\n   35        this->addEntry(imageLeftName, rect);\n   36      }\n\n7 matches across 4 files\n",
+			"settings":
+			{
+				"buffer_size": 905,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "depth_estimator.h",
+			"settings":
+			{
+				"buffer_size": 740,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 2788,
+				"buffer_size": 3766,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "directory_parser.cpp",
+			"file": "bumblebee_camera_params.h",
 			"settings":
 			{
-				"buffer_size": 1609,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "svm.cpp",
-			"settings":
-			{
-				"buffer_size": 64707,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "svm_binder.cpp",
-			"settings":
-			{
-				"buffer_size": 10572,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "svm_binder.h",
-			"settings":
-			{
-				"buffer_size": 1198,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "car_detector.h",
-			"settings":
-			{
-				"buffer_size": 907,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "car_detector.cpp",
-			"settings":
-			{
-				"buffer_size": 1622,
+				"buffer_size": 277,
 				"line_ending": "Unix"
 			}
 		},
@@ -323,7 +485,39 @@
 			"file": "temp_result_writer.cpp",
 			"settings":
 			{
-				"buffer_size": 1295,
+				"buffer_size": 2327,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/newFreiburgDataLog.alog",
+			"settings":
+			{
+				"buffer_size": 966156,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/Work/Thesis/MiscCode/PythonScripts/create_log.py",
+			"settings":
+			{
+				"buffer_size": 1259,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "directory_parser.h",
+			"settings":
+			{
+				"buffer_size": 558,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "directory_parser.cpp",
+			"settings":
+			{
+				"buffer_size": 2457,
 				"line_ending": "Unix"
 			}
 		},
@@ -331,74 +525,28 @@
 			"file": "temp_result_writer.h",
 			"settings":
 			{
-				"buffer_size": 510,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "feature_detector.cpp",
-			"settings":
-			{
-				"buffer_size": 3884,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/igor/ExternalLibs/opencv-2.4.6.1/modules/gpu/src/cuda/hog.cu",
-			"settings":
-			{
-				"buffer_size": 36248,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "feature_detector.h",
-			"settings":
-			{
-				"buffer_size": 1398,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"contents": "Searching 123 files for \"setTestHogFromHyperplane\"\n\n~/Work/Thesis/MiscCode/HOGclassifier/bin/train_and_predict:\n    <binary>\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/car_detector.cpp:\n   39    svmBinder.createDetectionVector();\n   40  \n   41:   _featureDetector->setTestHogFromHyperplane(svmBinder.getDetectionVector());\n   42    _detectedCars = _featureDetector->detectMultiScale(_testSampleNames);\n   43  }\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp:\n   48  }\n   49  \n   50: void FeatureDetector::setTestHogFromHyperplane(std::vector<float>* hyperplane)\n   51  {\n   52  	_hogTest.setSVMDetector(*hyperplane);\n\n/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h:\n   30  	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);\n   31  	void setHogFromSvm(std::vector<float>* features);\n   32: 	void setTestHogFromHyperplane(std::vector<float>* hyperplane);\n   33  	std::map<std::string, std::vector<cv::Rect> > detectMultiScale(std::vector<std::string>& images);\n   34  	std::vector<std::vector<float> >* getFeatures(FeatureEntity which);\n\n5 matches across 4 files\n",
-			"settings":
-			{
-				"buffer_size": 1160,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "logger.cpp",
-			"settings":
-			{
-				"buffer_size": 2036,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "logger.h",
-			"settings":
-			{
-				"buffer_size": 1185,
+				"buffer_size": 691,
 				"line_ending": "Unix"
 			}
 		}
 	],
-	"build_system": "",
+	"build_system": "Packages/User/make.sublime-build",
 	"command_palette":
 	{
-		"height": 375.0,
+		"height": 79.0,
 		"selected_items":
 		[
 			[
-				"Snippet: ",
-				"Snippet: pair"
+				"isntall",
+				"Package Control: Install Package"
 			],
 			[
 				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"Snippet: ",
+				"Snippet: pair"
 			],
 			[
 				"instal",
@@ -414,10 +562,6 @@
 			],
 			[
 				"in",
-				"Package Control: Install Package"
-			],
-			[
-				"isntall",
 				"Package Control: Install Package"
 			],
 			[
@@ -482,6 +626,42 @@
 	},
 	"file_history":
 	[
+		"/home/igor/MyProjects/InformationRetrieval/ib31/exercise-sheet-02/feedback-tutor.txt",
+		"/home/igor/.config/sublime-text-3/Packages/User/make.sublime-build",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/sequence_generator.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/sequence_generator.h",
+		"/home/igor/Downloads/KML_Samples.kml",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/log.dat",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/CMakeLists.txt",
+		"/home/igor/Work/Thesis/MiscCode/DepthFromStereo/SBM_Sample.cpp",
+		"/home/igor/test.txt",
+		"/home/igor/newFreiburgDataLog.alog",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/output_log.dat",
+		"/home/igor/MyProjects/InformationRetrieval/ib31/exercise-sheet-01/src/InvertedIndexTest.java",
+		"/home/igor/MyProjects/InformationRetrieval/ib31/exercise-sheet-01/src/InvertedIndex.java",
+		"/home/igor/MyProjects/InformationRetrieval/ib31/exercise-sheet-01/InvertedIndexTest.Records.tsv",
+		"/home/igor/MyProjects/InformationRetrieval/ib31/exercise-sheet-01/feedback-tutor.txt",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_cpu.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_cpu.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/main.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/car_detector.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/car_detector.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_gpu.cpp",
+		"/home/igor/ExternalLibs/opencv-2.4.6.1/modules/gpu/src/cuda/hog.cu",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_gpu.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/depth_estimator.h",
 		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/DataResolver.java",
 		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/DataSource.java",
 		"/home/igor/MyProjects/StarDict/ja/lingo/engine/dictionaryindex/reader/DictionaryIndex.java",
@@ -516,28 +696,14 @@
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/temp_result_writer_lib.dir/CXX.includecache",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/car_detection_lib.dir/CXX.includecache",
 		"/home/igor/Work/Thesis/CarData/DataFromGoogleImages/google.sh",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/CMakeLists.txt",
 		"/home/igor/.config/sublime-text-3/Packages/Default/Default (Linux).sublime-keymap",
 		"/home/igor/.config/sublime-text-3/Packages/User/Default (Linux).sublime-keymap",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/main.cpp",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.cpp",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.cpp",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm.cpp",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/car_detector.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.cpp",
 		"/home/igor/Work/Thesis/MiscCode/trainHOG/main.cpp",
 		"/home/igor/.config/sublime-text-3/Packages/User/pair.sublime-snippet",
 		"/home/igor/.config/sublime-text-3/Packages/User/cstr.sublime-snippet",
 		"/home/igor/Work/Thesis/CarData/DataFromGoogleImages/getimages.sh",
 		"/home/igor/log_24_5_2012_____11_11_47.alog",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/output_log.dat",
 		"/home/igor/.gitconfig",
 		"/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
@@ -553,7 +719,6 @@
 		"/home/igor/ExternalLibs/blitz-0.9_CorrectedbyOPForICCBUG-ClangWarn/Makefile",
 		"/home/igor/ExternalLibs/blitz-0.10/INSTALL",
 		"/home/igor/Work/Thesis/MiscCode/learcode/buildtest.sh",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/normals.sublime-project",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/build/cmake_install.cmake",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/CMakeLists.txt",
@@ -583,6 +748,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"startIndex",
+			"_startIndex",
+			"pixels",
+			"CV_32F",
+			"getDepthMedian",
+			"scores",
+			"imageLeftName",
+			"name",
+			"image",
+			"imgDisparity16S",
+			"imgLeft",
+			"number",
+			"imageName",
+			"Found",
+			"feature_detector",
+			"h",
+			"feature_detector",
+			"FeatureDetector",
+			"_hogTestCpu",
+			"FEATURE_DETECTOR_H",
+			"detectMultiScaleCpu",
+			"detectMultiScaleGpu",
 			"setTestHogFromHyperplane",
 			"str",
 			"unordered_map",
@@ -666,73 +853,45 @@
 	"groups":
 	[
 		{
-			"selected": 9,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "main.cpp",
+					"file": "depth_estimator.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2788,
+						"buffer_size": 4026,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								799,
-								799
+								1272,
+								1272
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 612.0,
+						"translation.y": 638.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "directory_parser.cpp",
+					"file": "/home/igor/Work/Thesis/MiscCode/RectifyBumblebee/bumblebee-11123871.cal",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1609,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								731,
-								731
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "svm.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 64707,
+						"buffer_size": 29204,
 						"regions":
 						{
 						},
@@ -745,91 +904,7 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "svm_binder.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 10572,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4174,
-								4174
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2053.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "svm_binder.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1198,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								834,
-								834
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "car_detector.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 907,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								575,
-								575
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
@@ -840,182 +915,11 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "car_detector.cpp",
+					"buffer": 2,
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1622,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1482,
-								1482
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "temp_result_writer.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1295,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1115,
-								1115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "temp_result_writer.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 510,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								192,
-								192
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "feature_detector.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3884,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3194,
-								3194
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 965.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "/home/igor/ExternalLibs/opencv-2.4.6.1/modules/gpu/src/cuda/hog.cu",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 36248,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								21301,
-								21301
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 7286.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "feature_detector.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1398,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								361,
-								361
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1160,
+						"buffer_size": 905,
 						"regions":
 						{
 							"match":
@@ -1024,16 +928,16 @@
 								"regions":
 								[
 									[
-										276,
-										300
+										236,
+										250
 									],
 									[
-										544,
-										568
+										478,
+										492
 									],
 									[
-										894,
-										918
+										794,
+										808
 									]
 								],
 								"scope": ""
@@ -1042,8 +946,8 @@
 						"selection":
 						[
 							[
-								296,
-								296
+								799,
+								799
 							]
 						],
 						"settings":
@@ -1065,20 +969,49 @@
 					"type": "text"
 				},
 				{
-					"buffer": 13,
-					"file": "logger.cpp",
+					"buffer": 3,
+					"file": "depth_estimator.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2036,
+						"buffer_size": 740,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1704,
-								1704
+								711,
+								711
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3766,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3639,
+								3639
 							]
 						],
 						"settings":
@@ -1087,32 +1020,201 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 489.0,
+						"translation.y": 901.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 14,
-					"file": "logger.h",
+					"buffer": 5,
+					"file": "bumblebee_camera_params.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1185,
+						"buffer_size": 277,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								717,
-								717
+								116,
+								116
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "temp_result_writer.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2327,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1415,
+								1415
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 278.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "/home/igor/newFreiburgDataLog.alog",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 966156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "/home/igor/Work/Thesis/MiscCode/PythonScripts/create_log.py",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1259,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "directory_parser.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 558,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								558,
+								558
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "directory_parser.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2457,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								331,
+								331
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "temp_result_writer.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 691,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								579,
+								579
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1156,7 +1258,7 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 112.0
+		"height": 249.0
 	},
 	"output.git-commit":
 	{
@@ -1182,11 +1284,15 @@
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
+			[
+				"",
+				"~/MyProjects/InformationRetrieval/ib31/exercise-sheet-02/src/ex2.sublime-project"
+			]
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"select_symbol":
 	{
