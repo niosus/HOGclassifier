@@ -44,11 +44,13 @@ float getMedian(std::vector<float> vals)
 std::vector<float> DepthEstimator::getDepthMedian(
   const cv::Rect &rect) const
 {
+  // update rect size in case it does not fin to the image
+  int newX = std::max(rect.x, 0);
+  int newY = std::max(rect.y, 0);
+  int newWidth = std::min(rect.width, _depthMap.cols - newX);
+  int newHeight = std::min(rect.height, _depthMap.rows - newY);
   cv::Rect newRect = cv::Rect(
-    std::max(rect.x, 0),
-    std::max(rect.y, 0),
-    rect.width,
-    rect.height);
+    newX, newY, newWidth, newHeight);
   cv::Mat roiImage = cv::Mat(_depthMap, newRect);
   assert(roiImage.depth() == CV_32F);
   assert(roiImage.channels() == 3);

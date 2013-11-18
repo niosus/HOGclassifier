@@ -55,8 +55,8 @@ int main(int argc, char const *argv[])
 		allLeftImagesDir, allRightImagesDir, validExtensions);
 
 	int seed = 10;
-	int numberOfTestSamples = 1;
-	int minIndex = 937;
+	int numberOfTestSamples = 1000;
+	int minIndex = 300;
 	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size());
 	sequenceGenerator.generateSequences(SequenceGenerator::SEQUENTIAL);
 	testExamples = sequenceGenerator.getTestExamples(testExamples);

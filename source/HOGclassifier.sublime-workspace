@@ -435,7 +435,7 @@
 			"file": "depth_estimator.cpp",
 			"settings":
 			{
-				"buffer_size": 4026,
+				"buffer_size": 4233,
 				"line_ending": "Unix"
 			}
 		},
@@ -469,7 +469,7 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 3766,
+				"buffer_size": 3769,
 				"line_ending": "Unix"
 			}
 		},
@@ -748,6 +748,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"max",
 			"startIndex",
 			"_startIndex",
 			"pixels",
@@ -862,15 +863,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4026,
+						"buffer_size": 4233,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1272,
-								1272
+								1236,
+								1236
 							]
 						],
 						"settings":
@@ -880,7 +881,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 638.0,
+						"translation.y": 495.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1003,15 +1004,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3766,
+						"buffer_size": 3769,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3639,
-								3639
+								1414,
+								1414
 							]
 						],
 						"settings":
@@ -1020,7 +1021,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 901.0,
+						"translation.y": 70.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1065,8 +1066,8 @@
 						"selection":
 						[
 							[
-								1415,
-								1415
+								1401,
+								1401
 							]
 						],
 						"settings":
@@ -1076,7 +1077,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 278.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
