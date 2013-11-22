@@ -1,0 +1,7 @@
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/car_detection_lib.dir
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/logger_lib.dir
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/parser_lib.dir
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/sequence_generator_lib.dir
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/svm_lib.dir
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/temp_result_writer_lib.dir
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/build/source/CMakeFiles/train_and_predict.dir

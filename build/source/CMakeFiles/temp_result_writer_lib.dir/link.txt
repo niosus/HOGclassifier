@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../../lib/lib_hog_classifier_temp_result_writer_lib.a  CMakeFiles/temp_result_writer_lib.dir/temp_result_writer.cpp.o CMakeFiles/temp_result_writer_lib.dir/depth_estimator.cpp.o
+/usr/bin/ranlib ../../lib/lib_hog_classifier_temp_result_writer_lib.a

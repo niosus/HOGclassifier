@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h
+string
+-
+iostream
+-
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/sequence_generator.cpp
+sequence_generator.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/sequence_generator.h
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/sequence_generator.h
+vector
+-
+iostream
+-
+algorithm
+-
+logger.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h
+

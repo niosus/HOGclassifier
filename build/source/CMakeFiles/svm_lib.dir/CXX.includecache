@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h
+string
+-
+iostream
+-
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm.h
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.cpp
+svm_binder.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.h
+ctime
+-
+stdio.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/stdio.h
+
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm_binder.h
+svm.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/svm.h
+vector
+-
+string
+-
+iostream
+-
+ctype.h
+-
+stdlib.h
+-
+logger.h
+/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h
+

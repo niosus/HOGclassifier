@@ -1,0 +1,2 @@
+/usr/bin/ar cr ../../lib/lib_hog_classifier_sequence_generator_lib.a  CMakeFiles/sequence_generator_lib.dir/sequence_generator.cpp.o
+/usr/bin/ranlib ../../lib/lib_hog_classifier_sequence_generator_lib.a
