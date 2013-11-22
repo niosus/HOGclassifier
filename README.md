@@ -39,7 +39,7 @@ with no cars present on them. This part is actualy crucial.
 
 Credits
 --------
-This program was inspired by DaHoC and his code here - https://github.com/DaHoC/trainHOG. 
+This program was inspired by @DaHoC and his code here - https://github.com/DaHoC/trainHOG. 
 However, even though it started of as quite a clone in the end there is precisely one function in common. 
 Also refer to licences of the third party software used by me.
 
