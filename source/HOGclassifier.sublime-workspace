@@ -435,7 +435,23 @@
 			"file": "depth_estimator.cpp",
 			"settings":
 			{
-				"buffer_size": 4233,
+				"buffer_size": 4919,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "car_detector.cpp",
+			"settings":
+			{
+				"buffer_size": 2309,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "car_detector.h",
+			"settings":
+			{
+				"buffer_size": 1631,
 				"line_ending": "Unix"
 			}
 		},
@@ -461,7 +477,7 @@
 			"file": "depth_estimator.h",
 			"settings":
 			{
-				"buffer_size": 740,
+				"buffer_size": 1426,
 				"line_ending": "Unix"
 			}
 		},
@@ -469,7 +485,39 @@
 			"file": "main.cpp",
 			"settings":
 			{
-				"buffer_size": 3769,
+				"buffer_size": 4455,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sequence_generator.cpp",
+			"settings":
+			{
+				"buffer_size": 2458,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "sequence_generator.h",
+			"settings":
+			{
+				"buffer_size": 1392,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "svm_binder.cpp",
+			"settings":
+			{
+				"buffer_size": 11305,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "svm_binder.h",
+			"settings":
+			{
+				"buffer_size": 1884,
 				"line_ending": "Unix"
 			}
 		},
@@ -477,7 +525,7 @@
 			"file": "bumblebee_camera_params.h",
 			"settings":
 			{
-				"buffer_size": 277,
+				"buffer_size": 963,
 				"line_ending": "Unix"
 			}
 		},
@@ -485,7 +533,7 @@
 			"file": "temp_result_writer.cpp",
 			"settings":
 			{
-				"buffer_size": 2327,
+				"buffer_size": 3013,
 				"line_ending": "Unix"
 			}
 		},
@@ -501,7 +549,7 @@
 			"file": "/home/igor/Work/Thesis/MiscCode/PythonScripts/create_log.py",
 			"settings":
 			{
-				"buffer_size": 1259,
+				"buffer_size": 1208,
 				"line_ending": "Unix"
 			}
 		},
@@ -509,7 +557,71 @@
 			"file": "directory_parser.h",
 			"settings":
 			{
-				"buffer_size": 558,
+				"buffer_size": 1245,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feature_detector.cpp",
+			"settings":
+			{
+				"buffer_size": 2920,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feature_detector.h",
+			"settings":
+			{
+				"buffer_size": 1754,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feature_detector_cpu.cpp",
+			"settings":
+			{
+				"buffer_size": 1988,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feature_detector_cpu.h",
+			"settings":
+			{
+				"buffer_size": 1373,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feature_detector_gpu.cpp",
+			"settings":
+			{
+				"buffer_size": 1849,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "feature_detector_gpu.h",
+			"settings":
+			{
+				"buffer_size": 1411,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "logger.cpp",
+			"settings":
+			{
+				"buffer_size": 2722,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "logger.h",
+			"settings":
+			{
+				"buffer_size": 1871,
 				"line_ending": "Unix"
 			}
 		},
@@ -517,7 +629,7 @@
 			"file": "directory_parser.cpp",
 			"settings":
 			{
-				"buffer_size": 2457,
+				"buffer_size": 3301,
 				"line_ending": "Unix"
 			}
 		},
@@ -525,7 +637,31 @@
 			"file": "temp_result_writer.h",
 			"settings":
 			{
-				"buffer_size": 691,
+				"buffer_size": 1377,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 1395,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 2777,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "HOGclassifier.sublime-project",
+			"settings":
+			{
+				"buffer_size": 117,
 				"line_ending": "Unix"
 			}
 		}
@@ -748,6 +884,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"// ",
+			"Foobar",
 			"max",
 			"startIndex",
 			"_startIndex",
@@ -854,7 +992,7 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 10,
 			"sheets":
 			[
 				{
@@ -863,15 +1001,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4233,
+						"buffer_size": 4919,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1236,
-								1236
+								684,
+								684
 							]
 						],
 						"settings":
@@ -881,13 +1019,71 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 495.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
+					"file": "car_detector.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "car_detector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1631,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
 					"file": "/home/igor/Work/Thesis/MiscCode/RectifyBumblebee/bumblebee-11123871.cal",
 					"semi_transient": false,
 					"settings":
@@ -916,7 +1112,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 2,
+					"buffer": 4,
 					"semi_transient": false,
 					"settings":
 					{
@@ -970,20 +1166,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
+					"buffer": 5,
 					"file": "depth_estimator.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 740,
+						"buffer_size": 1426,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								711,
-								711
+								684,
+								684
 							]
 						],
 						"settings":
@@ -999,20 +1195,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3769,
+						"buffer_size": 4455,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1414,
-								1414
+								794,
+								794
 							]
 						],
 						"settings":
@@ -1027,20 +1223,132 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "bumblebee_camera_params.h",
+					"buffer": 7,
+					"file": "sequence_generator.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 277,
+						"buffer_size": 2458,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								116,
-								116
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1296.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "sequence_generator.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "svm_binder.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11305,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "svm_binder.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1884,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "bumblebee_camera_params.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 963,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
 							]
 						],
 						"settings":
@@ -1054,20 +1362,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 6,
+					"buffer": 12,
 					"file": "temp_result_writer.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2327,
+						"buffer_size": 3013,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1401,
-								1401
+								684,
+								684
 							]
 						],
 						"settings":
@@ -1077,13 +1385,13 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 378.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 13,
 					"file": "/home/igor/newFreiburgDataLog.alog",
 					"semi_transient": false,
 					"settings":
@@ -1110,12 +1418,12 @@
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 14,
 					"file": "/home/igor/Work/Thesis/MiscCode/PythonScripts/create_log.py",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1259,
+						"buffer_size": 1208,
 						"regions":
 						{
 						},
@@ -1139,20 +1447,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 15,
 					"file": "directory_parser.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 558,
+						"buffer_size": 1245,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								558,
-								558
+								684,
+								684
 							]
 						],
 						"settings":
@@ -1166,20 +1474,247 @@
 					"type": "text"
 				},
 				{
-					"buffer": 10,
-					"file": "directory_parser.cpp",
+					"buffer": 16,
+					"file": "feature_detector.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2457,
+						"buffer_size": 2920,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								331,
-								331
+								947,
+								947
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "feature_detector.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1754,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 18,
+					"file": "feature_detector_cpu.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1988,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 19,
+					"file": "feature_detector_cpu.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 20,
+					"file": "feature_detector_gpu.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1849,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 21,
+					"file": "feature_detector_gpu.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1411,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 22,
+					"file": "logger.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2722,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 23,
+					"file": "logger.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 108.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 24,
+					"file": "directory_parser.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3301,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1132,
+								975
 							]
 						],
 						"settings":
@@ -1195,20 +1730,20 @@
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 25,
 					"file": "temp_result_writer.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 691,
+						"buffer_size": 1377,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								579,
-								579
+								684,
+								684
 							]
 						],
 						"settings":
@@ -1216,6 +1751,89 @@
 							"syntax": "Packages/C++/C++.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 26,
+					"file": "/home/igor/Work/Thesis/MiscCode/HOGclassifier/CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CMake/CMake.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 27,
+					"file": "CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2777,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1364,
+								1364
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CMake/CMake.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 162.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 28,
+					"file": "HOGclassifier.sublime-project",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 117,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

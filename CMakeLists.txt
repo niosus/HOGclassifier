@@ -1,8 +1,23 @@
+# This file is part of HOGclassifier.
+
+# HOGclassifier is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+
+# HOGclassifier is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with HOGclassifier.  If not, see <http://www.gnu.org/licenses/>.
+
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
 
 PROJECT(hog_classifier)
 
-list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS}")
+list( APPEND CMAKE_CXX_FLAGS "-std=c++0x -O ${CMAKE_CXX_FLAGS}")
 
 # The library prefix
 SET(LIB_PREFIX _hog_classifier)
