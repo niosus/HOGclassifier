@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../lib/lib_hog_classifier_logger_lib.a  CMakeFiles/logger_lib.dir/logger.cpp.o
-/usr/bin/ranlib ../../lib/lib_hog_classifier_logger_lib.a

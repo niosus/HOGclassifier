@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../lib/lib_hog_classifier_car_detection_lib.a  CMakeFiles/car_detection_lib.dir/car_detector.cpp.o CMakeFiles/car_detection_lib.dir/feature_detector.cpp.o CMakeFiles/car_detection_lib.dir/feature_detector_cpu.cpp.o CMakeFiles/car_detection_lib.dir/feature_detector_gpu.cpp.o
-/usr/bin/ranlib ../../lib/lib_hog_classifier_car_detection_lib.a

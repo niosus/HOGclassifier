@@ -1,2 +1,0 @@
-/usr/bin/ar cr ../../lib/lib_hog_classifier_parser_lib.a  CMakeFiles/parser_lib.dir/directory_parser.cpp.o
-/usr/bin/ranlib ../../lib/lib_hog_classifier_parser_lib.a
