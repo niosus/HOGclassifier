@@ -5,6 +5,8 @@ A program that uses libSVM in order to classify HOG features for visual object d
 Currently I used it to detect cars, so you may also find the positive training data there. 
 It is not the final version, so it may lack quality in detection.
 
+Warning! This program is growing and shrinking without any prior notice. However, once my thesis is done, it will shrink in size so that it does only car detection with a monocular camera. Thanks for interest!
+
 Usage
 -------
 To run this code you will need some external dependencies, such as `OpenMP` and `OpenCV`. 
