@@ -32,6 +32,7 @@ ADD_LIBRARY(logger_lib
 
 ADD_LIBRARY(parser_lib
 	directory_parser.h directory_parser.cpp
+  lasers_parser.h lasers_parser.cpp
 )
 
 ADD_LIBRARY(temp_result_writer_lib
@@ -43,6 +44,10 @@ ADD_LIBRARY(temp_result_writer_lib
 ADD_LIBRARY(svm_lib
 	svm.h svm.cpp
 	svm_binder.h svm_binder.cpp
+)
+
+ADD_LIBRARY(utils_lib
+  utils.h
 )
 
 ADD_LIBRARY(sequence_generator_lib
@@ -59,6 +64,7 @@ ADD_LIBRARY(car_detection_lib
 ADD_EXECUTABLE(train_and_predict main.cpp)
 
 SET_TARGET_PROPERTIES(logger_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_logger_lib)
+SET_TARGET_PROPERTIES(utils_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_utils_lib LINKER_LANGUAGE CXX)
 SET_TARGET_PROPERTIES(temp_result_writer_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_temp_result_writer_lib)
 SET_TARGET_PROPERTIES(parser_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_parser_lib)
 SET_TARGET_PROPERTIES(svm_lib PROPERTIES OUTPUT_NAME ${LIB_PREFIX}_svm_lib)
@@ -69,6 +75,6 @@ SET_TARGET_PROPERTIES(train_and_predict PROPERTIES OUTPUT_NAME train_and_predict
 
 TARGET_LINK_LIBRARIES(svm_lib logger_lib)
 TARGET_LINK_LIBRARIES(parser_lib logger_lib)
-TARGET_LINK_LIBRARIES(temp_result_writer_lib ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(temp_result_writer_lib utils_lib ${OpenCV_LIBS})
 TARGET_LINK_LIBRARIES(car_detection_lib logger_lib svm_lib temp_result_writer_lib ${OpenCV_LIBS})
-TARGET_LINK_LIBRARIES(train_and_predict parser_lib svm_lib car_detection_lib logger_lib temp_result_writer_lib sequence_generator_lib ${OpenCV_LIBS})
+TARGET_LINK_LIBRARIES(train_and_predict parser_lib svm_lib car_detection_lib logger_lib temp_result_writer_lib sequence_generator_lib utils_lib ${OpenCV_LIBS})

@@ -17,6 +17,7 @@
 #include <cassert>
 #include <iostream>
 #include "opencv2/calib3d/calib3d.hpp"
+#include "utils.h"
 
 DepthEstimator::DepthEstimator()
 {
@@ -39,24 +40,7 @@ void DepthEstimator::setCurrentDepthMapFromImage(
     _depthMap);
 }
 
-float getMedian(std::vector<float> vals)
-{
-  std::sort(vals.begin(), vals.end());
-  float median = -1;
-  int size = vals.size();
-  if (size<=0) return -1;
-  if (size % 2 == 0)
-  {
-      median = (vals[size / 2 - 1] + vals[size / 2]) / 2;
-  }
-  else
-  {
-      median = vals[size / 2];
-  }
-  return median;
-}
-
-std::vector<float> DepthEstimator::getDepthMedian(
+std::vector<double> DepthEstimator::getDepthMedian(
   const cv::Rect &rect) const
 {
   // update rect size in case it does not fin to the image
@@ -69,9 +53,9 @@ std::vector<float> DepthEstimator::getDepthMedian(
   cv::Mat roiImage = cv::Mat(_depthMap, newRect);
   assert(roiImage.depth() == CV_32F);
   assert(roiImage.channels() == 3);
-  std::vector<float> xVals;
-  std::vector<float> yVals;
-  std::vector<float> zVals;
+  std::vector<double> xVals;
+  std::vector<double> yVals;
+  std::vector<double> zVals;
   xVals.reserve(roiImage.total());
   yVals.reserve(roiImage.total());
   zVals.reserve(roiImage.total());
@@ -90,10 +74,10 @@ std::vector<float> DepthEstimator::getDepthMedian(
       }
     }
   }
-  std::vector<float> result;
-  result.push_back(getMedian(xVals));
-  result.push_back(getMedian(yVals));
-  result.push_back(getMedian(zVals));
+  std::vector<double> result;
+  result.push_back(Utils::getMedian(xVals));
+  result.push_back(Utils::getMedian(yVals));
+  result.push_back(Utils::getMedian(zVals));
   return result;
 }
 
@@ -123,7 +107,7 @@ void getCentralColAndRow(const int& rows, const int& cols,
 *
 * @param disparity: an opencv Mat of type short (CV_16S) with disparity
 * @param cameraParams: camera params - focus and baseline
-* @param result: Mat of type float (CV_32F) holds distance to object in every pixel
+* @param result: Mat of type double (CV_32F) holds distance to object in every pixel
 *
 **/
 void DepthEstimator::getDepthFromDisparity(
@@ -139,12 +123,12 @@ void DepthEstimator::getDepthFromDisparity(
     for (int c = 0; c < disparity.cols; ++c)
     {
       short disparityShort = (short) disparity.at<short>(r, c);
-      float tempDoubleDisparity = (float) disparityShort;
+      double tempDoubleDisparity = (double) disparityShort;
       if (tempDoubleDisparity > 0)
       {
-        float depth = (cameraParams.focus * 1024 * cameraParams.baseline * 16) / tempDoubleDisparity;
-        float y = ((r-centralRow) * depth) / (cameraParams.focus * 1024);
-        float x = ((c-centralCol) * depth) / (cameraParams.focus * 1024);
+        double depth = (cameraParams.focus * 1024 * cameraParams.baseline * 16) / tempDoubleDisparity;
+        double y = ((r-centralRow) * depth) / (cameraParams.focus * 1024);
+        double x = ((c-centralCol) * depth) / (cameraParams.focus * 1024);
         cv::Vec3f pixel(x,y,depth);
         result.at<cv::Vec3f>(r,c) = pixel;
       }

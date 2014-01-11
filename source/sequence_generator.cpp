@@ -16,12 +16,13 @@
 #include "sequence_generator.h"
 using namespace std;
 
-SequenceGenerator::SequenceGenerator(int seed, int testSize, int minIndex, int maxIndex)
+SequenceGenerator::SequenceGenerator(int seed, int testSize, int minIndex, int maxIndex, int gap)
 {
 	_seed = seed;
 	_testSize = testSize;
 	_maxIndex = maxIndex;
 	_minIndex = minIndex;
+	_gap = gap;
 }
 
 bool SequenceGenerator::generateSequences(OrderType type)
@@ -70,9 +71,9 @@ void SequenceGenerator::generateTest(OrderType type)
 			cout<<endl;
 			break;
 		case SEQUENTIAL:
-			for(int i=0; i<_testSize; i++)
+			for(int i=0; i<_testSize; ++i)
 			{
-				item = _minIndex + i;
+				item = _minIndex + i * _gap;
 				if (item < _maxIndex)
 				{
 					_testSeq.push_back(item);

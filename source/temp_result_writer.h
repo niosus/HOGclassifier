@@ -23,24 +23,32 @@
 #include "cv.h"
 #include <fstream>
 #include "depth_estimator.h"
+#include "lasers_parser.h"
 
 typedef std::map<std::string, std::vector<cv::Rect> > Map;
 
 class ResultWriter
 {
 public:
-  ResultWriter(std::string fileName="");
+  ResultWriter(
+  const std::vector<std::string>& allImageNames,
+  std::string fileName = "");
   ~ResultWriter();
   void addEntry(
     const std::string &imageName,
-    const std::vector<float>& coords);
+    const std::vector<double>& coords);
   void showDetections(
     const std::unordered_map<std::string, std::string> &leftRightNamesMap,
     const std::string &resultFolderName);
+  void showDetectionsLaser(
+  const std::unordered_map<std::string, std::string> &leftRightNamesMap,
+  const std::string &resultFolderName,
+  LaserParser& laserParser);
   void storeDetections(const Map& foundRectsWithNames);
 private:
   std::ofstream _file;
   Map _detectedCars;
+  std::vector<std::string> _imagesWithNoCars;
 };
 
 #endif

@@ -16,14 +16,25 @@
 #include "temp_result_writer.h"
 #include "highgui.h"
 #include "logger.h"
+#include "utils.h"
 
-ResultWriter::ResultWriter(std::string fileName)
+ResultWriter::ResultWriter(
+  const std::vector<std::string>& allImageNames,
+  std::string fileName)
 {
   if (fileName == "")
   {
     fileName = "output_log.dat";
   }
   _file.open(fileName.c_str());
+  // put all image names as we also need to keep track
+  // of the image with no cars detected
+  _file<<"TOTAL_NUM_IMAGES\t\t"<<allImageNames.size()<<endl;
+  for (const auto& imageName: allImageNames)
+  {
+    auto found = imageName.find_last_of("/\\");
+    _file<<imageName.substr(found+1)<<std::endl;
+  }
 }
 
 ResultWriter::~ResultWriter()
@@ -53,11 +64,52 @@ void ResultWriter::showDetections(
       if (rect.width > 0 && rect.height > 0)
       {
         cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
-        std::vector<float> median = depthEstimator.getDepthMedian(rect);
+        std::vector<double> median = depthEstimator.getDepthMedian(rect);
         Logger::instance()->logInfo("median x", median[0]);
         Logger::instance()->logInfo("median y", median[1]);
         Logger::instance()->logInfo("median z", median[2]);
         this->addEntry(imageLeftName, median);
+      }
+    }
+    cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
+    Logger::instance()->logInfo("image written: ", realImageName);
+  }
+}
+
+void ResultWriter::showDetectionsLaser(
+  const std::unordered_map<std::string, std::string> &leftRightNamesMap,
+  const std::string &resultFolderName,
+  LaserParser& laserParser)
+{
+  Logger::instance()->logInfo("Showing detections");
+  for (auto pairNameRect: _detectedCars)
+  {
+    std::string imageLeftName = pairNameRect.first;
+    Logger::instance()->logInfo("imageLeftName", imageLeftName);
+    cv::Mat image = cv::imread(imageLeftName, CV_LOAD_IMAGE_COLOR);
+    size_t lastSlashPos = imageLeftName.find_last_of("/");
+    std::string realImageName = imageLeftName.substr(lastSlashPos+1);
+    cv::imwrite((resultFolderName + realImageName).c_str(), image);
+    for (auto rect: pairNameRect.second)
+    {
+      if (rect.width > 0 && rect.height > 0)
+      {
+        cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
+        double fovStart = ((double)rect.x / image.rows) * 105; //105 is the camera fov TODO hack
+        double fovEnd = (((double)rect.x + rect.width) / image.rows) * 105; //105 is the camera fov TODO hack
+        if (fovStart < 0 || fovEnd < 0) continue;
+        fovStart-=90;
+        fovEnd-=90; // hack the camera is rotated by 90 degrees
+        fovStart = (fovStart / 180) * M_PI;
+        fovEnd = (fovEnd / 180) * M_PI;
+        std::vector<double> xVec;
+        std::vector<double> yVec;
+        laserParser.getPointsForImageFov(imageLeftName, fovStart, fovEnd, xVec, yVec);
+        double medianX = Utils::getMedian(xVec);
+        double medianY = Utils::getMedian(yVec);
+        Logger::instance()->logInfo("median x", medianX);
+        Logger::instance()->logInfo("median y", medianY);
+        // this->addEntry(imageLeftName, median);
       }
     }
     cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
@@ -75,7 +127,7 @@ void ResultWriter::storeDetections(const Map& foundRectsWithNames)
 
 void ResultWriter::addEntry(
     const std::string &imageName,
-    const std::vector<float>& coords)
+    const std::vector<double>& coords)
 {
   auto found = imageName.find_last_of("/\\");
   _file<<"IMAGE_NAME:"<<imageName.substr(found+1)<<"\t";

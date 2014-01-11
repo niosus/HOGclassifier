@@ -13,34 +13,29 @@
 // You should have received a copy of the GNU General Public License
 // along with HOGclassifier.  If not, see <http://www.gnu.org/licenses/>.
 
-#ifndef DEPTH_ESTIMATOR
-#define DEPTH_ESTIMATOR
+#ifndef LASER_PARSER_H
+#define LASER_PARSER_H
 
 #include <vector>
+#include <unordered_map>
 #include <string>
-#include "opencv2/core/core.hpp"
-#include "opencv2/highgui/highgui.hpp"
-#include "bumblebee_camera_params.h"
 
-class DepthEstimator
+class LaserParser
 {
 public:
-  DepthEstimator();
-  void setCurrentDepthMapFromImage(
-    const std::string &imageLeftName,
-    const std::string &imageRightName);
-  std::vector<double> getDepthMedian(
-    const cv::Rect &rect) const;
-  cv::Mat getDisparity(
-    const cv::Mat &imageLeft,
-    const cv::Mat &imageRight);
-  void getDepthFromDisparity(
-    const cv::Mat &disparity,
-    const BumblebeeCameraParams &cameraParams,
-    cv::Mat& result);
+  LaserParser(const std::string& fileName);
+  void getPointsForImageFov(
+    const std::string& imageName,
+    const double& fovStart,
+    const double& fovEnd,
+    std::vector<double>& xVec,
+    std::vector<double>& yVec
+    );
 
 private:
-  cv::Mat _depthMap; // an opencv image of type CV_32FC3
+  std::unordered_map<std::string, std::vector<double> > _angles;
+  std::unordered_map<std::string, std::vector<double> > _pointsX;
+  std::unordered_map<std::string, std::vector<double> > _pointsY;
 };
 
-#endif //DEPTH_ESTIMATOR
+#endif

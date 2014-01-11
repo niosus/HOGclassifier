@@ -2,6 +2,7 @@
 #include "feature_detector.h"
 #include "car_detector.h"
 #include "svm_binder.h"
+#include "lasers_parser.h"
 // This file is part of HOGclassifier.
 
 // HOGclassifier is free software: you can redistribute it and/or modify
@@ -26,6 +27,7 @@ int main(int argc, char const *argv[])
 	string posDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/pos/";
 	string negDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/neg/";
 	string degree_0 = "degree_0";
+	string degree_0_180 = "degree_0_180";
 	string degree_180 = "degree_180";
 	string degree_plus_45 = "degree_+45";
 	string degree_minus_45 = "degree_-45";
@@ -35,25 +37,27 @@ int main(int argc, char const *argv[])
 	string degree_minus_90 = "degree_-90";
 	string negSquare = "neg_square/";
 	string negRect = "neg_rect/";
-	string testDirName="/home/igor/Work/Thesis/CarData/NewFreiburgData/PartOfData/SmallPart/";
 	string resultDir="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/";
-	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/log.dat";
+	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/car_rects_log.dat";
 	string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
-	string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
-	string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
+	// string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
+	// string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
+	string allLeftImagesDir = "/home/igor/logs/log_11_12_2013_____14_12_34/img/Left/";
+	string allRightImagesDir = "/home/igor/logs/log_11_12_2013_____14_12_34/img/Right/";
+	string laserLogFileName = "/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_9.txt";
 
 	std::vector<std::string> squarePosDirs;
 	std::vector<std::string> rectPosDirs;
 
-	squarePosDirs.push_back(posDirName + degree_0 +"/");
+	squarePosDirs.push_back(posDirName + degree_0_180 +"/");
 	// squarePosDirs.push_back(posDirName + degree_180 + "/");
 
 	// rectPosDirs.push_back(posDirName + degree_plus_45 + "/");
 	// rectPosDirs.push_back(posDirName + degree_minus_45 + "/");
 	// rectPosDirs.push_back(posDirName + degree_plus_115 + "/");
 	// rectPosDirs.push_back(posDirName + degree_minus_115 + "/");
-	rectPosDirs.push_back(posDirName + degree_plus_90 + "/");
-	rectPosDirs.push_back(posDirName + degree_minus_90 + "/");
+	// rectPosDirs.push_back(posDirName + degree_plus_90 + "/");
+	// rectPosDirs.push_back(posDirName + degree_minus_90 + "/");
 
 	vector<string> validExtensions;
     validExtensions.push_back("jpg");
@@ -70,13 +74,15 @@ int main(int argc, char const *argv[])
 		allLeftImagesDir, allRightImagesDir, validExtensions);
 
 	int seed = 10;
-	int numberOfTestSamples = 1000;
-	int minIndex = 300;
-	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size());
+	int numberOfTestSamples = 500;
+	int gap = 10;
+	int minIndex = 50;
+	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size(), gap);
 	sequenceGenerator.generateSequences(SequenceGenerator::SEQUENTIAL);
 	testExamples = sequenceGenerator.getTestExamples(testExamples);
 
-	ResultWriter resultWriter(logfile);
+	ResultWriter resultWriter(testExamples, logfile);
+	LaserParser laserParser(laserLogFileName);
 
 	for (auto dir: squarePosDirs)
 	{
@@ -102,7 +108,11 @@ int main(int argc, char const *argv[])
 		resultWriter.storeDetections(carDetector.getDetectedCarRects());
 	}
 
-	resultWriter.showDetections(leftToRightNamesMapping, resultDir);
+	////a version that uses depth from camera
+	// resultWriter.showDetections(leftToRightNamesMapping, resultDir);
+
+	//a version that uses depth from lasers
+	resultWriter.showDetectionsLaser(leftToRightNamesMapping, resultDir, laserParser);
 
 	return 0;
 }

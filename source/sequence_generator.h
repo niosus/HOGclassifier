@@ -27,8 +27,8 @@ class SequenceGenerator
 {
 public:
 	enum OrderType {RANDOM, SEQUENTIAL};
-	SequenceGenerator(int seed, int testSize, int minIndex, int maxIndex);
-	SequenceGenerator():_seed(-1), _testSize(-1), _maxIndex(-1) {}
+	SequenceGenerator(int seed, int testSize, int minIndex, int maxIndex, int gap);
+	SequenceGenerator():_seed(-1), _testSize(-1), _maxIndex(-1), _gap(1) {}
 	bool generateSequences(OrderType type);
 	bool checkContent();
 	vector<int> getTrainSeq();
@@ -40,6 +40,7 @@ private:
 	int _testSize;
 	int _maxIndex;
 	int _minIndex;
+	int _gap;
 	vector<int> _testSeq;
 	OrderType _type;
 

@@ -19,14 +19,19 @@
 class BumblebeeCameraParams
 {
 public:
-  BumblebeeCameraParams(){}
+  BumblebeeCameraParams()
+  {
+    this->fov = 105;
+  }
   BumblebeeCameraParams(float focus, float baseline)
   {
     this->focus = focus;
     this->baseline = baseline;
+    this->fov = 105;
   }
   float focus;
   float baseline;
+  float fov;
 };
 
 #endif
