@@ -46,7 +46,7 @@ public:
   {
     int first_pos,end_pos;
     end_pos = line.length();
-    first_pos = line.find(' ') + 1;
+    first_pos = line.find_last_of('/') + 1;
     return line.substr(first_pos, end_pos-first_pos);
   }
 

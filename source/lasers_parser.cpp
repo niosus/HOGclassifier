@@ -69,6 +69,7 @@ void LaserParser::getPointsForImageFov(
     std::vector<double>& xVec,
     std::vector<double>& yVec)
 {
+  std::cout<<"image name "<<imageName<<std::endl;
   xVec.clear();
   yVec.clear();
   std::vector<double> tempPointsX;

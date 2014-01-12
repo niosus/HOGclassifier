@@ -37,6 +37,10 @@ public:
   void addEntry(
     const std::string &imageName,
     const std::vector<double>& coords);
+  void addEntry(
+    const std::string &imageName,
+    const double& x,
+    const double& y);
   void showDetections(
     const std::unordered_map<std::string, std::string> &leftRightNamesMap,
     const std::string &resultFolderName);

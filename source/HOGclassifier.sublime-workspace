@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"fov",
+				"fovStart"
+			],
+			[
+				"utils",
+				"utils"
+			],
+			[
+				"vec",
+				"vector	std::vector"
+			],
+			[
+				"rec",
+				"rect"
+			],
+			[
 				"x",
 				"xVec"
 			],
@@ -14,10 +30,6 @@
 			[
 				"get",
 				"getMedian"
-			],
-			[
-				"fov",
-				"fovEnd"
 			],
 			[
 				"pu",
@@ -352,10 +364,6 @@
 				"std::string"
 			],
 			[
-				"rec",
-				"rectPosDirs"
-			],
-			[
 				"my",
 				"my_image_name"
 			],
@@ -506,24 +514,24 @@
 			[
 				"RA",
 				"RAND_H"
-			],
-			[
-				"MA",
-				"MAX_ALLOWED_WIDTH"
-			],
-			[
-				"IM",
-				"IMAGE"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 4968,
+				"line_ending": "Unix"
+			}
+		},
+		{
 			"file": "lasers_parser.h",
 			"settings":
 			{
-				"buffer_size": 551,
+				"buffer_size": 1269,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +539,7 @@
 			"file": "lasers_parser.cpp",
 			"settings":
 			{
-				"buffer_size": 1866,
+				"buffer_size": 2552,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +547,7 @@
 			"file": "utils.h",
 			"settings":
 			{
-				"buffer_size": 1151,
+				"buffer_size": 1901,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +555,31 @@
 			"file": "depth_estimator.cpp",
 			"settings":
 			{
-				"buffer_size": 4611,
+				"buffer_size": 4662,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "bumblebee_camera_params.h",
+			"settings":
+			{
+				"buffer_size": 1024,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "depth_estimator.h",
+			"settings":
+			{
+				"buffer_size": 1427,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "temp_result_writer.cpp",
+			"settings":
+			{
+				"buffer_size": 5251,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +587,7 @@
 			"file": "CMakeLists.txt",
 			"settings":
 			{
-				"buffer_size": 2813,
+				"buffer_size": 2968,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,15 +595,7 @@
 			"file": "temp_result_writer.h",
 			"settings":
 			{
-				"buffer_size": 1477,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "main.cpp",
-			"settings":
-			{
-				"buffer_size": 4796,
+				"buffer_size": 1674,
 				"line_ending": "Unix"
 			}
 		},
@@ -720,6 +744,7 @@
 	},
 	"file_history":
 	[
+		"/home/igor/logs/log_9_12_2013_____11_25_46/result-gps.gm2dl",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/CMakeLists.txt",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/gps_point.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/depth_estimator.cpp",
@@ -856,6 +881,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"fovStart",
+			"float",
 			"X",
 			"float",
 			"std::string",
@@ -984,110 +1011,81 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 10,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "lasers_parser.h",
+					"file": "main.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 551,
+						"buffer_size": 4968,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								334,
-								334
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "lasers_parser.cpp",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1866,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1257,
-								1257
+								4952,
+								4952
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 153.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "utils.h",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1151,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								755,
-								755
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/C++/C++.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 947.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "depth_estimator.cpp",
+					"buffer": 1,
+					"file": "lasers_parser.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4611,
+						"buffer_size": 1269,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								734,
-								734
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "lasers_parser.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
 							]
 						],
 						"settings":
@@ -1096,20 +1094,48 @@
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
+						"translation.x": -0.0,
+						"translation.y": 204.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "utils.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1901,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								684,
+								684
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 8,
 					"type": "text"
 				},
 				{
 					"buffer": 4,
-					"file": "CMakeLists.txt",
+					"file": "depth_estimator.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2813,
+						"buffer_size": 4662,
 						"regions":
 						{
 						},
@@ -1122,32 +1148,60 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/CMake/CMake.tmLanguage",
+							"syntax": "Packages/C++/C++.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 204.0,
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "temp_result_writer.h",
+					"file": "bumblebee_camera_params.h",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1477,
+						"buffer_size": 1024,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1035,
-								1035
+								803,
+								803
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "depth_estimator.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1066,
+								1066
 							]
 						],
 						"settings":
@@ -1160,40 +1214,101 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 8,
+					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "main.cpp",
+					"buffer": 7,
+					"file": "temp_result_writer.cpp",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4796,
+						"buffer_size": 5251,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2946,
-								2946
+								4062,
+								4062
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 965.0,
+						"translation.y": 983.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 7,
+					"buffer": 8,
+					"file": "CMakeLists.txt",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2968,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2001,
+								2001
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CMake/CMake.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 459.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "temp_result_writer.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1207,
+								1207
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 133.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
 					"file": "/home/igor/Work/Thesis/MiscCode/PythonScripts/find_positions_for_images.py",
 					"semi_transient": false,
 					"settings":
@@ -1216,14 +1331,14 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 1610.0,
+						"translation.y": 1508.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 8,
+					"buffer": 11,
 					"file": "/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_9.txt",
 					"semi_transient": false,
 					"settings":
@@ -1247,11 +1362,11 @@
 						"translation.y": 323.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 11,
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 12,
 					"file": "car_detector.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1277,11 +1392,11 @@
 						"translation.y": 162.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 11,
+					"stack_index": 14,
 					"type": "text"
 				},
 				{
-					"buffer": 10,
+					"buffer": 13,
 					"file": "feature_detector.h",
 					"semi_transient": false,
 					"settings":
@@ -1306,11 +1421,11 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 10,
+					"stack_index": 13,
 					"type": "text"
 				},
 				{
-					"buffer": 11,
+					"buffer": 14,
 					"file": "feature_detector_cpu.cpp",
 					"semi_transient": false,
 					"settings":
@@ -1336,7 +1451,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 9,
+					"stack_index": 12,
 					"type": "text"
 				}
 			]
@@ -1420,6 +1535,10 @@
 		"height": 79.0,
 		"selected_items":
 		[
+			[
+				"show",
+				"showDetections"
+			],
 			[
 				"median",
 				"getMedian"

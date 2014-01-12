@@ -82,21 +82,22 @@ void ResultWriter::showDetectionsLaser(
   LaserParser& laserParser)
 {
   Logger::instance()->logInfo("Showing detections");
+  double fullFoV = 105;
   for (auto pairNameRect: _detectedCars)
   {
     std::string imageLeftName = pairNameRect.first;
     Logger::instance()->logInfo("imageLeftName", imageLeftName);
     cv::Mat image = cv::imread(imageLeftName, CV_LOAD_IMAGE_COLOR);
-    size_t lastSlashPos = imageLeftName.find_last_of("/");
-    std::string realImageName = imageLeftName.substr(lastSlashPos+1);
+    std::string realImageName = Utils::parseImageName(imageLeftName);
     cv::imwrite((resultFolderName + realImageName).c_str(), image);
     for (auto rect: pairNameRect.second)
     {
       if (rect.width > 0 && rect.height > 0)
       {
         cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
-        double fovStart = ((double)rect.x / image.rows) * 105; //105 is the camera fov TODO hack
-        double fovEnd = (((double)rect.x + rect.width) / image.rows) * 105; //105 is the camera fov TODO hack
+        double fovStart = ((double)rect.x / image.rows) * fullFoV - fullFoV / 2; //105 is the camera fov TODO hack
+        double fovEnd = (((double)rect.x + rect.width) / image.rows) * fullFoV - fullFoV / 2; //105 is the camera fov TODO hack
+        std::cout<<"fields of view "<<"start:"<<fovStart<<" end:"<<fovEnd<<std::endl;
         if (fovStart < 0 || fovEnd < 0) continue;
         fovStart-=90;
         fovEnd-=90; // hack the camera is rotated by 90 degrees
@@ -104,12 +105,13 @@ void ResultWriter::showDetectionsLaser(
         fovEnd = (fovEnd / 180) * M_PI;
         std::vector<double> xVec;
         std::vector<double> yVec;
-        laserParser.getPointsForImageFov(imageLeftName, fovStart, fovEnd, xVec, yVec);
+        laserParser.getPointsForImageFov(realImageName, fovStart, fovEnd, xVec, yVec);
+        std::cout<<"sizes of vectors with points "<<xVec.size()<<" "<<yVec.size()<<std::endl;
         double medianX = Utils::getMedian(xVec);
         double medianY = Utils::getMedian(yVec);
         Logger::instance()->logInfo("median x", medianX);
         Logger::instance()->logInfo("median y", medianY);
-        // this->addEntry(imageLeftName, median);
+        this->addEntry(imageLeftName, medianX, medianY);
       }
     }
     cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
@@ -132,4 +134,14 @@ void ResultWriter::addEntry(
   auto found = imageName.find_last_of("/\\");
   _file<<"IMAGE_NAME:"<<imageName.substr(found+1)<<"\t";
   _file<<"X:"<<coords[0]<<"\tY:"<<coords[1]<<"\tZ:"<<coords[2]<<endl;
+}
+
+void ResultWriter::addEntry(
+    const std::string &imageName,
+    const double& x,
+    const double& y)
+{
+  _file << std::fixed << std::setprecision(3);
+  _file<<"IMAGE_NAME:"<<Utils::parseImageName(imageName)<<"\t";
+  _file<<"X:"<<x<<"\tY:"<<y<<endl;
 }

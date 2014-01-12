@@ -42,9 +42,9 @@ int main(int argc, char const *argv[])
 	string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
 	// string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
 	// string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
-	string allLeftImagesDir = "/home/igor/logs/log_11_12_2013_____14_12_34/img/Left/";
-	string allRightImagesDir = "/home/igor/logs/log_11_12_2013_____14_12_34/img/Right/";
-	string laserLogFileName = "/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_9.txt";
+	string allLeftImagesDir = "/home/igor/logs/log_5_12_2013_____10_52_19/img/Left/";
+	string allRightImagesDir = "/home/igor/logs/log_5_12_2013_____10_52_19/img/Right/";
+	string laserLogFileName = "/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_5.txt";
 
 	std::vector<std::string> squarePosDirs;
 	std::vector<std::string> rectPosDirs;
@@ -74,8 +74,8 @@ int main(int argc, char const *argv[])
 		allLeftImagesDir, allRightImagesDir, validExtensions);
 
 	int seed = 10;
-	int numberOfTestSamples = 500;
-	int gap = 10;
+	int numberOfTestSamples = 5;
+	int gap = 100;
 	int minIndex = 50;
 	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size(), gap);
 	sequenceGenerator.generateSequences(SequenceGenerator::SEQUENTIAL);
