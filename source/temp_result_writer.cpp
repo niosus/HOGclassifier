@@ -82,7 +82,7 @@ void ResultWriter::showDetectionsLaser(
   LaserParser& laserParser)
 {
   Logger::instance()->logInfo("Showing detections");
-  double fullFoV = 105;
+  double fullFoV = 97;
   for (auto pairNameRect: _detectedCars)
   {
     std::string imageLeftName = pairNameRect.first;
@@ -95,8 +95,8 @@ void ResultWriter::showDetectionsLaser(
       if (rect.width > 0 && rect.height > 0)
       {
         cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
-        double fovStart = ((double)rect.x / image.rows) * fullFoV - fullFoV / 2; //105 is the camera fov TODO hack
-        double fovEnd = (((double)rect.x + rect.width) / image.rows) * fullFoV - fullFoV / 2; //105 is the camera fov TODO hack
+        double fovStart = ((double)rect.x / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
+        double fovEnd = (((double)rect.x + rect.width) / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
         std::cout<<"fields of view "<<"start:"<<fovStart<<" end:"<<fovEnd<<std::endl;
         if (fovStart < 0 || fovEnd < 0) continue;
         fovStart-=90;
@@ -141,7 +141,8 @@ void ResultWriter::addEntry(
     const double& x,
     const double& y)
 {
+  if (x < 0 || y < 0) return;
   _file << std::fixed << std::setprecision(3);
   _file<<"IMAGE_NAME:"<<Utils::parseImageName(imageName)<<"\t";
-  _file<<"X:"<<x<<"\tY:"<<y<<endl;
+  _file<<"X\t"<<x<<"\tY\t"<<y<<endl;
 }

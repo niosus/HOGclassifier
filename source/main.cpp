@@ -1,8 +1,3 @@
-#include "directory_parser.h"
-#include "feature_detector.h"
-#include "car_detector.h"
-#include "svm_binder.h"
-#include "lasers_parser.h"
 // This file is part of HOGclassifier.
 
 // HOGclassifier is free software: you can redistribute it and/or modify
@@ -18,6 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with HOGclassifier.  If not, see <http://www.gnu.org/licenses/>.
 
+#include "directory_parser.h"
+#include "feature_detector.h"
+#include "car_detector.h"
+#include "svm_binder.h"
+#include "lasers_parser.h"
 #include "temp_result_writer.h"
 #include "sequence_generator.h"
 #include <vector>
@@ -38,7 +38,7 @@ int main(int argc, char const *argv[])
 	string negSquare = "neg_square/";
 	string negRect = "neg_rect/";
 	string resultDir="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/";
-	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/car_rects_log.dat";
+	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/car_pos_log.dat";
 	string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
 	// string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
 	// string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
@@ -74,8 +74,8 @@ int main(int argc, char const *argv[])
 		allLeftImagesDir, allRightImagesDir, validExtensions);
 
 	int seed = 10;
-	int numberOfTestSamples = 5;
-	int gap = 100;
+	int numberOfTestSamples = 200;
+	int gap = 10;
 	int minIndex = 50;
 	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size(), gap);
 	sequenceGenerator.generateSequences(SequenceGenerator::SEQUENTIAL);
