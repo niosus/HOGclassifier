@@ -74,7 +74,7 @@ int main(int argc, char const *argv[])
 		allLeftImagesDir, allRightImagesDir, validExtensions);
 
 	int seed = 10;
-	int numberOfTestSamples = 200;
+	int numberOfTestSamples = 1000;
 	int gap = 10;
 	int minIndex = 50;
 	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size(), gap);

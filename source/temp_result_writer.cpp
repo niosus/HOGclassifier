@@ -99,8 +99,8 @@ void ResultWriter::showDetectionsLaser(
         double fovEnd = (((double)rect.x + rect.width) / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
         std::cout<<"fields of view "<<"start:"<<fovStart<<" end:"<<fovEnd<<std::endl;
         if (fovStart < 0 || fovEnd < 0) continue;
-        fovStart-=90;
-        fovEnd-=90; // hack the camera is rotated by 90 degrees
+        fovStart+=90;
+        fovEnd+=90; // hack the camera is rotated by 90 degrees
         fovStart = (fovStart / 180) * M_PI;
         fovEnd = (fovEnd / 180) * M_PI;
         std::vector<double> xVec;
