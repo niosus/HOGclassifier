@@ -29,13 +29,17 @@ public:
     const double& fovStart,
     const double& fovEnd,
     std::vector<double>& xVec,
-    std::vector<double>& yVec
-    );
+    std::vector<double>& yVec);
+  void getImagePos(
+    const std::string& imageName,
+    double& x, double& y);
 
 private:
   std::unordered_map<std::string, std::vector<double> > _angles;
   std::unordered_map<std::string, std::vector<double> > _pointsX;
   std::unordered_map<std::string, std::vector<double> > _pointsY;
+  std::unordered_map<std::string, double > _imagePosX;
+  std::unordered_map<std::string, double > _imagePosY;
 };
 
 #endif

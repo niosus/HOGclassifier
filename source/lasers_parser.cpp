@@ -30,27 +30,38 @@ LaserParser::LaserParser(const std::string& fileName)
     return;
   }
   std::string line;
-  std::string IMAGE_TAG = "IMAGE_NAME";
+  std::string IMAGE_NAME_TAG = "IMAGE_NAME";
+  std::string IMAGE_POS_TAG = "IMAGE_POS";
   std::vector<double> tempAngles;
   std::vector<double> tempGpsX;
   std::vector<double> tempGpsY;
+  double imageX, imageY;
   std::string tempImageName;
 
   while (std::getline(in, line)) // read file until there are new lines
   {
-    if(line.find(IMAGE_TAG) == 0)
+    if(line.find(IMAGE_NAME_TAG) == 0)
     {
       _angles[tempImageName] = tempAngles;
       _pointsX[tempImageName] = tempGpsX;
       _pointsY[tempImageName] = tempGpsY;
+      _imagePosX[tempImageName] = imageX;
+      _imagePosY[tempImageName] = imageY;
       tempAngles.clear();
       tempGpsX.clear();
       tempGpsY.clear();
+      imageX = -1;
+      imageY = -1;
       tempImageName = Utils::splitString(line, "\t")[1];
+    }
+    else if(line.find(IMAGE_POS_TAG) == 0)
+    {
+      std::vector<std::string> tempSplit = Utils::splitString(line, "\t");
+      imageX = atof(tempSplit[2].c_str());
+      imageY = atof(tempSplit[4].c_str());
     }
     else
     {
-      cout.precision(15);
       std::vector<std::string> tempSplit = Utils::splitString(line, "\t");
       double angle = atof(tempSplit[3].c_str());
       double x = atof(tempSplit[5].c_str());
@@ -87,3 +98,11 @@ void LaserParser::getPointsForImageFov(
     counter++;
   }
 }
+
+void LaserParser::getImagePos(
+  const std::string& imageName,
+  double& x, double& y)
+  {
+    x = _imagePosX[imageName];
+    y = _imagePosY[imageName];
+  }

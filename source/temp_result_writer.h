@@ -49,8 +49,15 @@ public:
   const std::string &resultFolderName,
   LaserParser& laserParser);
   void storeDetections(const Map& foundRectsWithNames);
+  void plot(
+    const std::vector<double>& xVec,
+    const std::vector<double>& yVec);
+  void plot(
+    const double& x,
+    const double& y);
 private:
   std::ofstream _file;
+  std::ofstream  file;
   Map _detectedCars;
   std::vector<std::string> _imagesWithNoCars;
 };

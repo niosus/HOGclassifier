@@ -24,6 +24,21 @@
 
 int main(int argc, char const *argv[])
 {
+	if (argc < 2)
+	{
+		std::cerr<<"ERROR: There should be one parameter - folder with data"<<std::endl;
+		exit(1);
+	}
+	string folder = argv[1];
+	if (folder[folder.length()-1] == '/')
+	{
+		folder = folder.substr(0, folder.length() - 1);
+	}
+	string dateOfData = folder.substr(folder.find_last_of('/') + 1);
+	dateOfData = dateOfData.substr(0, dateOfData.find("_____"));
+	std::cout<<"The folder is "<<folder<<std::endl;
+	std::cout<<"The date of data is "<<dateOfData<<std::endl;
+
 	string posDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/pos/";
 	string negDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/neg/";
 	string degree_0 = "degree_0";
@@ -39,12 +54,12 @@ int main(int argc, char const *argv[])
 	string negRect = "neg_rect/";
 	string resultDir="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/";
 	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/car_pos_log.dat";
-	string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
+	// string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
 	// string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
 	// string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
-	string allLeftImagesDir = "/home/igor/logs/log_5_12_2013_____10_52_19/img/Left/";
-	string allRightImagesDir = "/home/igor/logs/log_5_12_2013_____10_52_19/img/Right/";
-	string laserLogFileName = "/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_5.txt";
+	string allLeftImagesDir = folder + "/img/Left/";
+	string allRightImagesDir = folder + "/img/Right/";
+	string laserLogFileName = "/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_" + dateOfData + ".txt";
 
 	std::vector<std::string> squarePosDirs;
 	std::vector<std::string> rectPosDirs;
@@ -74,7 +89,7 @@ int main(int argc, char const *argv[])
 		allLeftImagesDir, allRightImagesDir, validExtensions);
 
 	int seed = 10;
-	int numberOfTestSamples = 1000;
+	int numberOfTestSamples = 2000;
 	int gap = 10;
 	int minIndex = 50;
 	SequenceGenerator sequenceGenerator(seed, numberOfTestSamples, minIndex, testExamples.size(), gap);

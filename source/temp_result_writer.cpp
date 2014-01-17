@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with HOGclassifier.  If not, see <http://www.gnu.org/licenses/>.
 
+#define GNUPLOT "gnuplot -persist"
+
 #include "temp_result_writer.h"
 #include "highgui.h"
 #include "logger.h"
@@ -22,6 +24,7 @@ ResultWriter::ResultWriter(
   const std::vector<std::string>& allImageNames,
   std::string fileName)
 {
+  file.open("temp.dat", std::ofstream::out);
   if (fileName == "")
   {
     fileName = "output_log.dat";
@@ -40,6 +43,7 @@ ResultWriter::ResultWriter(
 ResultWriter::~ResultWriter()
 {
   _file.close();
+  file.close();
 }
 
 void ResultWriter::showDetections(
@@ -56,8 +60,7 @@ void ResultWriter::showDetections(
     Logger::instance()->logInfo("imageRightName", imageRightName);
     depthEstimator.setCurrentDepthMapFromImage(imageLeftName, imageRightName);
     cv::Mat image = cv::imread(imageLeftName, CV_LOAD_IMAGE_COLOR);
-    size_t lastSlashPos = imageLeftName.find_last_of("/");
-    std::string realImageName = imageLeftName.substr(lastSlashPos+1);
+    std::string realImageName = Utils::parseImageName(imageLeftName);
     cv::imwrite((resultFolderName + realImageName).c_str(), image);
     for (auto rect: pairNameRect.second)
     {
@@ -98,13 +101,17 @@ void ResultWriter::showDetectionsLaser(
         double fovStart = ((double)rect.x / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
         double fovEnd = (((double)rect.x + rect.width) / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
         std::cout<<"fields of view "<<"start:"<<fovStart<<" end:"<<fovEnd<<std::endl;
-        if (fovStart < 0 || fovEnd < 0) continue;
-        fovStart+=90;
-        fovEnd+=90; // hack the camera is rotated by 90 degrees
+        float angleOfCamera = 90;
+        double temp;
+        temp = fovEnd;
+        fovEnd= -fovStart + angleOfCamera;
+        fovStart= - temp + angleOfCamera; // hack the camera is rotated by 90 degrees
         fovStart = (fovStart / 180) * M_PI;
         fovEnd = (fovEnd / 180) * M_PI;
         std::vector<double> xVec;
         std::vector<double> yVec;
+        double imageX, imageY;
+        laserParser.getImagePos(realImageName, imageX, imageY);
         laserParser.getPointsForImageFov(realImageName, fovStart, fovEnd, xVec, yVec);
         std::cout<<"sizes of vectors with points "<<xVec.size()<<" "<<yVec.size()<<std::endl;
         double medianX = Utils::getMedian(xVec);
@@ -112,6 +119,10 @@ void ResultWriter::showDetectionsLaser(
         Logger::instance()->logInfo("median x", medianX);
         Logger::instance()->logInfo("median y", medianY);
         this->addEntry(imageLeftName, medianX, medianY);
+        plot(imageX, imageY);
+        plot(xVec[0], yVec[0]);
+        plot(xVec[xVec.size()-1], yVec[yVec.size()-1]);
+        plot(imageX, imageY);
       }
     }
     cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
@@ -125,6 +136,34 @@ void ResultWriter::storeDetections(const Map& foundRectsWithNames)
   {
     _detectedCars[entry.first].insert(_detectedCars[entry.first].end(), entry.second.begin(), entry.second.end());
   }
+}
+
+void ResultWriter::plot(
+  const std::vector<double>& xVec,
+  const std::vector<double>& yVec)
+{
+  for (int i = 0; i < xVec.size(); ++i)
+  {
+    file << std::fixed << std::setprecision(3);
+    file<<"X\t"<<xVec[i]<<"\tY\t"<<yVec[i]<<endl;
+  }
+  FILE *gp;
+  gp = popen(GNUPLOT,"w"); /* 'gp' is the pipe descriptor */
+  if (gp==NULL)
+  {
+    printf("Error opening pipe to GNU plot. Check if you have it! \n");
+    return;
+  }
+  fprintf(gp, "plot \"./temp.dat\" using 2:4");
+  fclose(gp);
+}
+
+void ResultWriter::plot(
+  const double& x,
+  const double& y)
+{
+  file << std::fixed << std::setprecision(3);
+  file << "X\t"<< x << "\tY\t" << y <<endl;
 }
 
 void ResultWriter::addEntry(
