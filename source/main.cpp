@@ -53,7 +53,7 @@ int main(int argc, char const *argv[])
 	string negSquare = "neg_square/";
 	string negRect = "neg_rect/";
 	string resultDir="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/";
-	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/car_pos_log.dat";
+	string logfile="/home/igor/Work/Thesis/MiscCode/HOGclassifier/Result/car_pos_" + dateOfData + ".dat";
 	// string depthDirName="/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Depth/";
 	// string allLeftImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Left/";
 	// string allRightImagesDir = "/home/igor/Work/Thesis/CarData/CarSeasonsNewAll/Rectified/Right/";
