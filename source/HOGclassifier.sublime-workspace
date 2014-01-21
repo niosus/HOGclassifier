@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"cl",
+				"clang_next"
+			],
+			[
+				"_",
+				"_file"
+			],
+			[
+				"ex",
+				"exit  (function)"
+			],
+			[
 				"seq",
 				"sequenceGenerator"
 			],
@@ -228,10 +240,6 @@
 				"numBeams"
 			],
 			[
-				"cl",
-				"close"
-			],
-			[
 				"f",
 				"fo"
 			],
@@ -362,10 +370,6 @@
 			[
 				"CV_",
 				"CV_32F"
-			],
-			[
-				"_",
-				"_depthMap"
 			],
 			[
 				"su",
@@ -510,49 +514,49 @@
 			[
 				"Car",
 				"CarDetector"
-			],
-			[
-				"win",
-				"winSize"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "main.cpp",
-			"settings":
-			{
-				"buffer_size": 5392,
-				"line_ending": "Unix"
-			}
-		}
 	],
-	"build_system": "Packages/Python/Python.sublime-build",
+	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
 	"command_palette":
 	{
-		"height": 194.0,
+		"height": 171.0,
 		"selected_items":
 		[
 			[
-				"install",
-				"Package Control: Install Package"
+				"sublimeClang",
+				"Preferences: SublimeClang Settings – Default"
 			],
 			[
 				"instal",
 				"Package Control: Install Package"
 			],
 			[
-				"remo",
-				"Package Control: Remove Package"
-			],
-			[
 				"insta",
 				"Package Control: Install Package"
 			],
 			[
+				"mark",
+				"Markdown Preview: Github Flavored Markdown: Preview in Browser"
+			],
+			[
 				"inst",
 				"Package Control: Install Package"
+			],
+			[
+				"intel",
+				"SublimeCodeIntel: Disable Plugin"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
 			],
 			[
 				"ins",
@@ -615,7 +619,11 @@
 	},
 	"console":
 	{
-		"height": 139.0
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
 	},
 	"distraction_free":
 	{
@@ -628,15 +636,22 @@
 	},
 	"file_history":
 	[
-		"/home/igor/Work/Thesis/MiscCode/PythonScripts/find_positions_for_images.py",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/lasers_parser.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/list.todo",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/main.cpp",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.cpp",
+		"/home/igor/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/SublimeClang/Default.sublime-keymap",
+		"/home/igor/Work/Thesis/MiscCode/PythonScripts/find_positions_for_images.py",
+		"/home/igor/.config/sublime-text-3/Packages/PlainTasks/messages/Tutorial.todo",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/README.md",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/lasers_parser.cpp",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/lasers_parser.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/logger.cpp",
 		"/home/igor/.codeintel/codeintel.log",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/main.cpp",
 		"/home/igor/.config/sublime-text-3/Packages/WhoCalled Function Finder/WhoCalled.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/WhoCalled Function Finder/README.md",
 		"/home/igor/Work/Thesis/MiscCode/PythonScripts/gps_for_each_image_log_5.txt",
@@ -645,7 +660,6 @@
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/CMakeLists.txt",
 		"/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_5.txt",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/car_detector.cpp",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_cpu.cpp",
 		"/home/igor/logs/log_5_12_2013_____10_52_19/log_5_12_2013_____10_52_19-carmen.log",
 		"/home/igor/Work/Thesis/MiscCode/PythonScripts/laser_points_9.txt",
@@ -749,13 +763,7 @@
 		"/home/igor/Work/Thesis/MiscCode/learcode/buildtest.sh",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/normals.sublime-project",
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/build/cmake_install.cmake",
-		"/home/igor/Work/HiWi/bogoslai-normals-svm/CMakeLists.txt",
-		"/home/igor/Work/Thesis/MiscCode/trainHOG/svmlight/svm_learn.h",
-		"/home/igor/Work/Thesis/CarData/TrainingData/neg/imageMagickTest1/delete.sh",
-		"/home/igor/Work/Thesis/CarData/TrainingData/neg/imageMagickTest1/test.sh",
-		"/home/igor/Work/Thesis/MiscCode/imageclipper/src/Makefile",
-		"/home/igor/Work/Thesis/OSMViewer/map_test.osm",
-		"/home/igor/Work/Thesis/MiscCode/trainHOG/Readme.md"
+		"/home/igor/Work/HiWi/bogoslai-normals-svm/CMakeLists.txt"
 	],
 	"find":
 	{
@@ -763,7 +771,7 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
 			""
@@ -774,6 +782,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"t",
 			"angle",
 			"90",
 			"_file",
@@ -921,140 +930,8 @@
 	"groups":
 	[
 		{
-			"selected": 0,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "main.cpp",
-					"settings":
-					{
-						"buffer_size": 5392,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2723,
-								2723
-							]
-						],
-						"settings":
-						{
-							"codeintel": true,
-							"codeintel_config":
-							{
-								"JavaScript":
-								{
-									"codeintel_max_recursive_dir_depth": 2,
-									"codeintel_scan_files_in_project": false,
-									"javascriptExtraPaths":
-									[
-									]
-								},
-								"PHP":
-								{
-									"codeintel_max_recursive_dir_depth": 5,
-									"codeintel_scan_files_in_project": false,
-									"phpExtraPaths":
-									[
-									]
-								},
-								"Python":
-								{
-									"env":
-									{
-									}
-								}
-							},
-							"codeintel_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_live": true,
-							"codeintel_live_enabled_languages":
-							[
-								"JavaScript",
-								"Mason",
-								"XBL",
-								"XUL",
-								"RHTML",
-								"SCSS",
-								"Python",
-								"HTML",
-								"Ruby",
-								"Python3",
-								"XML",
-								"Sass",
-								"XSLT",
-								"Django",
-								"HTML5",
-								"Perl",
-								"CSS",
-								"Twig",
-								"Less",
-								"Smarty",
-								"Node.js",
-								"Tcl",
-								"TemplateToolkit",
-								"PHP"
-							],
-							"codeintel_max_recursive_dir_depth": 10,
-							"codeintel_scan_exclude_dir":
-							{
-								"JavaScript":
-								[
-									"/build/",
-									"/min/"
-								]
-							},
-							"codeintel_scan_files_in_project": true,
-							"codeintel_selected_catalogs":
-							[
-								"PyWin32",
-								"jQuery",
-								"Rails"
-							],
-							"codeintel_snippets": true,
-							"codeintel_syntax_map":
-							{
-								"Python Django": "Python"
-							},
-							"codeintel_tooltips": "popup",
-							"sublime_auto_complete": true,
-							"syntax": "Packages/C++/C++.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 459.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1089,6 +966,14 @@
 		]
 	},
 	"menu_visible": true,
+	"output.clang":
+	{
+		"height": 112.0
+	},
+	"output.clang_static_analyzer":
+	{
+		"height": 0.0
+	},
 	"output.exec":
 	{
 		"height": 249.0
@@ -1105,6 +990,11 @@
 	{
 		"height": 112.0
 	},
+	"output.markdown":
+	{
+		"height": 112.0
+	},
+	"project": "HOGclassifier.sublime-project",
 	"replace":
 	{
 		"height": 46.0
@@ -1130,10 +1020,32 @@
 		],
 		"width": 380.0
 	},
+	"select_symbol":
+	{
+		"height": 79.0,
+		"selected_items":
+		[
+			[
+				"show",
+				"showDetections"
+			],
+			[
+				"median",
+				"getMedian"
+			]
+		],
+		"width": 759.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 233.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }

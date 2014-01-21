@@ -2,16 +2,16 @@ HOGclassifier
 =============
 
 A program that uses libSVM in order to classify HOG features for visual object detection.
-Currently I used it to detect cars, so you may also find the positive training data there. 
+Currently I used it to detect cars, so you may also find the positive training data there.
 It is not the final version, so it may lack quality in detection.
 
 Warning! This program is growing and shrinking without any prior notice. However, once my thesis is done, it will shrink in size so that it does only car detection with a monocular camera. Thanks for interest!
 
 Usage
 -------
-To run this code you will need some external dependencies, such as `OpenMP` and `OpenCV`. 
+To run this code you will need some external dependencies, such as `OpenMP` and `OpenCV`.
 You can download those on respective websites.
-The app uses `c++0x`, so a modern compiler would also be of use. 
+The app uses `c++0x`, so a modern compiler would also be of use.
 
 To build this software you just need to:
 
@@ -19,17 +19,17 @@ To build this software you just need to:
     cmake ..`
     make`
 
-After these actions you should find an executable in `bin` folder. 
+After these actions you should find an executable in `bin` folder.
 
-Currently (you may kick me for this) the pathes to training and test data are hardcoded. 
+Currently (you may kick me for this) the pathes to training and test data are hardcoded.
 You may want to change this. If it looks nice afterwards I would be happy to accept the pull request.
 
-The other thing is the purpose of use of this piece of software. I use it to detect cars with a 
+The other thing is the purpose of use of this piece of software. I use it to detect cars with a
 bumblebee camera. Therefore I also analyze the depth of the car. You may safely skip it.
 All relevant code is found in `ResultAnalyzer` class.
 
-WARNING - I only ran the software on `Ubuntu 12.04 x64`, so no guarantees that it will work on other 
-systems what so ever. 
+WARNING - I only ran the software on `Ubuntu 12.04 x64`, so no guarantees that it will work on other
+systems what so ever.
 
 Training Data
 ------------
