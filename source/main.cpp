@@ -20,25 +20,13 @@
 #include "lasers_parser.h"
 #include "temp_result_writer.h"
 #include "sequence_generator.h"
+#include "utils.h"
 #include <vector>
 
 int main(int argc, char const *argv[])
 {
-	if (argc < 2)
-	{
-		std::cerr<<"ERROR: There should be one parameter - folder with data"<<std::endl;
-		exit(1);
-	}
-	string folder = argv[1];
-	if (folder[folder.length()-1] == '/')
-	{
-		folder = folder.substr(0, folder.length() - 1);
-	}
-	string dateOfData = folder.substr(folder.find_last_of('/') + 1);
-	dateOfData = dateOfData.substr(0, dateOfData.find("_____"));
-	std::cout<<"The folder is "<<folder<<std::endl;
-	std::cout<<"The date of data is "<<dateOfData<<std::endl;
-
+	std::string folder, dateOfData;
+	Utils::analyzeCmdParams(argc, argv, folder, dateOfData);
 	string posDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/pos/";
 	string negDirName="/home/igor/Work/Thesis/MiscCode/HOGclassifier/neg/";
 	string degree_0 = "degree_0";

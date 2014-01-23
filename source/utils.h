@@ -17,6 +17,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include "logger.h"
 
 class Utils
 {
@@ -63,5 +64,27 @@ public:
     }
     result.push_back(line);
     return result;
+  }
+
+  static void analyzeCmdParams(
+    const int argc, char const *argv[],
+    std::string& folder,
+    std::string& dateOfData)
+  {
+    if (argc < 2)
+    {
+      Logger::instance()->logError("CmdLineParser", Logger::NO_PARAMETER);
+      // std::cerr<<"ERROR: There should be one parameter - folder with data"<<std::endl;
+      exit(1);
+    }
+    folder = argv[1];
+    if (folder[folder.length()-1] == '/')
+    {
+      folder = folder.substr(0, folder.length() - 1);
+    }
+    dateOfData = folder.substr(folder.find_last_of('/') + 1);
+    dateOfData = dateOfData.substr(0, dateOfData.find("_____"));
+    Logger::instance()->logInfo("The folder is", folder);
+    Logger::instance()->logInfo("The date of data is", dateOfData);
   }
 };
