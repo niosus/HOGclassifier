@@ -20,89 +20,89 @@
 #include "utils.h"
 using namespace std;
 
-LaserParser::LaserParser(const std::string& fileName)
+LaserParser::LaserParser(const std::string &fileName)
 {
-  std::ifstream in;
-  in.open(fileName.c_str());
-  if(!in)
-  {
-    Logger::instance()->logError("LaserParser", Logger::FILE_NOT_OPENED);
-    return;
-  }
-  std::string line;
-  std::string IMAGE_NAME_TAG = "IMAGE_NAME";
-  std::string IMAGE_POS_TAG = "IMAGE_POS";
-  std::vector<double> tempAngles;
-  std::vector<double> tempGpsX;
-  std::vector<double> tempGpsY;
-  double imageX, imageY;
-  std::string tempImageName;
+    std::ifstream in;
+    in.open(fileName.c_str());
+    if (!in)
+    {
+        Logger::instance()->logError("LaserParser", Logger::FILE_NOT_OPENED);
+        return;
+    }
+    std::string line;
+    std::string IMAGE_NAME_TAG = "IMAGE_NAME";
+    std::string IMAGE_POS_TAG = "IMAGE_POS";
+    std::vector<double> tempAngles;
+    std::vector<double> tempGpsX;
+    std::vector<double> tempGpsY;
+    double imageX, imageY;
+    std::string tempImageName;
 
-  while (std::getline(in, line)) // read file until there are new lines
-  {
-    if(line.find(IMAGE_NAME_TAG) == 0)
+    while (std::getline(in, line)) // read file until there are new lines
     {
-      _angles[tempImageName] = tempAngles;
-      _pointsX[tempImageName] = tempGpsX;
-      _pointsY[tempImageName] = tempGpsY;
-      _imagePosX[tempImageName] = imageX;
-      _imagePosY[tempImageName] = imageY;
-      tempAngles.clear();
-      tempGpsX.clear();
-      tempGpsY.clear();
-      imageX = -1;
-      imageY = -1;
-      tempImageName = Utils::splitString(line, "\t")[1];
+        if (line.find(IMAGE_NAME_TAG) == 0)
+        {
+            _angles[tempImageName] = tempAngles;
+            _pointsX[tempImageName] = tempGpsX;
+            _pointsY[tempImageName] = tempGpsY;
+            _imagePosX[tempImageName] = imageX;
+            _imagePosY[tempImageName] = imageY;
+            tempAngles.clear();
+            tempGpsX.clear();
+            tempGpsY.clear();
+            imageX = -1;
+            imageY = -1;
+            tempImageName = Utils::splitString(line, "\t")[1];
+        }
+        else if (line.find(IMAGE_POS_TAG) == 0)
+        {
+            std::vector<std::string> tempSplit = Utils::splitString(line, "\t");
+            imageX = atof(tempSplit[2].c_str());
+            imageY = atof(tempSplit[4].c_str());
+        }
+        else
+        {
+            std::vector<std::string> tempSplit = Utils::splitString(line, "\t");
+            double angle = atof(tempSplit[3].c_str());
+            double x = atof(tempSplit[5].c_str());
+            double y = atof(tempSplit[7].c_str());
+            tempAngles.push_back(angle);
+            tempGpsX.push_back(x);
+            tempGpsY.push_back(y);
+        }
     }
-    else if(line.find(IMAGE_POS_TAG) == 0)
-    {
-      std::vector<std::string> tempSplit = Utils::splitString(line, "\t");
-      imageX = atof(tempSplit[2].c_str());
-      imageY = atof(tempSplit[4].c_str());
-    }
-    else
-    {
-      std::vector<std::string> tempSplit = Utils::splitString(line, "\t");
-      double angle = atof(tempSplit[3].c_str());
-      double x = atof(tempSplit[5].c_str());
-      double y = atof(tempSplit[7].c_str());
-      tempAngles.push_back(angle);
-      tempGpsX.push_back(x);
-      tempGpsY.push_back(y);
-    }
-  }
 }
 
 void LaserParser::getPointsForImageFov(
-    const std::string& imageName,
-    const double& fovStart,
-    const double& fovEnd,
-    std::vector<double>& xVec,
-    std::vector<double>& yVec)
+    const std::string &imageName,
+    const double &fovStart,
+    const double &fovEnd,
+    std::vector<double> &xVec,
+    std::vector<double> &yVec)
 {
-  std::cout<<"image name "<<imageName<<std::endl;
-  xVec.clear();
-  yVec.clear();
-  std::vector<double> tempPointsX;
-  std::vector<double> tempPointsY;
-  tempPointsX = _pointsX[imageName];
-  tempPointsY = _pointsY[imageName];
-  int counter = 0;
-  for (const auto& angle: _angles[imageName])
-  {
-    if (angle > fovStart && angle < fovEnd)
+    std::cout << "image name " << imageName << std::endl;
+    xVec.clear();
+    yVec.clear();
+    std::vector<double> tempPointsX;
+    std::vector<double> tempPointsY;
+    tempPointsX = _pointsX[imageName];
+    tempPointsY = _pointsY[imageName];
+    int counter = 0;
+    for (const auto &angle : _angles[imageName])
     {
-      xVec.push_back(tempPointsX[counter]);
-      yVec.push_back(tempPointsY[counter]);
+        if (angle > fovStart && angle < fovEnd)
+        {
+            xVec.push_back(tempPointsX[counter]);
+            yVec.push_back(tempPointsY[counter]);
+        }
+        counter++;
     }
-    counter++;
-  }
 }
 
 void LaserParser::getImagePos(
-  const std::string& imageName,
-  double& x, double& y)
-  {
+    const std::string &imageName,
+    double &x, double &y)
+{
     x = _imagePosX[imageName];
     y = _imagePosY[imageName];
-  }
+}
