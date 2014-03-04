@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"arg",
+				"argc"
+			],
+			[
 				"cl",
 				"clang_next"
 			],
@@ -50,10 +54,6 @@
 			[
 				"date",
 				"dateOfData"
-			],
-			[
-				"arg",
-				"argv"
 			],
 			[
 				"Fa",
@@ -519,17 +519,53 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "main.cpp",
+			"settings":
+			{
+				"buffer_size": 5045,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "utils.h",
+			"settings":
+			{
+				"buffer_size": 2754,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "logger.h",
+			"settings":
+			{
+				"buffer_size": 1871,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "lasers_parser.cpp",
+			"settings":
+			{
+				"buffer_size": 3150,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "logger.cpp",
+			"settings":
+			{
+				"buffer_size": 2716,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "Packages/Markdown Preview/Markdown.sublime-build",
 	"command_palette":
 	{
-		"height": 171.0,
+		"height": 54.0,
 		"selected_items":
 		[
-			[
-				"sublimeClang",
-				"Preferences: SublimeClang Settings – Default"
-			],
 			[
 				"instal",
 				"Package Control: Install Package"
@@ -537,6 +573,74 @@
 			[
 				"insta",
 				"Package Control: Install Package"
+			],
+			[
+				"remo",
+				"Preferences: MarkdownEditing Settings – User"
+			],
+			[
+				"clang",
+				"Package Control: Enable Package"
+			],
+			[
+				"lin",
+				"SublimeLinter: Disable Linter"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"commi",
+				"Git: Commit"
+			],
+			[
+				"git add",
+				"Git: Add Current File"
+			],
+			[
+				"commit",
+				"Git: Commit"
+			],
+			[
+				"lint",
+				"SublimeLinter: Toggle Linter"
+			],
+			[
+				"linter",
+				"SublimeLinter: Lint This View"
+			],
+			[
+				"com",
+				"Git: Commit"
+			],
+			[
+				"add",
+				"Git: Add..."
+			],
+			[
+				"stat",
+				"Git: Status"
+			],
+			[
+				"pu",
+				"Git: Push"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git comm",
+				"Git: Commit"
+			],
+			[
+				"git",
+				"Git: Commit"
+			],
+			[
+				"sublimeClang",
+				"Preferences: SublimeClang Settings – Default"
 			],
 			[
 				"mark",
@@ -553,10 +657,6 @@
 			[
 				"install",
 				"Package Control: Install Package"
-			],
-			[
-				"remo",
-				"Package Control: Remove Package"
 			],
 			[
 				"ins",
@@ -587,24 +687,8 @@
 				"Package Control: Remove Package"
 			],
 			[
-				"push",
-				"Git: Push"
-			],
-			[
-				"git comm",
-				"Git: Commit"
-			],
-			[
-				"git add",
-				"Git: Quick Add"
-			],
-			[
 				"git co",
 				"Git: Commit"
-			],
-			[
-				"git",
-				"Git: Show"
 			],
 			[
 				"git pus",
@@ -615,13 +699,16 @@
 				"Git: Status"
 			]
 		],
-		"width": 633.0
+		"width": 449.0
 	},
 	"console":
 	{
-		"height": 139.0,
+		"height": 250.0,
 		"history":
 		[
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)",
+			"cpplint",
+			"lint",
 			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
 		]
 	},
@@ -636,12 +723,22 @@
 	},
 	"file_history":
 	[
+		"/usr/include/c++/4.6/bits/stringfwd.h",
+		"/home/igor/.config/sublime-text-3/Packages/User/SublimeClang.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/SublimeClang/SublimeClang.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/User/Markdown.sublime-settings",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_cpu.h",
+		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp",
+		"/usr/include/c++/4.6/iostream",
+		"/usr/include/c++/4.7/iostream",
+		"/usr/include/c++/4.6.3/iostream",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/list.todo",
+		"/home/igor/.config/sublime-text-3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/main.cpp",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/temp_result_writer.cpp",
 		"/home/igor/.config/sublime-text-3/Packages/Git/Git.sublime-settings",
-		"/home/igor/.config/sublime-text-3/Packages/SublimeClang/SublimeClang.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/SublimeClang/Default.sublime-keymap",
 		"/home/igor/Work/Thesis/MiscCode/PythonScripts/find_positions_for_images.py",
 		"/home/igor/.config/sublime-text-3/Packages/PlainTasks/messages/Tutorial.todo",
@@ -687,8 +784,6 @@
 		"/home/igor/newFreiburgDataLog.alog",
 		"/home/igor/Work/Thesis/MiscCode/PythonScripts/create_log.py",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.h",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector.cpp",
-		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_cpu.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_gpu.cpp",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/feature_detector_gpu.h",
 		"/home/igor/Work/Thesis/MiscCode/HOGclassifier/source/directory_parser.cpp",
@@ -748,7 +843,6 @@
 		"/home/igor/Work/Thesis/CarData/DataFromGoogleImages/getimages.sh",
 		"/home/igor/log_24_5_2012_____11_11_47.alog",
 		"/home/igor/.gitconfig",
-		"/home/igor/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/User/C++.sublime-settings",
 		"/home/igor/.config/sublime-text-3/Packages/SublimeCodeIntel/SublimeCodeIntel.sublime-settings",
@@ -756,18 +850,11 @@
 		"/home/igor/Work/HiWi/bogoslai-normals-svm/traverse/app/CMakeLists.txt",
 		"/home/igor/Work/Thesis/MiscCode/learcode/lear/cvision/dhistogram.h",
 		"/home/igor/Work/Thesis/MiscCode/learcode/lear/blitz/tvmio.h",
-		"/home/igor/Work/Thesis/MiscCode/learcode/lear/cvision/histogram.h",
-		"/home/igor/Work/Thesis/MiscCode/learcode/lear/blitz/blitzio.h",
-		"/home/igor/ExternalLibs/blitz-0.9_CorrectedbyOPForICCBUG-ClangWarn/Makefile",
-		"/home/igor/ExternalLibs/blitz-0.10/INSTALL",
-		"/home/igor/Work/Thesis/MiscCode/learcode/buildtest.sh",
-		"/home/igor/Work/HiWi/bogoslai-normals-svm/normals.sublime-project",
-		"/home/igor/Work/HiWi/bogoslai-normals-svm/build/cmake_install.cmake",
-		"/home/igor/Work/HiWi/bogoslai-normals-svm/CMakeLists.txt"
+		"/home/igor/Work/Thesis/MiscCode/learcode/lear/cvision/histogram.h"
 	],
 	"find":
 	{
-		"height": 35.0
+		"height": 25.0
 	},
 	"find_in_files":
 	{
@@ -930,8 +1017,468 @@
 	"groups":
 	[
 		{
+			"selected": 3,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "main.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5045,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 510.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "utils.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2754,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1617,
+								1617
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "logger.h",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1871,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								999,
+								999
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C Improved/C Improved.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "lasers_parser.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3150,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2327,
+								2327
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 765.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "logger.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2626,
+								2626
+							]
+						],
+						"settings":
+						{
+							"codeintel": true,
+							"codeintel_config":
+							{
+								"JavaScript":
+								{
+									"codeintel_max_recursive_dir_depth": 2,
+									"codeintel_scan_files_in_project": false,
+									"javascriptExtraPaths":
+									[
+									]
+								},
+								"PHP":
+								{
+									"codeintel_max_recursive_dir_depth": 5,
+									"codeintel_scan_files_in_project": false,
+									"phpExtraPaths":
+									[
+									]
+								},
+								"Python":
+								{
+									"env":
+									{
+									}
+								}
+							},
+							"codeintel_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_live": true,
+							"codeintel_live_enabled_languages":
+							[
+								"JavaScript",
+								"Mason",
+								"XBL",
+								"XUL",
+								"RHTML",
+								"SCSS",
+								"Python",
+								"HTML",
+								"Ruby",
+								"Python3",
+								"XML",
+								"Sass",
+								"XSLT",
+								"Django",
+								"HTML5",
+								"Perl",
+								"CSS",
+								"Twig",
+								"Less",
+								"Smarty",
+								"Node.js",
+								"Tcl",
+								"TemplateToolkit",
+								"PHP"
+							],
+							"codeintel_max_recursive_dir_depth": 10,
+							"codeintel_scan_exclude_dir":
+							{
+								"JavaScript":
+								[
+									"/build/",
+									"/min/"
+								]
+							},
+							"codeintel_scan_files_in_project": true,
+							"codeintel_selected_catalogs":
+							[
+								"PyWin32",
+								"jQuery",
+								"Rails"
+							],
+							"codeintel_snippets": true,
+							"codeintel_syntax_map":
+							{
+								"Python Django": "Python"
+							},
+							"codeintel_tooltips": "popup",
+							"sublime_auto_complete": true,
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -968,7 +1515,7 @@
 	"menu_visible": true,
 	"output.clang":
 	{
-		"height": 112.0
+		"height": 159.0
 	},
 	"output.clang_static_analyzer":
 	{
@@ -981,6 +1528,10 @@
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git":
+	{
+		"height": 112.0
 	},
 	"output.git-commit":
 	{

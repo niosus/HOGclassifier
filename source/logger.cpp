@@ -17,8 +17,7 @@
 #include "logger.h"
 
 // Global static pointer used to ensure a single instance of the class.
-Logger* Logger::m_pInstance = NULL;  
-  
+Logger* Logger::m_pInstance = NULL;
 Logger* Logger::instance()
 {
    if (!m_pInstance)   // Only allow one instance of class to be generated.
@@ -84,7 +83,7 @@ void logInfo(const string& message, const int& param)
 {
 	cout<<"INFO: "<<message<<" "<<param<<endl;
 }
- 
+
 Logger::~Logger()
 {
 	if (m_pInstance)

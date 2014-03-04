@@ -39,6 +39,7 @@ public:
 			break;
 		}
 	}
+	virtual ~FeatureDetector(){}
 	void detectFeatures(const std::vector<std::string>& filenames, FeatureEntity which);
 	void setHogFromSvm(std::vector<float>* features);
 	std::vector<std::vector<float> >* getFeatures(FeatureEntity which);
