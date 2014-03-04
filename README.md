@@ -33,17 +33,17 @@ systems what so ever.
 
 Training Data
 ------------
-You may also find quite a bit of training data in the folder. The `neg` folder is empty, 
-so will have to fill the negative set by yourself. Every image in `neg_square` has to be `128x128` 
+You may also find quite a bit of training data in the folder. The `neg` folder is empty,
+so will have to fill the negative set by yourself. Every image in `neg_square` has to be `128x128`
 and in `neg_rect` -> `128x64`. I have around 8000 negative samples randomly sampled from bigger images
 with no cars present on them. This part is actualy crucial.
 
 
 Credits
 --------
-This program was inspired by @DaHoC and his code here - https://github.com/DaHoC/trainHOG. 
-However, even though it started of as quite a clone in the end there is not so much left in common. 
-Also refer to licences of the third party software used by me.
+This program was inspired by @DaHoC and his code here - https://github.com/DaHoC/trainHOG.
+However, even though it started of as quite a clone in the end there is not so much left in common.
+Also refer to licences of the third party software used by me (such as OpencV and libSVM).
 
 Licening
 --------
