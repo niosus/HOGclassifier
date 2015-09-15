@@ -17,8 +17,7 @@
 #include <ctime>
 #include "stdio.h"
 
-SvmBinder::SvmBinder()
-{
+SvmBinder::SvmBinder() {
     _model = NULL;
     //setting all the defaults
     _param.svm_type = EPSILON_SVR;
@@ -39,10 +38,8 @@ SvmBinder::SvmBinder()
     _param.weight = NULL;
 }
 
-void SvmBinder::setProblemTest(vector<vector<float> > *hogs)
-{
-    if (hogs->empty())
-    {
+void SvmBinder::setProblemTest(vector<vector<float> > *hogs) {
+    if (hogs->empty()) {
         cerr << "hogs are empty" << endl;
         return;
     }
@@ -61,19 +58,16 @@ void SvmBinder::setProblemTest(vector<vector<float> > *hogs)
     x_space = Malloc(struct svm_node, (valueVectorSize + 1) * problemSize); //memory for pairs of index/value
 
     //initialize the different lables with an array of labels
-    for (int i = 0; i < problemSize; ++i)
-    {
+    for (int i = 0; i < problemSize; ++i) {
         _probTest.y[i] = 0;
     }
     //initialize the svm_node vector with input data array as follows:
     int j = 0; //counter to traverse x_space[i];
-    for (int i = 0; i < problemSize; ++i)
-    {
+    for (int i = 0; i < problemSize; ++i) {
         //set i-th element of prob.x to the address of x_space[j].
         //elements from x_space[j] to x_space[j+data[i].size] get filled right after next line
         _probTest.x[i] = &x_space[j];
-        for (int k = 0; k < valueVectorSize; ++k, ++j)
-        {
+        for (int k = 0; k < valueVectorSize; ++k, ++j) {
             x_space[j].index = k + 1; //index of value
             x_space[j].value = hogs->at(i)[k]; //value
         }
@@ -83,10 +77,8 @@ void SvmBinder::setProblemTest(vector<vector<float> > *hogs)
     }
 }
 
-void SvmBinder::setProblemTrain(vector<vector<float> > *hogsPos, vector<vector<float> > *hogsNeg)
-{
-    if (!hogsPos->size() || !hogsNeg->size())
-    {
+void SvmBinder::setProblemTrain(vector<vector<float> > *hogsPos, vector<vector<float> > *hogsNeg) {
+    if (!hogsPos->size() || !hogsNeg->size()) {
         cerr << "hogs are empty" << endl;
         return;
     }
@@ -104,8 +96,7 @@ void SvmBinder::setProblemTrain(vector<vector<float> > *hogsPos, vector<vector<f
 
     //initialize the different labels with an array of labels
     int i = 0;
-    while (i < problemSize)
-    {
+    while (i < problemSize) {
         if (i < hogsPos->size())
             _probTrain.y[i] = 1;
         else
@@ -115,13 +106,11 @@ void SvmBinder::setProblemTrain(vector<vector<float> > *hogsPos, vector<vector<f
     //initialize the svm_node vector with input data array as follows:
     int j = 0;
     i = 0; //counter to traverse x_space[i];
-    for (i = 0; i < hogsPos->size(); ++i)
-    {
+    for (i = 0; i < hogsPos->size(); ++i) {
         //set i-th element of prob.x to the address of x_space[j].
         //elements from x_space[j] to x_space[j+data[i].size] get filled right after next line
         _probTrain.x[i] = &x_space[j];
-        for (int k = 0; k < valueVectorSize; ++k, ++j)
-        {
+        for (int k = 0; k < valueVectorSize; ++k, ++j) {
             x_space[j].index = k + 1; //index of value
             x_space[j].value = hogsPos->at(i)[k]; //value
         }
@@ -129,13 +118,11 @@ void SvmBinder::setProblemTrain(vector<vector<float> > *hogsPos, vector<vector<f
         x_space[j].value = 0;
         j++;
     }
-    for (int negCount = 0; negCount < hogsNeg->size(); ++negCount)
-    {
+    for (int negCount = 0; negCount < hogsNeg->size(); ++negCount) {
         //set i-th element of prob.x to the address of x_space[j].
         //elements from x_space[j] to x_space[j+data[i].size] get filled right after next line
         _probTrain.x[i + negCount] = &x_space[j];
-        for (int k = 0; k < valueVectorSize; ++k, ++j)
-        {
+        for (int k = 0; k < valueVectorSize; ++k, ++j) {
             x_space[j].index = k + 1; //index of value
             x_space[j].value = hogsNeg->at(negCount)[k]; //value
         }
@@ -146,18 +133,15 @@ void SvmBinder::setProblemTrain(vector<vector<float> > *hogsPos, vector<vector<f
     Logger::instance()->logInfo("Problem set");
 }
 
-SvmBinder::~SvmBinder()
-{
+SvmBinder::~SvmBinder() {
     svm_free_and_destroy_model(&_model);
     _model = NULL;
 }
 
-bool SvmBinder::loadModel(const std::string &path)
-{
+bool SvmBinder::loadModel(const std::string &path) {
     Logger::instance()->logInfo("Loading model");
     _model = svm_load_model(path.c_str());
-    if (!_model)
-    {
+    if (!_model) {
         Logger::instance()->logInfo("No model provided or wrong path", path);
         return false;
     }
@@ -165,30 +149,26 @@ bool SvmBinder::loadModel(const std::string &path)
     return true;
 }
 
-void SvmBinder::saveModel(const std::string &path)
-{
+void SvmBinder::saveModel(const std::string &path) {
     svm_save_model(path.c_str(), _model);
     Logger::instance()->logInfo("model was saved to", path);
 }
 
-void SvmBinder::train(vector<vector<float> > *hogsPos, vector<vector<float> > *hogsNeg)
-{
+void SvmBinder::train(vector<vector<float> > *hogsPos, vector<vector<float> > *hogsNeg) {
     Logger::instance()->logInfo("Training model...");
     setProblemTrain(hogsPos, hogsNeg);
     _model = svm_train(&_probTrain, &_param);
     Logger::instance()->logInfo("Model trained...");
 }
 
-vector<int> *SvmBinder::test(vector<vector<float> > *hogs)
-{
+vector<int> *SvmBinder::test(vector<vector<float> > *hogs) {
     if (!_model)
         return NULL;
     setProblemTest(hogs);
     _newLabels.resize(hogs->size());
     cerr << "hogs size = " << hogs->size() << endl;
     #pragma omp parallel for
-    for (uint i = 0; i < hogs->size(); ++i)
-    {
+    for (uint i = 0; i < hogs->size(); ++i) {
         if (i % 1000 == 0)
             cerr << ".";
         _newLabels[i] = svm_predict(_model, _probTest.x[i]);
@@ -198,8 +178,7 @@ vector<int> *SvmBinder::test(vector<vector<float> > *hogs)
 
 }
 
-void SvmBinder::createDetectionVector()
-{
+void SvmBinder::createDetectionVector() {
     // Now we use the trained svm to retrieve the single detector vector
     printf("Calculating single detecting feature vector out of support vectors (may take some time)\n");
     _detectionVector.clear();
@@ -208,8 +187,7 @@ void SvmBinder::createDetectionVector()
     double b = -(_model->rho[0]); // This is the b value from the SVM, assumes that first the positive labels are read in (otherwise, use double b = (*_model->rho); )
     printf("b: %+3.5f\n", b);
     // Walk over every support vector and build a single vector
-    for (unsigned long ssv = 0; ssv < _model->l; ++ssv)   // Walks over available classes (e.g. +1, -1 representing positive and negative training samples)
-    {
+    for (unsigned long ssv = 0; ssv < _model->l; ++ssv) { // Walks over available classes (e.g. +1, -1 representing positive and negative training samples)
         //                        printf("Support vector #%lu \n", ssv);
         // Retrive the current support vector from the training set
         svm_node *singleSupportVector = _model->SV[ssv]; // Get next support vector ssv==class, 2nd index is the component of the SV
@@ -218,17 +196,13 @@ void SvmBinder::createDetectionVector()
         double alpha = _model->sv_coef[0][ssv];
         int singleVectorComponent = 0;
         //            while (singleSupportVector[singleVectorComponent].index != UINT_MAX) { // index=UINT_MAX indicates the end of the array
-        while (singleSupportVector[singleVectorComponent].index != -1)   // index=UINT_MAX indicates the end of the array
-        {
+        while (singleSupportVector[singleVectorComponent].index != -1) { // index=UINT_MAX indicates the end of the array
             //    if (singleVectorComponent > 3777)
             //        printf("\n-->%d", singleVectorComponent);
             //                printf("Support Vector index: %u, %+3.5f \n", singleSupportVector[singleVectorComponent].index, singleSupportVector[singleVectorComponent].value);
-            if (ssv == 0)   // During first loop run determine the length of the support vectors and adjust the required vector size
-            {
+            if (ssv == 0) { // During first loop run determine the length of the support vectors and adjust the required vector size
                 _detectionVector.push_back(singleSupportVector[singleVectorComponent].value * alpha);
-            }
-            else
-            {
+            } else {
                 if (singleVectorComponent > _detectionVector.size()) // Catch oversized vectors (maybe from differently sized images?)
                     printf("Warning: Component %d out of range, should have the same size as other/first vector\n", singleVectorComponent);
                 else
@@ -247,8 +221,7 @@ void SvmBinder::createDetectionVector()
 
 //quite specific for our problem.
 //far from being general
-void SvmBinder::createHyperPlane()
-{
+void SvmBinder::createHyperPlane() {
     std::vector <double> coeffs;
     std::vector  < std::vector <double> > supportVectors;
 
@@ -259,8 +232,7 @@ void SvmBinder::createHyperPlane()
 
     _versor = _model->label[0];
     printf("%s\n", "creating hyperplane");
-    for (int i = 0; i < _model->nr_class; ++i)
-    {
+    for (int i = 0; i < _model->nr_class; ++i) {
         nr_sv += _model->nSV[i];
     }
     coeffs = std::vector <double> (nr_sv, 0);
@@ -268,13 +240,11 @@ void SvmBinder::createHyperPlane()
 
     _bias = _model->rho[0];
     supportVectors = std::vector  < std::vector <double> > (nr_sv);
-    for (int i = 0; i < _model->l; ++i)
-    {
+    for (int i = 0; i < _model->l; ++i) {
         coeffs[i] = _model->sv_coef[0][i];
 
         int j = 0;
-        while (_model->SV[i][j].index != -1)
-        {
+        while (_model->SV[i][j].index != -1) {
             supportVectors[i].push_back(_model->SV[i][j].value);
             j++;
         }
@@ -298,30 +268,25 @@ void SvmBinder::createHyperPlane()
 
 
     Logger::instance()->logInfo("HYPERPLANE");
-    for (size_t i = 0; i < _hyperPlane.size(); ++i)
-    {
+    for (size_t i = 0; i < _hyperPlane.size(); ++i) {
         cout << _hyperPlane[i] << " ";
     }
     cout << endl;
 }
 
-std::vector<double> *SvmBinder::getHyperPlane()
-{
+std::vector<double> *SvmBinder::getHyperPlane() {
     _hyperPlane.push_back(_bias);
     return &_hyperPlane;
 }
 
-std::vector<float> *SvmBinder::getDetectionVector()
-{
+std::vector<float> *SvmBinder::getDetectionVector() {
     return &_detectionVector;
 }
 
-vector<int> *SvmBinder::testWithHyperPlane(vector<vector<float> > *hogs)
-{
+vector<int> *SvmBinder::testWithHyperPlane(vector<vector<float> > *hogs) {
     double dpr = 0;
     _newLabels.resize(hogs->size());
-    for (uint i = 0; i < hogs->size(); ++i)
-    {
+    for (uint i = 0; i < hogs->size(); ++i) {
         dpr = 0;
         for (uint j = 0; j < hogs->at(i).size(); j++)
             dpr += hogs->at(i)[j] * _hyperPlane[j];

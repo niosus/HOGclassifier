@@ -27,12 +27,11 @@
 
 typedef std::map<std::string, std::vector<cv::Rect> > Map;
 
-class ResultWriter
-{
-public:
+class ResultWriter {
+ public:
   ResultWriter(
-  const std::vector<std::string>& allImageNames,
-  std::string fileName = "");
+    const std::vector<std::string>& allImageNames,
+    std::string fileName = "");
   ~ResultWriter();
   void addEntry(
     const std::string &imageName,
@@ -42,12 +41,11 @@ public:
     const double& x,
     const double& y);
   void showDetections(
-    const std::unordered_map<std::string, std::string> &leftRightNamesMap,
     const std::string &resultFolderName);
-  void showDetectionsLaser(
-  const std::unordered_map<std::string, std::string> &leftRightNamesMap,
-  const std::string &resultFolderName,
-  LaserParser& laserParser);
+  // void showDetectionsLaser(
+  //   const std::unordered_map<std::string, std::string> &leftRightNamesMap,
+  //   const std::string &resultFolderName,
+  //   LaserParser& laserParser);
   void storeDetections(const Map& foundRectsWithNames);
   void plot(
     const std::vector<double>& xVec,
@@ -55,7 +53,7 @@ public:
   void plot(
     const double& x,
     const double& y);
-private:
+ private:
   std::ofstream _file;
   std::ofstream  file;
   Map _detectedCars;

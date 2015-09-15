@@ -22,56 +22,38 @@
 
 ResultWriter::ResultWriter(
   const std::vector<std::string>& allImageNames,
-  std::string fileName)
-{
+  std::string fileName) {
   file.open("temp.dat", std::ofstream::out);
-  if (fileName == "")
-  {
+  if (fileName == "") {
     fileName = "output_log.dat";
   }
   _file.open(fileName.c_str());
   // put all image names as we also need to keep track
   // of the image with no cars detected
-  _file<<"TOTAL_NUM_IMAGES\t\t"<<allImageNames.size()<<endl;
-  for (const auto& imageName: allImageNames)
-  {
+  _file << "TOTAL_NUM_IMAGES\t\t" << allImageNames.size() << endl;
+  for (const auto& imageName : allImageNames) {
     auto found = imageName.find_last_of("/\\");
-    _file<<imageName.substr(found+1)<<std::endl;
+    _file << imageName.substr(found + 1) << std::endl;
   }
 }
 
-ResultWriter::~ResultWriter()
-{
+ResultWriter::~ResultWriter() {
   _file.close();
   file.close();
 }
 
 void ResultWriter::showDetections(
-  const std::unordered_map<std::string, std::string> &leftRightNamesMap,
-  const std::string &resultFolderName)
-{
+  const std::string &resultFolderName) {
   Logger::instance()->logInfo("Showing detections");
-  DepthEstimator depthEstimator;
-  for (auto pairNameRect: _detectedCars)
-  {
+  for (auto pairNameRect : _detectedCars) {
     std::string imageLeftName = pairNameRect.first;
-    std::string imageRightName = leftRightNamesMap.find(imageLeftName)->second;
     Logger::instance()->logInfo("imageLeftName", imageLeftName);
-    Logger::instance()->logInfo("imageRightName", imageRightName);
-    depthEstimator.setCurrentDepthMapFromImage(imageLeftName, imageRightName);
     cv::Mat image = cv::imread(imageLeftName, CV_LOAD_IMAGE_COLOR);
     std::string realImageName = Utils::parseImageName(imageLeftName);
     cv::imwrite((resultFolderName + realImageName).c_str(), image);
-    for (auto rect: pairNameRect.second)
-    {
-      if (rect.width > 0 && rect.height > 0)
-      {
+    for (auto rect : pairNameRect.second) {
+      if (rect.width > 0 && rect.height > 0) {
         cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
-        std::vector<double> median = depthEstimator.getDepthMedian(rect);
-        Logger::instance()->logInfo("median x", median[0]);
-        Logger::instance()->logInfo("median y", median[1]);
-        Logger::instance()->logInfo("median z", median[2]);
-        this->addEntry(imageLeftName, median);
       }
     }
     cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
@@ -79,78 +61,69 @@ void ResultWriter::showDetections(
   }
 }
 
-void ResultWriter::showDetectionsLaser(
-  const std::unordered_map<std::string, std::string> &leftRightNamesMap,
-  const std::string &resultFolderName,
-  LaserParser& laserParser)
-{
-  Logger::instance()->logInfo("Showing detections");
-  double fullFoV = 97;
-  for (auto pairNameRect: _detectedCars)
-  {
-    std::string imageLeftName = pairNameRect.first;
-    Logger::instance()->logInfo("imageLeftName", imageLeftName);
-    cv::Mat image = cv::imread(imageLeftName, CV_LOAD_IMAGE_COLOR);
-    std::string realImageName = Utils::parseImageName(imageLeftName);
-    cv::imwrite((resultFolderName + realImageName).c_str(), image);
-    for (auto rect: pairNameRect.second)
-    {
-      if (rect.width > 0 && rect.height > 0)
-      {
-        cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
-        double fovStart = ((double)rect.x / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
-        double fovEnd = (((double)rect.x + rect.width) / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
-        std::cout<<"fields of view "<<"start:"<<fovStart<<" end:"<<fovEnd<<std::endl;
-        float angleOfCamera = 90;
-        double temp;
-        temp = fovEnd;
-        fovEnd= -fovStart + angleOfCamera;
-        fovStart= - temp + angleOfCamera; // hack the camera is rotated by 90 degrees
-        fovStart = (fovStart / 180) * M_PI;
-        fovEnd = (fovEnd / 180) * M_PI;
-        std::vector<double> xVec;
-        std::vector<double> yVec;
-        double imageX, imageY;
-        laserParser.getImagePos(realImageName, imageX, imageY);
-        laserParser.getPointsForImageFov(realImageName, fovStart, fovEnd, xVec, yVec);
-        std::cout<<"sizes of vectors with points "<<xVec.size()<<" "<<yVec.size()<<std::endl;
-        double medianX = Utils::getMedian(xVec);
-        double medianY = Utils::getMedian(yVec);
-        Logger::instance()->logInfo("median x", medianX);
-        Logger::instance()->logInfo("median y", medianY);
-        this->addEntry(imageLeftName, medianX, medianY);
-        plot(imageX, imageY);
-        plot(xVec[0], yVec[0]);
-        plot(xVec[xVec.size()-1], yVec[yVec.size()-1]);
-        plot(imageX, imageY);
-      }
-    }
-    cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
-    Logger::instance()->logInfo("image written: ", realImageName);
-  }
-}
+// void ResultWriter::showDetectionsLaser(
+//   const std::unordered_map<std::string, std::string> &leftRightNamesMap,
+//   const std::string &resultFolderName,
+//   LaserParser& laserParser) {
+//   Logger::instance()->logInfo("Showing detections");
+//   double fullFoV = 97;
+//   for (auto pairNameRect : _detectedCars) {
+//     std::string imageLeftName = pairNameRect.first;
+//     Logger::instance()->logInfo("imageLeftName", imageLeftName);
+//     cv::Mat image = cv::imread(imageLeftName, CV_LOAD_IMAGE_COLOR);
+//     std::string realImageName = Utils::parseImageName(imageLeftName);
+//     cv::imwrite((resultFolderName + realImageName).c_str(), image);
+//     for (auto rect : pairNameRect.second) {
+//       if (rect.width > 0 && rect.height > 0) {
+//         cv::rectangle(image, rect.tl(), rect.br(), cv::Scalar(64, 255, 64), 3);
+//         double fovStart = ((double)rect.x / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
+//         double fovEnd = (((double)rect.x + rect.width) / image.cols) * fullFoV - fullFoV / 2; //97 is the camera fov TODO hack
+//         std::cout << "fields of view " << "start:" << fovStart << " end:" << fovEnd << std::endl;
+//         float angleOfCamera = 90;
+//         double temp;
+//         temp = fovEnd;
+//         fovEnd = -fovStart + angleOfCamera;
+//         fovStart = - temp + angleOfCamera; // hack the camera is rotated by 90 degrees
+//         fovStart = (fovStart / 180) * M_PI;
+//         fovEnd = (fovEnd / 180) * M_PI;
+//         std::vector<double> xVec;
+//         std::vector<double> yVec;
+//         double imageX, imageY;
+//         laserParser.getImagePos(realImageName, imageX, imageY);
+//         laserParser.getPointsForImageFov(realImageName, fovStart, fovEnd, xVec, yVec);
+//         std::cout << "sizes of vectors with points " << xVec.size() << " " << yVec.size() << std::endl;
+//         double medianX = Utils::getMedian(xVec);
+//         double medianY = Utils::getMedian(yVec);
+//         Logger::instance()->logInfo("median x", medianX);
+//         Logger::instance()->logInfo("median y", medianY);
+//         this->addEntry(imageLeftName, medianX, medianY);
+//         plot(imageX, imageY);
+//         plot(xVec[0], yVec[0]);
+//         plot(xVec[xVec.size() - 1], yVec[yVec.size() - 1]);
+//         plot(imageX, imageY);
+//       }
+//     }
+//     cv::imwrite((resultFolderName + realImageName + "___det.jpg").c_str(), image);
+//     Logger::instance()->logInfo("image written: ", realImageName);
+//   }
+// }
 
-void ResultWriter::storeDetections(const Map& foundRectsWithNames)
-{
-  for (auto entry : foundRectsWithNames)
-  {
+void ResultWriter::storeDetections(const Map& foundRectsWithNames) {
+  for (auto entry : foundRectsWithNames) {
     _detectedCars[entry.first].insert(_detectedCars[entry.first].end(), entry.second.begin(), entry.second.end());
   }
 }
 
 void ResultWriter::plot(
   const std::vector<double>& xVec,
-  const std::vector<double>& yVec)
-{
-  for (int i = 0; i < xVec.size(); ++i)
-  {
+  const std::vector<double>& yVec) {
+  for (int i = 0; i < xVec.size(); ++i) {
     file << std::fixed << std::setprecision(3);
-    file<<"X\t"<<xVec[i]<<"\tY\t"<<yVec[i]<<endl;
+    file << "X\t" << xVec[i] << "\tY\t" << yVec[i] << endl;
   }
   FILE *gp;
-  gp = popen(GNUPLOT,"w"); /* 'gp' is the pipe descriptor */
-  if (gp==NULL)
-  {
+  gp = popen(GNUPLOT, "w"); /* 'gp' is the pipe descriptor */
+  if (gp == NULL) {
     printf("Error opening pipe to GNU plot. Check if you have it! \n");
     return;
   }
@@ -160,28 +133,25 @@ void ResultWriter::plot(
 
 void ResultWriter::plot(
   const double& x,
-  const double& y)
-{
+  const double& y) {
   file << std::fixed << std::setprecision(3);
-  file << "X\t"<< x << "\tY\t" << y <<endl;
+  file << "X\t" << x << "\tY\t" << y << endl;
 }
 
 void ResultWriter::addEntry(
-    const std::string &imageName,
-    const std::vector<double>& coords)
-{
+  const std::string &imageName,
+  const std::vector<double>& coords) {
   auto found = imageName.find_last_of("/\\");
-  _file<<"IMAGE_NAME:"<<imageName.substr(found+1)<<"\t";
-  _file<<"X:"<<coords[0]<<"\tY:"<<coords[1]<<"\tZ:"<<coords[2]<<endl;
+  _file << "IMAGE_NAME:" << imageName.substr(found + 1) << "\t";
+  _file << "X:" << coords[0] << "\tY:" << coords[1] << "\tZ:" << coords[2] << endl;
 }
 
 void ResultWriter::addEntry(
-    const std::string &imageName,
-    const double& x,
-    const double& y)
-{
+  const std::string &imageName,
+  const double& x,
+  const double& y) {
   if (x < 0 || y < 0) return;
   _file << std::fixed << std::setprecision(3);
-  _file<<"IMAGE_NAME:"<<Utils::parseImageName(imageName)<<"\t";
-  _file<<"X\t"<<x<<"\tY\t"<<y<<endl;
+  _file << "IMAGE_NAME:" << Utils::parseImageName(imageName) << "\t";
+  _file << "X\t" << x << "\tY\t" << y << endl;
 }
