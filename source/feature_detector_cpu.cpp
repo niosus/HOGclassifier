@@ -18,13 +18,11 @@
 #include "highgui.h"
 #include "logger.h"
 
-void FeatureDetectorCpu::setTestHogFromHyperplane(std::vector<float>* hyperplane)
-{
+void FeatureDetectorCpu::setTestHogFromHyperplane(std::vector<float>* hyperplane) {
   _hogTest.setSVMDetector(*hyperplane);
 }
 
-std::map<std::string, std::vector<cv::Rect> > FeatureDetectorCpu::detectMultiScale(std::vector<std::string>& imageNames)
-{
+std::map<std::string, std::vector<cv::Rect> > FeatureDetectorCpu::detectMultiScale(std::vector<std::string>& imageNames) {
   std::map<std::string, std::vector<cv::Rect> > allFoundRects;
   std::vector<cv::Rect> found;
   int groupThreshold = 2;
@@ -35,16 +33,13 @@ std::map<std::string, std::vector<cv::Rect> > FeatureDetectorCpu::detectMultiSca
   int tenPercentChunk = size / 10;
   int count = 0;
   Logger::instance()->logInfo("Counting features multiscale...");
-  for (auto imageName: imageNames)
-  {
-    if (tenPercentChunk != 0 && count % tenPercentChunk == 0)
-    {
+  for (auto imageName : imageNames) {
+    if (tenPercentChunk != 0 && count % tenPercentChunk == 0) {
       Logger::instance()->logInfo("Percent done = ", (count / tenPercentChunk) * 10);
     }
     cv::Mat testImage = cv::imread(imageName.c_str(), CV_LOAD_IMAGE_COLOR);
     _hogTest.detectMultiScale(testImage, found, hitThreshold, winStride, padding, 1.05, groupThreshold);
-    for (cv::Rect rect: found)
-    {
+    for (cv::Rect rect : found) {
       allFoundRects[imageName].push_back(rect);
     }
     count++;
